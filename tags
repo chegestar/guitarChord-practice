@@ -1,0 +1,125 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+AR	chord/Makefile	/^AR            = ar cqs$/;"	m
+CC	chord/Makefile	/^CC            = gcc$/;"	m
+CFLAGS	chord/Makefile	/^CFLAGS        = -pipe -g -Wall -W -D_REENTRANT $(DEFINES)$/;"	m
+CHK_DIR_EXISTS	chord/Makefile	/^CHK_DIR_EXISTS= test -d$/;"	m
+COMPRESS	chord/Makefile	/^COMPRESS      = gzip -9f$/;"	m
+COPY	chord/Makefile	/^COPY          = cp -f$/;"	m
+COPY_DIR	chord/Makefile	/^COPY_DIR      = $(COPY) -r$/;"	m
+COPY_FILE	chord/Makefile	/^COPY_FILE     = $(COPY)$/;"	m
+CXX	chord/Makefile	/^CXX           = g++$/;"	m
+CXXFLAGS	chord/Makefile	/^CXXFLAGS      = -pipe -g -Wall -W -D_REENTRANT $(DEFINES)$/;"	m
+DEFINES	chord/Makefile	/^DEFINES       = -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED$/;"	m
+DEL_DIR	chord/Makefile	/^DEL_DIR       = rmdir$/;"	m
+DEL_FILE	chord/Makefile	/^DEL_FILE      = rm -f$/;"	m
+DESTDIR	chord/Makefile	/^DESTDIR       = $/;"	m
+DIST	chord/Makefile	/^DIST          = \/usr\/share\/qt4\/mkspecs\/common\/g++.conf \\$/;"	m
+ELEMENT_H	element.h	2;"	d
+INCPATH	chord/Makefile	/^INCPATH       = -I\/usr\/share\/qt4\/mkspecs\/linux-g++ -I. -I\/usr\/include\/qt4\/QtCore -I\/usr\/include\/qt4\/QtGui -I\/usr\/include\/qt4\/QtXml -I\/usr\/include\/qt4 -I. -I.$/;"	m
+INSTALL_DIR	chord/Makefile	/^INSTALL_DIR   = $(COPY_DIR)$/;"	m
+INSTALL_FILE	chord/Makefile	/^INSTALL_FILE  = install -m 644 -p$/;"	m
+INSTALL_PROGRAM	chord/Makefile	/^INSTALL_PROGRAM = install -m 755 -p$/;"	m
+Item	element.cpp	/^Item::Item( QString chordName,\\$/;"	f	class:Item	signature:( QString chordName,\ QString path, int order,\ QGraphicsItem * parent)
+Item	element.h	/^    Item(QString chordName, QString path, int order, QGraphicsItem* parent = 0) ;$/;"	p	class:Item	access:public	signature:(QString chordName, QString path, int order, QGraphicsItem* parent = 0)
+Item	element.h	/^class Item: public QGraphicsItem$/;"	c	inherits:QGraphicsItem
+Item::Item	element.cpp	/^Item::Item( QString chordName,\\$/;"	f	class:Item	signature:( QString chordName,\ QString path, int order,\ QGraphicsItem * parent)
+Item::Item	element.h	/^    Item(QString chordName, QString path, int order, QGraphicsItem* parent = 0) ;$/;"	p	class:Item	access:public	signature:(QString chordName, QString path, int order, QGraphicsItem* parent = 0)
+Item::customizeItem	element.h	/^    void customizeItem();$/;"	p	class:Item	access:public	signature:()
+Item::draw	element.h	/^    void draw();$/;"	p	class:Item	access:public	signature:()
+Item::figPath	element.h	/^    QString figPath;$/;"	m	class:Item	access:private
+Item::getFigPath	element.h	/^    const QString * getFigPath();$/;"	p	class:Item	access:public	signature:()
+Item::getIndex	element.h	/^    int getIndex();$/;"	p	class:Item	access:public	signature:()
+Item::getName	element.h	/^    const QString * getName();$/;"	p	class:Item	access:public	signature:()
+Item::getNextPosition	element.h	/^    int getNextPosition();$/;"	p	class:Item	access:public	signature:()
+Item::index	element.h	/^    int index;$/;"	m	class:Item	access:private
+Item::mouseDoubleClickEvent	element.h	/^    void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event);$/;"	p	class:Item	access:public	signature:(QGraphicsSceneMouseEvent *event)
+Item::name	element.h	/^    QString name;$/;"	m	class:Item	access:private
+Item::nextPosition	element.h	/^    int nextPosition;$/;"	m	class:Item	access:private
+Item::reDraw	element.cpp	/^void Item::reDraw()$/;"	f	class:Item	signature:()
+Item::reDraw	element.h	/^    void reDraw();$/;"	p	class:Item	access:public	signature:()
+Item::toggle	element.cpp	/^void Item::toggle()$/;"	f	class:Item	signature:()
+Item::toggle	element.h	/^    void toggle();$/;"	p	class:Item	access:public	signature:()
+LFLAGS	chord/Makefile	/^LFLAGS        = $/;"	m
+LIBS	chord/Makefile	/^LIBS          = $(SUBLIBS)  -L\/usr\/lib -lQtXml -lQtGui -lQtCore -lpthread $/;"	m
+LINK	chord/Makefile	/^LINK          = g++$/;"	m
+MAINWINDOW_H	chord/mainwindow.h	2;"	d
+MKDIR	chord/Makefile	/^MKDIR         = mkdir -p$/;"	m
+MOVE	chord/Makefile	/^MOVE          = mv -f$/;"	m
+MainWindow	chord/mainwindow.cpp	/^MainWindow::MainWindow(QWidget *parent) :$/;"	f	class:MainWindow	signature:(QWidget *parent)
+MainWindow	chord/mainwindow.h	/^    MainWindow(QWidget *parent = 0);$/;"	p	class:MainWindow	access:public	signature:(QWidget *parent = 0)
+MainWindow	chord/mainwindow.h	/^class MainWindow : public QMainWindow {$/;"	c	inherits:QMainWindow
+MainWindow	chord/ui_mainwindow.h	/^    class MainWindow: public Ui_MainWindow {};$/;"	c	namespace:Ui	inherits:Ui_MainWindow
+MainWindow::MainWindow	chord/mainwindow.cpp	/^MainWindow::MainWindow(QWidget *parent) :$/;"	f	class:MainWindow	signature:(QWidget *parent)
+MainWindow::MainWindow	chord/mainwindow.h	/^    MainWindow(QWidget *parent = 0);$/;"	p	class:MainWindow	access:public	signature:(QWidget *parent = 0)
+MainWindow::changeEvent	chord/mainwindow.cpp	/^void MainWindow::changeEvent(QEvent *e)$/;"	f	class:MainWindow	signature:(QEvent *e)
+MainWindow::changeEvent	chord/mainwindow.h	/^    void changeEvent(QEvent *e);$/;"	p	class:MainWindow	access:protected	signature:(QEvent *e)
+MainWindow::getStaticMetaObject	chord/moc_mainwindow.cpp	/^const QMetaObject &MainWindow::getStaticMetaObject() { return staticMetaObject; }$/;"	f	class:MainWindow	signature:()
+MainWindow::metaObject	chord/moc_mainwindow.cpp	/^const QMetaObject *MainWindow::metaObject() const$/;"	f	class:MainWindow	signature:() const
+MainWindow::qt_metacall	chord/moc_mainwindow.cpp	/^int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:MainWindow	signature:(QMetaObject::Call _c, int _id, void **_a)
+MainWindow::qt_metacast	chord/moc_mainwindow.cpp	/^void *MainWindow::qt_metacast(const char *_clname)$/;"	f	class:MainWindow	signature:(const char *_clname)
+MainWindow::staticMetaObject	chord/moc_mainwindow.cpp	/^const QMetaObject MainWindow::staticMetaObject = {$/;"	m	class:MainWindow	file:
+MainWindow::ui	chord/mainwindow.h	/^    Ui::MainWindow *ui;$/;"	m	class:MainWindow	access:private
+MainWindow::~MainWindow	chord/mainwindow.cpp	/^MainWindow::~MainWindow()$/;"	f	class:MainWindow	signature:()
+MainWindow::~MainWindow	chord/mainwindow.h	/^    ~MainWindow();$/;"	p	class:MainWindow	access:public	signature:()
+OBJECTS	chord/Makefile	/^OBJECTS       = main.o \\$/;"	m
+OBJECTS_DIR	chord/Makefile	/^OBJECTS_DIR   = .\/$/;"	m
+QMAKE	chord/Makefile	/^QMAKE         = \/usr\/bin\/qmake-qt4$/;"	m
+QMAKE_TARGET	chord/Makefile	/^QMAKE_TARGET  = chord$/;"	m
+RANLIB	chord/Makefile	/^RANLIB        = $/;"	m
+SCENE_H	scene.h	2;"	d
+SED	chord/Makefile	/^SED           = sed$/;"	m
+SOURCES	chord/Makefile	/^SOURCES       = main.cpp \\$/;"	m
+STRIP	chord/Makefile	/^STRIP         = strip$/;"	m
+SYMLINK	chord/Makefile	/^SYMLINK       = ln -f -s$/;"	m
+TAR	chord/Makefile	/^TAR           = tar -cf$/;"	m
+TARGET	chord/Makefile	/^TARGET        = chord$/;"	m
+UI_MAINWINDOW_H	chord/ui_mainwindow.h	11;"	d
+Ui	chord/mainwindow.h	/^namespace Ui {$/;"	n
+Ui	chord/ui_mainwindow.h	/^namespace Ui {$/;"	n
+Ui::MainWindow	chord/ui_mainwindow.h	/^    class MainWindow: public Ui_MainWindow {};$/;"	c	namespace:Ui	inherits:Ui_MainWindow
+Ui_MainWindow	chord/ui_mainwindow.h	/^class Ui_MainWindow$/;"	c
+Ui_MainWindow::centralWidget	chord/ui_mainwindow.h	/^    QWidget *centralWidget;$/;"	m	class:Ui_MainWindow	access:public
+Ui_MainWindow::mainToolBar	chord/ui_mainwindow.h	/^    QToolBar *mainToolBar;$/;"	m	class:Ui_MainWindow	access:public
+Ui_MainWindow::menuBar	chord/ui_mainwindow.h	/^    QMenuBar *menuBar;$/;"	m	class:Ui_MainWindow	access:public
+Ui_MainWindow::retranslateUi	chord/ui_mainwindow.h	/^    void retranslateUi(QMainWindow *MainWindow)$/;"	f	class:Ui_MainWindow	access:public	signature:(QMainWindow *MainWindow)
+Ui_MainWindow::setupUi	chord/ui_mainwindow.h	/^    void setupUi(QMainWindow *MainWindow)$/;"	f	class:Ui_MainWindow	access:public	signature:(QMainWindow *MainWindow)
+Ui_MainWindow::statusBar	chord/ui_mainwindow.h	/^    QStatusBar *statusBar;$/;"	m	class:Ui_MainWindow	access:public
+centralWidget	chord/ui_mainwindow.h	/^    QWidget *centralWidget;$/;"	m	class:Ui_MainWindow	access:public
+changeEvent	chord/mainwindow.cpp	/^void MainWindow::changeEvent(QEvent *e)$/;"	f	class:MainWindow	signature:(QEvent *e)
+changeEvent	chord/mainwindow.h	/^    void changeEvent(QEvent *e);$/;"	p	class:MainWindow	access:protected	signature:(QEvent *e)
+customizeItem	element.h	/^    void customizeItem();$/;"	p	class:Item	access:public	signature:()
+draw	element.h	/^    void draw();$/;"	p	class:Item	access:public	signature:()
+figPath	element.h	/^    QString figPath;$/;"	m	class:Item	access:private
+getFigPath	element.h	/^    const QString * getFigPath();$/;"	p	class:Item	access:public	signature:()
+getIndex	element.h	/^    int getIndex();$/;"	p	class:Item	access:public	signature:()
+getName	element.h	/^    const QString * getName();$/;"	p	class:Item	access:public	signature:()
+getNextPosition	element.h	/^    int getNextPosition();$/;"	p	class:Item	access:public	signature:()
+getStaticMetaObject	chord/moc_mainwindow.cpp	/^const QMetaObject &MainWindow::getStaticMetaObject() { return staticMetaObject; }$/;"	f	class:MainWindow	signature:()
+index	element.h	/^    int index;$/;"	m	class:Item	access:private
+main	chord/main.cpp	/^int main(int argc, char *argv[])$/;"	f	signature:(int argc, char *argv[])
+mainToolBar	chord/ui_mainwindow.h	/^    QToolBar *mainToolBar;$/;"	m	class:Ui_MainWindow	access:public
+menuBar	chord/ui_mainwindow.h	/^    QMenuBar *menuBar;$/;"	m	class:Ui_MainWindow	access:public
+metaObject	chord/moc_mainwindow.cpp	/^const QMetaObject *MainWindow::metaObject() const$/;"	f	class:MainWindow	signature:() const
+mouseDoubleClickEvent	element.h	/^    void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event);$/;"	p	class:Item	access:public	signature:(QGraphicsSceneMouseEvent *event)
+name	element.h	/^    QString name;$/;"	m	class:Item	access:private
+nextPosition	element.h	/^    int nextPosition;$/;"	m	class:Item	access:private
+qt_meta_data_MainWindow	chord/moc_mainwindow.cpp	/^static const uint qt_meta_data_MainWindow[] = {$/;"	v	file:
+qt_meta_stringdata_MainWindow	chord/moc_mainwindow.cpp	/^static const char qt_meta_stringdata_MainWindow[] = {$/;"	v	file:
+qt_metacall	chord/moc_mainwindow.cpp	/^int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:MainWindow	signature:(QMetaObject::Call _c, int _id, void **_a)
+qt_metacast	chord/moc_mainwindow.cpp	/^void *MainWindow::qt_metacast(const char *_clname)$/;"	f	class:MainWindow	signature:(const char *_clname)
+reDraw	element.cpp	/^void Item::reDraw()$/;"	f	class:Item	signature:()
+reDraw	element.h	/^    void reDraw();$/;"	p	class:Item	access:public	signature:()
+retranslateUi	chord/ui_mainwindow.h	/^    void retranslateUi(QMainWindow *MainWindow)$/;"	f	class:Ui_MainWindow	access:public	signature:(QMainWindow *MainWindow)
+setupUi	chord/ui_mainwindow.h	/^    void setupUi(QMainWindow *MainWindow)$/;"	f	class:Ui_MainWindow	access:public	signature:(QMainWindow *MainWindow)
+staticMetaObject	chord/moc_mainwindow.cpp	/^const QMetaObject MainWindow::staticMetaObject = {$/;"	m	class:MainWindow	file:
+statusBar	chord/ui_mainwindow.h	/^    QStatusBar *statusBar;$/;"	m	class:Ui_MainWindow	access:public
+toggle	element.cpp	/^void Item::toggle()$/;"	f	class:Item	signature:()
+toggle	element.h	/^    void toggle();$/;"	p	class:Item	access:public	signature:()
+ui	chord/mainwindow.h	/^    Ui::MainWindow *ui;$/;"	m	class:MainWindow	access:private
+~MainWindow	chord/mainwindow.cpp	/^MainWindow::~MainWindow()$/;"	f	class:MainWindow	signature:()
+~MainWindow	chord/mainwindow.h	/^    ~MainWindow();$/;"	p	class:MainWindow	access:public	signature:()

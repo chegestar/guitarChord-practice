@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<configure>
+    <item>
+        <Type Id = "1" Name = "A" Figure = ""/>
+        <Type Id = "2" Name = "Am" Figure = ""/>
+        <Type Id = "3" Name = "A7" Figure = ""/>
+        <Type Id = "4" Name = "Bb" Figure = ""/>
+        <Type Id = "5" Name = "Bm" Figure = ""/>
+        <Type Id = "6" Name = "B7" Figure = ""/>
+        <Type Id = "7" Name = "C" Figure = ""/>
+        <Type Id = "8" Name = "D" Figure = ""/>
+        <Type Id = "9" Name = "Dm" Figure = ""/>
+        <Type Id = "10" Name = "D7" Figure = ""/>
+        <Type Id = "11" Name = "E" Figure = ""/>
+        <Type Id = "12" Name = "Em" Figure = ""/>
+        <Type Id = "13" Name = "F" Figure = ""/>
+        <Type Id = "14" Name = "Fm" Figure = ""/>
+        <Type Id = "15" Name = "G" Figure = ""/>
+        <Type Id = "16" Name = "G7" Figure = ""/>
+    </item>
+</configure>
+
