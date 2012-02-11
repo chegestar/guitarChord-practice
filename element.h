@@ -32,7 +32,7 @@ public:
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
 
     // mouse event handler
-    void mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event);
+    void mouseDoubleClickEvent(QMouseEvent *event);
 
 private:
     // chrod name
@@ -47,6 +47,7 @@ private:
     QPainter painter;
     QLabel *nameLabel;
     QLabel *imageLabel;
+    QFont *font;
     QVBoxLayout *layout;
 };
 

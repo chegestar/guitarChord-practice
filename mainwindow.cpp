@@ -8,7 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    scene = new QGraphicsScene(0,0,400,400,this);
+    scene = new QGraphicsScene(this);
     view = new QGraphicsView(this);
     //scene->addRect(QRectF(0, 0, 100, 200),QPen(Qt::black), QBrush(Qt::green));
     //scene->addText("hello world");
@@ -27,11 +27,14 @@ MainWindow::~MainWindow()
 int MainWindow::addItem(QList<Item *> &iList)
 {
     int i = 0;
+    qreal x = 0;
     foreach(Item *item, iList)
     {
         QGraphicsProxyWidget *proxy = scene->addWidget(item);
-        proxy->setPos(80*i, 40);
+        QRectF rect = proxy->boundingRect();
+        proxy->setPos(x+10, 10);
         proxy->show();
+        x += rect.width();
         ++i;
     }
     view->update();

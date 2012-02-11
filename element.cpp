@@ -16,14 +16,17 @@ Item::Item( QString chordName,
     nameLabel = new QLabel(name);
     imageLabel = new QLabel();
     layout = new QVBoxLayout();
+    font = new QFont();
 
     nameLabel->setAlignment(Qt::AlignCenter);
+    imageLabel->setScaledContents(true);
+    *font = nameLabel->font();
     if( !figPath.isEmpty())
     {
         QImage image(figPath);
         if(image.isNull())
             QMessageBox::information(this, tr("oops!"), tr("Cannot load %1 image.").arg(name));
-        else imageLabel->setPixmap(QPixmap::fromImage(image));
+        else imageLabel->setPixmap(QPixmap::fromImage(image.scaled(150, 170, Qt::IgnoreAspectRatio,Qt::FastTransformation)));
         qDebug() << tr("load image");
     }
 
@@ -40,9 +43,10 @@ Item::Item()
 
 }
 
-void Item::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
+void Item::mouseDoubleClickEvent(QMouseEvent *event)
 {
     toggle();
+    qDebug() << "hey, what are you doing?";
 }
 
 QRectF Item::boundingRect() const
@@ -64,6 +68,17 @@ void Item::reDraw()
 
 void Item::toggle()
 {
+    if(imageLabel->isVisible()) {
+        imageLabel->hide();
+        QFont newFont;
+        newFont.setPointSize(32);
+        newFont.setBold(true);
+        nameLabel->setFont(newFont);
+    }
+    else {
+        nameLabel->setFont(*font);
+        imageLabel->show();
+    }
 }
 
 void Item::draw()
