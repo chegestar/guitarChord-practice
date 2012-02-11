@@ -67,7 +67,7 @@ bool readConfiguration(QList<Item *> *itemList, QString fileName)
     }
     //qDebug()<< itemList->size();
     randomize(itemList);
-    printList(*itemList);
+    //printList(*itemList);
     return true;
 }
 

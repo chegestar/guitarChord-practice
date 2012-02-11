@@ -1,14 +1,17 @@
 #ifndef ELEMENT_H
 #define ELEMENT_H
-#include <QGraphicsWidget>
+#include <QWidget>
+#include <QGraphicsItem>
 #include <QString>
 #include <QPainter>
+#include <QLabel>
+#include <QVBoxLayout>
 
-class Item: public QGraphicsWidget
+class Item: public QWidget
 {
 public:
 
-    Item(QString chordName, QString path, int order, QGraphicsItem* parent = 0) ;
+    Item(QString chordName, QString path, int order, QWidget* parent = 0) ;
     Item();
     // redraw in new postion
     void reDraw();
@@ -40,8 +43,11 @@ private:
     int index;
     // next position when refresh
     int nextPosition;
-
-    //QPainter painter;
+    // painter
+    QPainter painter;
+    QLabel *nameLabel;
+    QLabel *imageLabel;
+    QVBoxLayout *layout;
 };
 
 #endif // ELEMENT_H
