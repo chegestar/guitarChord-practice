@@ -16,7 +16,9 @@ HEADERS += mainwindow.h \
     ui_mainwindow.h \
     list.h \
     aboutdialog.h \
-    configure.h
+    configure.h \
+    ui_aboutdialog.h \
+    ui_configure.h
 FORMS += mainwindow.ui \
     aboutdialog.ui \
     configure.ui

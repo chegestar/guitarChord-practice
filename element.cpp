@@ -11,7 +11,7 @@ Item::Item( QString chordName,
     name = chordName;
     figPath = path;
     index = order;
-    qDebug() << name << figPath;
+    //qDebug() << name << figPath;
 
     nameLabel = new QLabel(name);
     imageLabel = new QLabel();
@@ -27,7 +27,7 @@ Item::Item( QString chordName,
         if(image.isNull())
             QMessageBox::information(this, tr("oops!"), tr("Cannot load %1 image.").arg(name));
         else imageLabel->setPixmap(QPixmap::fromImage(image.scaled(150, 170, Qt::IgnoreAspectRatio,Qt::FastTransformation)));
-        qDebug() << tr("load image");
+        //qDebug() << tr("load image");
     }
 
     layout->addWidget( nameLabel);
@@ -66,19 +66,44 @@ void Item::reDraw()
 {
 }
 
-void Item::toggle()
+void Item::toggle(int i)
 {
-    if(imageLabel->isVisible()) {
-        imageLabel->hide();
-        QFont newFont;
-        newFont.setPointSize(32);
-        newFont.setBold(true);
-        nameLabel->setFont(newFont);
+    if( i == 2)
+    {
+        if(imageLabel->isVisible()) return;
+        else
+        {
+            nameLabel->setFont(*font);
+            imageLabel->show();
+        }
     }
-    else {
-        nameLabel->setFont(*font);
-        imageLabel->show();
+    if( i == 0)
+    {
+        if(imageLabel->isVisible()) {
+            imageLabel->hide();
+            QFont newFont;
+            newFont.setPointSize(32);
+            newFont.setBold(true);
+            nameLabel->setFont(newFont);
+        }
+        else return;
     }
+    if( i == 1)
+    {
+        if(imageLabel->isVisible()) {
+            imageLabel->hide();
+            QFont newFont;
+            newFont.setPointSize(32);
+            newFont.setBold(true);
+            nameLabel->setFont(newFont);
+        }
+        else
+        {
+            nameLabel->setFont(*font);
+            imageLabel->show();
+        }
+    }
+
 }
 
 void Item::draw()
@@ -99,12 +124,12 @@ const QString Item::getFigPath()
     return figPath;
 }
 
-int Item::getNextPosition()
-{
-    return nextPosition;
-}
-
-int Item::returnIndex()
+int Item::getIndex()
 {
     return index;
+}
+
+void Item::setIndex(int i)
+{
+    index = i;
 }

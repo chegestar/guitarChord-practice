@@ -2,22 +2,22 @@
 
 <configure>
     <item>
-        <Type Id = "1"  Name = "A"  Figure = "./figure/A.gif"/>
-        <Type Id = "2"  Name = "Am" Figure = "./figure/Am.gif"/>
-        <Type Id = "3"  Name = "A7" Figure = "./figure/A7.gif"/>
-        <Type Id = "4"  Name = "Bb" Figure = "./figure/Bb.gif"/>
-        <Type Id = "5"  Name = "Bm" Figure = "./figure/Bm.gif"/>
-        <Type Id = "6"  Name = "B7" Figure = "./figure/B7.gif"/>
-        <Type Id = "7"  Name = "C"  Figure = "./figure/C.gif"/>
-        <Type Id = "8"  Name = "D"  Figure = "./figure/D.gif"/>
-        <Type Id = "9"  Name = "Dm" Figure = "./figure/Dm.gif"/>
-        <Type Id = "10" Name = "D7" Figure = "./figure/D7.gif"/>
-        <Type Id = "11" Name = "E"  Figure = "./figure/E.gif"/>
-        <Type Id = "12" Name = "Em" Figure = "./figure/Em.gif"/>
-        <Type Id = "13" Name = "F"  Figure = "./figure/F.gif"/>
-        <Type Id = "14" Name = "Fm" Figure = "./figure/Fm.gif"/>
-        <Type Id = "15" Name = "G"  Figure = "./figure/G.gif"/>
-        <Type Id = "16" Name = "G7" Figure = "./figure/G7.gif"/>
+        <Type Id = "0"  Name = "A"  Figure = "./figure/A.gif"/>
+        <Type Id = "1"  Name = "Am" Figure = "./figure/Am.gif"/>
+        <Type Id = "2"  Name = "A7" Figure = "./figure/A7.gif"/>
+        <Type Id = "3"  Name = "Bb" Figure = "./figure/Bb.gif"/>
+        <Type Id = "4"  Name = "Bm" Figure = "./figure/Bm.gif"/>
+        <Type Id = "5"  Name = "B7" Figure = "./figure/B7.gif"/>
+        <Type Id = "6"  Name = "C"  Figure = "./figure/C.gif"/>
+        <Type Id = "7"  Name = "D"  Figure = "./figure/D.gif"/>
+        <Type Id = "8"  Name = "Dm" Figure = "./figure/Dm.gif"/>
+        <Type Id = "9" Name = "D7" Figure = "./figure/D7.gif"/>
+        <Type Id = "10" Name = "E"  Figure = "./figure/E.gif"/>
+        <Type Id = "11" Name = "Em" Figure = "./figure/Em.gif"/>
+        <Type Id = "12" Name = "F"  Figure = "./figure/F.gif"/>
+        <Type Id = "13" Name = "Fm" Figure = "./figure/Fm.gif"/>
+        <Type Id = "14" Name = "G"  Figure = "./figure/G.gif"/>
+        <Type Id = "15" Name = "G7" Figure = "./figure/G7.gif"/>
     </item>
 </configure>
 

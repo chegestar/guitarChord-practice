@@ -1,0 +1,10 @@
+@todo
+features to be implemented
+1, Shortcut for the application, no menu, no mouse action!
+done    g  (good luck);
+done    a  (about);
+done    q  (quit);
+done    c  (configure);
+
+2, Automatic adjust the widget size to fit the window size, no scroll bar.
+    let the user to decide if the content is readable to them, they can adjust the window size.

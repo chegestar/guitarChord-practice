@@ -18,19 +18,18 @@ public:
     // draw the item
     void draw();
     // toggle to show or hide the figure
-    void toggle();
+    void toggle(int i = 1);
     // customize the appearance of item
     void customizeItem();
 
     // access funtions
     const QString getName();
     const QString getFigPath();
-    int getNextPosition();
-    int returnIndex();
+    int getIndex();
+    void setIndex(int);
 
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
-
     // mouse event handler
     void mouseDoubleClickEvent(QMouseEvent *event);
 
@@ -41,8 +40,7 @@ private:
     QString figPath;
     // the index in database
     int index;
-    // next position when refresh
-    int nextPosition;
+    int nextIndex;
     // painter
     QPainter painter;
     QLabel *nameLabel;

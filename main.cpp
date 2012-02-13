@@ -1,9 +1,6 @@
 #include <QtGui/QApplication>
 #include <QDebug>
 #include "mainwindow.h"
-#include "aboutdialog.h"
-#include "configure.h"
-#include "list.h"
 
 int main(int argc, char *argv[])
 {
@@ -12,11 +9,6 @@ int main(int argc, char *argv[])
     aboutDialog ab;
     configure con;
     w.show();
-    //con.show();
-    //ab.show();
 
-    QList<Item *> *list = new QList<Item *>();
-    readConfiguration(list);
-    qDebug() << w.addItem(*list);
     return a.exec();
 }

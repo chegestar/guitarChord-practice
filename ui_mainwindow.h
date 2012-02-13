@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Sat Feb 11 16:41:31 2012
+** Created: Mon Feb 13 20:11:58 2012
 **      by: Qt User Interface Compiler version 4.6.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -17,7 +17,6 @@
 #include <QtGui/QHeaderView>
 #include <QtGui/QMainWindow>
 #include <QtGui/QStatusBar>
-#include <QtGui/QToolButton>
 #include <QtGui/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -26,14 +25,13 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralWidget;
-    QToolButton *toolButton;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(575, 344);
+        MainWindow->resize(591, 443);
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
@@ -41,9 +39,6 @@ public:
         MainWindow->setSizePolicy(sizePolicy);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
-        toolButton = new QToolButton(centralWidget);
-        toolButton->setObjectName(QString::fromUtf8("toolButton"));
-        toolButton->setGeometry(QRect(0, 280, 71, 31));
         MainWindow->setCentralWidget(centralWidget);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QString::fromUtf8("statusBar"));
@@ -57,7 +52,6 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0, QApplication::UnicodeUTF8));
-        toolButton->setText(QApplication::translate("MainWindow", "Menu", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

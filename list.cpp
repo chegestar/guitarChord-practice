@@ -13,23 +13,30 @@
 
 void randomize(QList<Item *> * org)
 {
-    QList<Item*> *tmp = new QList<Item*>();
+    QList<Item*> tmp; 
+    tmp = *org;
     QTime time = QTime::currentTime();
     qsrand((uint)time.msec());
+    int next = 0;
     do
     {
         // generate the random index
-        int base = org->size();
+        int base = tmp.size();
         int rIndex = qrand()%base;
 
-        Item *slectedItem = new Item();
-        slectedItem = org->at(rIndex);
-        tmp->append(slectedItem);
-        org->removeAt(rIndex);
+        Item *selectedItem = new Item();
+        selectedItem = tmp.at(rIndex);
+        //tmp->append(slectedItem);
+        
+        org->at(org->indexOf(selectedItem))->setIndex(next);
+        tmp.removeAt(rIndex);
+        //org->at(rIndex)->setIndex(next);
+        ++next;
 
-    }while(!org->empty());
 
-    org->append(*tmp);
+    }while(!tmp.empty());
+
+    //org->append(*tmp);
 
 }
 
@@ -75,5 +82,5 @@ void printList(QList<Item *> & list)
 {
     QList<Item *>::iterator i;
     for(i = list.begin(); i != list.end(); ++i)
-        qDebug()<< (*i)->getName();
+        qDebug()<< (*i)->getIndex() << (*i)->getName();
 }
