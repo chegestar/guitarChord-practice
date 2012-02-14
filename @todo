@@ -1,10 +1,28 @@
 @todo
-features to be implemented
-1, Shortcut for the application, no menu, no mouse action!
-done    g  (good luck);
-done    a  (about);
-done    q  (quit);
-done    c  (configure);
+done |features to be implemented
+     |1, Shortcut for the application, no menu, no mouse action!
+     |    g  (good luck);
+     |    a  (about);
+     |    q  (quit);
+     |    c  (configure);
+     |
 
-2, Automatic adjust the widget size to fit the window size, no scroll bar.
-    let the user to decide if the content is readable to them, they can adjust the window size.
+t    |2, Automatic adjust the widget size to fit the window size, no scroll bar.
+o    |    let the user to decide if the content is readable to them, they can adjust the window size.
+d    |    void QWidget::resizeEvent(QResizeEvent * event);
+a    |    reimplement this function, to set new size of Item, and update the scene.
+y    |    or scale the view, void QGraphicsView::scale(qreal sx, qreal sy).
+     |
+done |    QWidget also has mov()/setGeometry() function to set the postion in the parent widget or in the screen. 
+     |    so maybe you can rearrange the widget without using the QGraphicsProxyWidget.
+done |    you should also adjust the about dialog position when it first triggered,
+     |    place it in the center of the mainwindow.
+     |
+     |
+done |3, MainWindow name " 16 sweet guitar chords"
+     |
+done |4, add animation to the re-arrangment of widgets
+
+5, add configuration diaglog.
+
+

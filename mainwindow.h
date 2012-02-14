@@ -41,6 +41,7 @@ private slots:
     void actionAbout_triggered();
     void actionConfigure_triggered();
     void actionTriggerFigure_triggered(int);
+    void resizeEvent(QResizeEvent * event);
 };
 
 #endif // MAINWINDOW_H

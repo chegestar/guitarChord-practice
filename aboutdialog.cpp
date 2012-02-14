@@ -7,6 +7,7 @@ aboutDialog::aboutDialog(QWidget *parent) :
 {
     ui->setupUi(this);
     setWindowFlags(Qt::FramelessWindowHint);
+    ui->pushButton->setFocus(Qt::OtherFocusReason);
     //setFocus(Qt::ActiveWindowFocusReason);
     //setFocusPolicy(Qt::ClickFocus);
 }

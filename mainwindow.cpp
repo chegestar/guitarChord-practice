@@ -7,7 +7,7 @@
 #include <QGraphicsProxyWidget>
 #include <QShortcut>
 #include <QCheckBox>
-
+#include <QPropertyAnimation>
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -32,7 +32,7 @@ MainWindow::MainWindow(QWidget *parent) :
     view->show();
 
     ui->statusBar->showMessage(tr("Q(uit), A(bout), R(andom), C(configure)"));
-
+    setWindowTitle("The \"Sweet Sixteen\" Guitar Chords");
     //QMetaObject::connectSlotsByName(this);
 
 }
@@ -93,20 +93,37 @@ void MainWindow::placement()
 {
     int windowWidth = width();
     int windowHeight = height();
-    int widgetWidth = widgetList->first()->size().width();
-    int widgetHeight = widgetList->first()->size().height();
+    int widgetWidth = list->first()->size().width();
+    int widgetHeight = list->first()->size().height();
     int blank = 5;
     int count = 0;
+    int x, y;
     //qDebug() << windowWidth << windowHeight << widgetWidth << widgetHeight;
 
-    int x = windowWidth % widgetWidth;
-    foreach(QGraphicsProxyWidget *tmp, *widgetList)
+    //int x = windowWidth % widgetWidth;
+    //foreach(QGraphicsProxyWidget *tmp, *widgetList)
+    //{
+    //    Item *item = dynamic_cast<Item *>(tmp->widget());
+    //    count = item->getIndex();
+    //    tmp->setPos((blank + (count%4)*widgetWidth), (blank + (int)(count/4)*widgetHeight));
+    //}
+    foreach(Item *tmp, *list)
     {
-        Item *item = dynamic_cast<Item *>(tmp->widget());
-        count = item->getIndex();
-        tmp->setPos((blank + (count%4)*widgetWidth), (blank + (int)(count/4)*widgetHeight));
-    }
+        count = tmp->getIndex();
+        x = blank + (count%4)*widgetWidth;
+        y = blank + (int)(count/4)*widgetHeight;
 
+        QPropertyAnimation *animation = new QPropertyAnimation(tmp, "geometry");
+        animation->setDuration(1000);
+        //animation->setStartValue(tmp->rect());
+        //animation->setEndValue(QPoint(x,y));
+        animation->setStartValue(QRect(tmp->x(),tmp->y(),widgetWidth,widgetHeight));
+        animation->setEndValue(QRect(x,y,widgetWidth,widgetHeight));
+        animation->setEasingCurve(QEasingCurve::InOutCirc);
+        animation->start();
+
+        //tmp->move(x, y);
+    }
 
 }
 void MainWindow::changeEvent(QEvent *e)
@@ -131,8 +148,11 @@ void MainWindow::actionRandom_triggered()
 
 void MainWindow::actionAbout_triggered()
 {
-    ab  = new aboutDialog();
+    ab  = new aboutDialog(this);
+    // move to the center to the window
+    ab->move((width() - ab->width())/2, (height() - ab->height())/2);
     ab->show();
+    ab->raise();
 }
 
 void MainWindow::actionConfigure_triggered()
@@ -146,4 +166,16 @@ void MainWindow::actionTriggerFigure_triggered(int state)
     {
         tmp->toggle(state);
     }
+}
+
+void MainWindow::resizeEvent(QResizeEvent * event)
+{
+    // @todo, more sutle way to implement this
+    /*
+    if(event->oldSize() > size())
+        view->scale(0.9, 0.9);
+    view->size()
+    */
+    
+    qDebug()<< " resize me!";
 }
