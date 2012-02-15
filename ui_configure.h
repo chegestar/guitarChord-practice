@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'configure.ui'
 **
-** Created: Sun Feb 12 21:55:12 2012
+** Created: Wed Feb 15 21:38:03 2012
 **      by: Qt User Interface Compiler version 4.6.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -17,25 +17,27 @@
 #include <QtGui/QDialog>
 #include <QtGui/QFrame>
 #include <QtGui/QGridLayout>
+#include <QtGui/QHBoxLayout>
 #include <QtGui/QHeaderView>
-#include <QtGui/QListView>
 #include <QtGui/QPushButton>
 #include <QtGui/QSpacerItem>
-#include <QtGui/QWidget>
+#include <QtGui/QTableView>
+#include <QtGui/QVBoxLayout>
 
 QT_BEGIN_NAMESPACE
 
 class Ui_configure
 {
 public:
-    QListView *listView;
-    QWidget *gridLayoutWidget;
+    QHBoxLayout *horizontalLayout;
+    QTableView *tableView;
     QGridLayout *gridLayout;
-    QPushButton *pushButton_2;
-    QPushButton *pushButton_3;
-    QPushButton *pushButton;
-    QPushButton *pushButton_4;
+    QPushButton *Cancel;
+    QPushButton *OK;
     QFrame *line;
+    QVBoxLayout *verticalLayout;
+    QPushButton *Add;
+    QPushButton *Delete;
     QSpacerItem *verticalSpacer;
 
     void setupUi(QDialog *configure)
@@ -44,53 +46,60 @@ public:
             configure->setObjectName(QString::fromUtf8("configure"));
         configure->resize(423, 285);
         configure->setFocusPolicy(Qt::ClickFocus);
-        listView = new QListView(configure);
-        listView->setObjectName(QString::fromUtf8("listView"));
-        listView->setGeometry(QRect(10, 10, 281, 271));
-        listView->setSelectionMode(QAbstractItemView::MultiSelection);
-        listView->setMovement(QListView::Free);
-        listView->setResizeMode(QListView::Adjust);
-        listView->setLayoutMode(QListView::Batched);
-        gridLayoutWidget = new QWidget(configure);
-        gridLayoutWidget->setObjectName(QString::fromUtf8("gridLayoutWidget"));
-        gridLayoutWidget->setGeometry(QRect(300, 10, 111, 271));
-        gridLayout = new QGridLayout(gridLayoutWidget);
+        horizontalLayout = new QHBoxLayout(configure);
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        tableView = new QTableView(configure);
+        tableView->setObjectName(QString::fromUtf8("tableView"));
+        tableView->setTextElideMode(Qt::ElideMiddle);
+        tableView->setGridStyle(Qt::DashLine);
+
+        horizontalLayout->addWidget(tableView);
+
+        gridLayout = new QGridLayout();
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setSizeConstraint(QLayout::SetNoConstraint);
-        gridLayout->setContentsMargins(0, 0, 0, 0);
-        pushButton_2 = new QPushButton(gridLayoutWidget);
-        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
+        Cancel = new QPushButton(configure);
+        Cancel->setObjectName(QString::fromUtf8("Cancel"));
 
-        gridLayout->addWidget(pushButton_2, 2, 0, 1, 1);
+        gridLayout->addWidget(Cancel, 7, 0, 1, 1);
 
-        pushButton_3 = new QPushButton(gridLayoutWidget);
-        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
+        OK = new QPushButton(configure);
+        OK->setObjectName(QString::fromUtf8("OK"));
 
-        gridLayout->addWidget(pushButton_3, 6, 0, 1, 1);
+        gridLayout->addWidget(OK, 6, 0, 1, 1);
 
-        pushButton = new QPushButton(gridLayoutWidget);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-
-        gridLayout->addWidget(pushButton, 1, 0, 1, 1);
-
-        pushButton_4 = new QPushButton(gridLayoutWidget);
-        pushButton_4->setObjectName(QString::fromUtf8("pushButton_4"));
-
-        gridLayout->addWidget(pushButton_4, 5, 0, 1, 1);
-
-        line = new QFrame(gridLayoutWidget);
+        line = new QFrame(configure);
         line->setObjectName(QString::fromUtf8("line"));
         line->setFrameShape(QFrame::HLine);
         line->setFrameShadow(QFrame::Sunken);
 
-        gridLayout->addWidget(line, 4, 0, 1, 1);
+        gridLayout->addWidget(line, 5, 0, 1, 1);
+
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        Add = new QPushButton(configure);
+        Add->setObjectName(QString::fromUtf8("Add"));
+
+        verticalLayout->addWidget(Add);
+
+        Delete = new QPushButton(configure);
+        Delete->setObjectName(QString::fromUtf8("Delete"));
+
+        verticalLayout->addWidget(Delete);
+
+
+        gridLayout->addLayout(verticalLayout, 1, 0, 1, 1);
 
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Fixed);
 
-        gridLayout->addItem(verticalSpacer, 3, 0, 1, 1);
+        gridLayout->addItem(verticalSpacer, 2, 0, 2, 1);
+
+
+        horizontalLayout->addLayout(gridLayout);
 
 
         retranslateUi(configure);
+        QObject::connect(Cancel, SIGNAL(clicked()), configure, SLOT(close()));
 
         QMetaObject::connectSlotsByName(configure);
     } // setupUi
@@ -98,10 +107,10 @@ public:
     void retranslateUi(QDialog *configure)
     {
         configure->setWindowTitle(QApplication::translate("configure", "Configure", 0, QApplication::UnicodeUTF8));
-        pushButton_2->setText(QApplication::translate("configure", "Delete", 0, QApplication::UnicodeUTF8));
-        pushButton_3->setText(QApplication::translate("configure", "Cancle", 0, QApplication::UnicodeUTF8));
-        pushButton->setText(QApplication::translate("configure", "Add...", 0, QApplication::UnicodeUTF8));
-        pushButton_4->setText(QApplication::translate("configure", "OK", 0, QApplication::UnicodeUTF8));
+        Cancel->setText(QApplication::translate("configure", "Cancel", 0, QApplication::UnicodeUTF8));
+        OK->setText(QApplication::translate("configure", "OK", 0, QApplication::UnicodeUTF8));
+        Add->setText(QApplication::translate("configure", "Add...", 0, QApplication::UnicodeUTF8));
+        Delete->setText(QApplication::translate("configure", "Delete", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

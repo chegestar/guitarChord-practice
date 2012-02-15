@@ -9,7 +9,8 @@ SOURCES += main.cpp \
     element.cpp \
     list.cpp \
     aboutdialog.cpp \
-    configure.cpp
+    configure.cpp \
+    adddialog.cpp
 HEADERS += mainwindow.h \
     element.h \
     scene.h \
@@ -18,7 +19,9 @@ HEADERS += mainwindow.h \
     aboutdialog.h \
     configure.h \
     ui_aboutdialog.h \
-    ui_configure.h
+    ui_configure.h \
+    adddialog.h
 FORMS += mainwindow.ui \
     aboutdialog.ui \
-    configure.ui
+    configure.ui \
+    adddialog.ui

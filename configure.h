@@ -2,6 +2,8 @@
 #define CONFIGURE_H
 
 #include <QDialog>
+#include <QStandardItemModel>
+#include "adddialog.h"
 
 namespace Ui {
     class configure;
@@ -18,6 +20,14 @@ protected:
 
 private:
     Ui::configure *ui;
+    QStandardItemModel *model;
+    addDialog *add;
+    void addItem();
+
+private slots:
+    void on_Add_clicked();
+    void on_OK_clicked();
+    void AddDone(QString, QString);
 };
 
 #endif // CONFIGURE_H

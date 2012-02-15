@@ -29,6 +29,7 @@ protected:
 private:
     Ui::MainWindow *ui;
     aboutDialog *ab;
+    configure *configureDialog;
 
 
     QGraphicsScene *scene;

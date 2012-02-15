@@ -5,7 +5,9 @@
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.8	//
 ABOUTDIALOG_H	aboutdialog.h	2;"	d
+ADDDIALOG_H	adddialog.h	2;"	d
 AR	Makefile	/^AR            = ar cqs$/;"	m
+Add	ui_configure.h	/^    QPushButton *Add;$/;"	m	class:Ui_configure	access:public
 CC	Makefile	/^CC            = gcc$/;"	m
 CFLAGS	Makefile	/^CFLAGS        = -pipe -g -Wall -W -D_REENTRANT $(DEFINES)$/;"	m
 CHK_DIR_EXISTS	Makefile	/^CHK_DIR_EXISTS= test -d$/;"	m
@@ -16,11 +18,15 @@ COPY_DIR	Makefile	/^COPY_DIR      = $(COPY) -r$/;"	m
 COPY_FILE	Makefile	/^COPY_FILE     = $(COPY)$/;"	m
 CXX	Makefile	/^CXX           = g++$/;"	m
 CXXFLAGS	Makefile	/^CXXFLAGS      = -pipe -g -Wall -W -D_REENTRANT $(DEFINES)$/;"	m
+Cancel	ui_adddialog.h	/^    QPushButton *Cancel;$/;"	m	class:Ui_addDialog	access:public
+Cancel	ui_configure.h	/^    QPushButton *Cancel;$/;"	m	class:Ui_configure	access:public
+ChooseFile	ui_adddialog.h	/^    QPushButton *ChooseFile;$/;"	m	class:Ui_addDialog	access:public
 DEFINES	Makefile	/^DEFINES       = -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED$/;"	m
 DEL_DIR	Makefile	/^DEL_DIR       = rmdir$/;"	m
 DEL_FILE	Makefile	/^DEL_FILE      = rm -f$/;"	m
 DESTDIR	Makefile	/^DESTDIR       = $/;"	m
 DIST	Makefile	/^DIST          = \/usr\/share\/qt4\/mkspecs\/common\/g++.conf \\$/;"	m
+Delete	ui_configure.h	/^    QPushButton *Delete;$/;"	m	class:Ui_configure	access:public
 ELEMENT_H	element.h	2;"	d
 INCPATH	Makefile	/^INCPATH       = -I\/usr\/share\/qt4\/mkspecs\/linux-g++ -I. -I\/usr\/include\/qt4\/QtCore -I\/usr\/include\/qt4\/QtGui -I\/usr\/include\/qt4\/QtXml -I\/usr\/include\/qt4 -I. -I.$/;"	m
 INSTALL_DIR	Makefile	/^INSTALL_DIR   = $(COPY_DIR)$/;"	m
@@ -64,8 +70,8 @@ Item::reDraw	element.cpp	/^void Item::reDraw()$/;"	f	class:Item	signature:()
 Item::reDraw	element.h	/^    void reDraw();$/;"	p	class:Item	access:public	signature:()
 Item::setIndex	element.cpp	/^void Item::setIndex(int i)$/;"	f	class:Item	signature:(int i)
 Item::setIndex	element.h	/^    void setIndex(int);$/;"	p	class:Item	access:public	signature:(int)
-Item::toggle	element.cpp	/^void Item::toggle()$/;"	f	class:Item	signature:()
-Item::toggle	element.h	/^    void toggle();$/;"	p	class:Item	access:public	signature:()
+Item::toggle	element.cpp	/^void Item::toggle(int i)$/;"	f	class:Item	signature:(int i)
+Item::toggle	element.h	/^    void toggle(int i = 1);$/;"	p	class:Item	access:public	signature:(int i = 1)
 LFLAGS	Makefile	/^LFLAGS        = $/;"	m
 LIBS	Makefile	/^LIBS          = $(SUBLIBS)  -L\/usr\/lib -lQtXml -lQtGui -lQtCore -lpthread $/;"	m
 LINK	Makefile	/^LINK          = g++$/;"	m
@@ -80,27 +86,30 @@ MainWindow	ui_mainwindow.h	/^    class MainWindow: public Ui_MainWindow {};$/;"	
 MainWindow::MainWindow	mainwindow.cpp	/^MainWindow::MainWindow(QWidget *parent) :$/;"	f	class:MainWindow	signature:(QWidget *parent)
 MainWindow::MainWindow	mainwindow.h	/^    MainWindow(QWidget *parent = 0);$/;"	p	class:MainWindow	access:public	signature:(QWidget *parent = 0)
 MainWindow::ab	mainwindow.h	/^    aboutDialog *ab;$/;"	m	class:MainWindow	access:private
+MainWindow::actionAbout_triggered	mainwindow.cpp	/^void MainWindow::actionAbout_triggered()$/;"	f	class:MainWindow	signature:()
+MainWindow::actionAbout_triggered	mainwindow.h	/^    void actionAbout_triggered();$/;"	p	class:MainWindow	access:private	signature:()
+MainWindow::actionConfigure_triggered	mainwindow.cpp	/^void MainWindow::actionConfigure_triggered()$/;"	f	class:MainWindow	signature:()
+MainWindow::actionConfigure_triggered	mainwindow.h	/^    void actionConfigure_triggered();$/;"	p	class:MainWindow	access:private	signature:()
+MainWindow::actionRandom_triggered	mainwindow.cpp	/^void MainWindow::actionRandom_triggered()$/;"	f	class:MainWindow	signature:()
+MainWindow::actionRandom_triggered	mainwindow.h	/^    void actionRandom_triggered();$/;"	p	class:MainWindow	access:private	signature:()
+MainWindow::actionTriggerFigure_triggered	mainwindow.cpp	/^void MainWindow::actionTriggerFigure_triggered(int state)$/;"	f	class:MainWindow	signature:(int state)
+MainWindow::actionTriggerFigure_triggered	mainwindow.h	/^    void actionTriggerFigure_triggered(int);$/;"	p	class:MainWindow	access:private	signature:(int)
 MainWindow::addItem	mainwindow.cpp	/^int MainWindow::addItem(QList<Item *> &iList)$/;"	f	class:MainWindow	signature:(QList<Item *> &iList)
 MainWindow::addItem	mainwindow.h	/^    int addItem(QList<Item *> &iList);$/;"	p	class:MainWindow	access:public	signature:(QList<Item *> &iList)
-MainWindow::addMenu	mainwindow.cpp	/^void MainWindow::addMenu()$/;"	f	class:MainWindow	signature:()
-MainWindow::addMenu	mainwindow.h	/^    void addMenu();$/;"	p	class:MainWindow	access:protected	signature:()
 MainWindow::changeEvent	mainwindow.cpp	/^void MainWindow::changeEvent(QEvent *e)$/;"	f	class:MainWindow	signature:(QEvent *e)
 MainWindow::changeEvent	mainwindow.h	/^    void changeEvent(QEvent *e);$/;"	p	class:MainWindow	access:protected	signature:(QEvent *e)
+MainWindow::configureDialog	mainwindow.h	/^    configure *configureDialog;$/;"	m	class:MainWindow	access:private
 MainWindow::getStaticMetaObject	moc_mainwindow.cpp	/^const QMetaObject &MainWindow::getStaticMetaObject() { return staticMetaObject; }$/;"	f	class:MainWindow	signature:()
 MainWindow::list	mainwindow.h	/^    QList<Item *> *list;$/;"	m	class:MainWindow	access:private
-MainWindow::menu	mainwindow.h	/^    QMenu *menu;$/;"	m	class:MainWindow	access:private
 MainWindow::metaObject	moc_mainwindow.cpp	/^const QMetaObject *MainWindow::metaObject() const$/;"	f	class:MainWindow	signature:() const
-MainWindow::on_actionAbout_triggered	mainwindow.cpp	/^void MainWindow::on_actionAbout_triggered()$/;"	f	class:MainWindow	signature:()
-MainWindow::on_actionAbout_triggered	mainwindow.h	/^    void on_actionAbout_triggered();$/;"	p	class:MainWindow	access:private	signature:()
-MainWindow::on_actionConfigure_triggered	mainwindow.cpp	/^void MainWindow::on_actionConfigure_triggered()$/;"	f	class:MainWindow	signature:()
-MainWindow::on_actionConfigure_triggered	mainwindow.h	/^    void on_actionConfigure_triggered();$/;"	p	class:MainWindow	access:private	signature:()
-MainWindow::on_actionRandom_triggered	mainwindow.cpp	/^void MainWindow::on_actionRandom_triggered()$/;"	f	class:MainWindow	signature:()
-MainWindow::on_actionRandom_triggered	mainwindow.h	/^    void on_actionRandom_triggered();$/;"	p	class:MainWindow	access:private	signature:()
+MainWindow::newAction	mainwindow.cpp	/^void MainWindow::newAction()$/;"	f	class:MainWindow	signature:()
+MainWindow::newAction	mainwindow.h	/^    void newAction();$/;"	p	class:MainWindow	access:protected	signature:()
 MainWindow::placement	mainwindow.cpp	/^void MainWindow::placement()$/;"	f	class:MainWindow	signature:()
 MainWindow::placement	mainwindow.h	/^    void placement();$/;"	p	class:MainWindow	access:public	signature:()
 MainWindow::qt_metacall	moc_mainwindow.cpp	/^int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:MainWindow	signature:(QMetaObject::Call _c, int _id, void **_a)
 MainWindow::qt_metacast	moc_mainwindow.cpp	/^void *MainWindow::qt_metacast(const char *_clname)$/;"	f	class:MainWindow	signature:(const char *_clname)
-MainWindow::sbf	mainwindow.h	/^    statusBarForm *sbf;$/;"	m	class:MainWindow	access:private
+MainWindow::resizeEvent	mainwindow.cpp	/^void MainWindow::resizeEvent(QResizeEvent * event)$/;"	f	class:MainWindow	signature:(QResizeEvent * event)
+MainWindow::resizeEvent	mainwindow.h	/^    void resizeEvent(QResizeEvent * event);$/;"	p	class:MainWindow	access:private	signature:(QResizeEvent * event)
 MainWindow::scene	mainwindow.h	/^    QGraphicsScene *scene;$/;"	m	class:MainWindow	access:private
 MainWindow::staticMetaObject	moc_mainwindow.cpp	/^const QMetaObject MainWindow::staticMetaObject = {$/;"	m	class:MainWindow	file:
 MainWindow::ui	mainwindow.h	/^    Ui::MainWindow *ui;$/;"	m	class:MainWindow	access:private
@@ -108,43 +117,42 @@ MainWindow::view	mainwindow.h	/^    QGraphicsView *view;$/;"	m	class:MainWindow	
 MainWindow::widgetList	mainwindow.h	/^    QList<QGraphicsProxyWidget *> *widgetList;$/;"	m	class:MainWindow	access:private
 MainWindow::~MainWindow	mainwindow.cpp	/^MainWindow::~MainWindow()$/;"	f	class:MainWindow	signature:()
 MainWindow::~MainWindow	mainwindow.h	/^    ~MainWindow();$/;"	p	class:MainWindow	access:public	signature:()
+Name	adddialog.h	/^    QString Name;$/;"	m	class:addDialog	access:private
+NameEdit	ui_adddialog.h	/^    QLineEdit *NameEdit;$/;"	m	class:Ui_addDialog	access:public
 OBJECTS	Makefile	/^OBJECTS       = main.o \\$/;"	m
 OBJECTS_DIR	Makefile	/^OBJECTS_DIR   = .\/$/;"	m
+OK	ui_adddialog.h	/^    QPushButton *OK;$/;"	m	class:Ui_addDialog	access:public
+OK	ui_configure.h	/^    QPushButton *OK;$/;"	m	class:Ui_configure	access:public
+Path	adddialog.h	/^    QString Path;$/;"	m	class:addDialog	access:private
+PathEdit	ui_adddialog.h	/^    QLineEdit *PathEdit;$/;"	m	class:Ui_addDialog	access:public
 QMAKE	Makefile	/^QMAKE         = \/usr\/bin\/qmake-qt4$/;"	m
 QMAKE_TARGET	Makefile	/^QMAKE_TARGET  = chord$/;"	m
 RANLIB	Makefile	/^RANLIB        = $/;"	m
 SCENE_H	scene.h	2;"	d
 SED	Makefile	/^SED           = sed$/;"	m
 SOURCES	Makefile	/^SOURCES       = main.cpp \\$/;"	m
-STATUSBARFORM_H	statusbarform.h	2;"	d
 STRIP	Makefile	/^STRIP         = strip$/;"	m
 SYMLINK	Makefile	/^SYMLINK       = ln -f -s$/;"	m
 TAR	Makefile	/^TAR           = tar -cf$/;"	m
 TARGET	Makefile	/^TARGET        = chord$/;"	m
 UI_ABOUTDIALOG_H	ui_aboutdialog.h	11;"	d
+UI_ADDDIALOG_H	ui_adddialog.h	11;"	d
 UI_CONFIGURE_H	ui_configure.h	11;"	d
 UI_MAINWINDOW_H	ui_mainwindow.h	11;"	d
-UI_STATUSBARFORM_H	ui_statusbarform.h	11;"	d
 Ui	aboutdialog.h	/^namespace Ui {$/;"	n
+Ui	adddialog.h	/^namespace Ui {$/;"	n
 Ui	configure.h	/^namespace Ui {$/;"	n
 Ui	mainwindow.h	/^namespace Ui {$/;"	n
-Ui	statusbarform.h	/^namespace Ui {$/;"	n
 Ui	ui_aboutdialog.h	/^namespace Ui {$/;"	n
+Ui	ui_adddialog.h	/^namespace Ui {$/;"	n
 Ui	ui_configure.h	/^namespace Ui {$/;"	n
 Ui	ui_mainwindow.h	/^namespace Ui {$/;"	n
-Ui	ui_statusbarform.h	/^namespace Ui {$/;"	n
 Ui::MainWindow	ui_mainwindow.h	/^    class MainWindow: public Ui_MainWindow {};$/;"	c	namespace:Ui	inherits:Ui_MainWindow
 Ui::aboutDialog	ui_aboutdialog.h	/^    class aboutDialog: public Ui_aboutDialog {};$/;"	c	namespace:Ui	inherits:Ui_aboutDialog
+Ui::addDialog	ui_adddialog.h	/^    class addDialog: public Ui_addDialog {};$/;"	c	namespace:Ui	inherits:Ui_addDialog
 Ui::configure	ui_configure.h	/^    class configure: public Ui_configure {};$/;"	c	namespace:Ui	inherits:Ui_configure
-Ui::statusBarForm	ui_statusbarform.h	/^    class statusBarForm: public Ui_statusBarForm {};$/;"	c	namespace:Ui	inherits:Ui_statusBarForm
 Ui_MainWindow	ui_mainwindow.h	/^class Ui_MainWindow$/;"	c
-Ui_MainWindow::actionAbout	ui_mainwindow.h	/^    QAction *actionAbout;$/;"	m	class:Ui_MainWindow	access:public
-Ui_MainWindow::actionConfigure	ui_mainwindow.h	/^    QAction *actionConfigure;$/;"	m	class:Ui_MainWindow	access:public
-Ui_MainWindow::actionExit	ui_mainwindow.h	/^    QAction *actionExit;$/;"	m	class:Ui_MainWindow	access:public
-Ui_MainWindow::actionRandom	ui_mainwindow.h	/^    QAction *actionRandom;$/;"	m	class:Ui_MainWindow	access:public
 Ui_MainWindow::centralWidget	ui_mainwindow.h	/^    QWidget *centralWidget;$/;"	m	class:Ui_MainWindow	access:public
-Ui_MainWindow::menuBar	ui_mainwindow.h	/^    QMenuBar *menuBar;$/;"	m	class:Ui_MainWindow	access:public
-Ui_MainWindow::menuFile	ui_mainwindow.h	/^    QMenu *menuFile;$/;"	m	class:Ui_MainWindow	access:public
 Ui_MainWindow::retranslateUi	ui_mainwindow.h	/^    void retranslateUi(QMainWindow *MainWindow)$/;"	f	class:Ui_MainWindow	access:public	signature:(QMainWindow *MainWindow)
 Ui_MainWindow::setupUi	ui_mainwindow.h	/^    void setupUi(QMainWindow *MainWindow)$/;"	f	class:Ui_MainWindow	access:public	signature:(QMainWindow *MainWindow)
 Ui_MainWindow::statusBar	ui_mainwindow.h	/^    QStatusBar *statusBar;$/;"	m	class:Ui_MainWindow	access:public
@@ -153,30 +161,30 @@ Ui_aboutDialog::pushButton	ui_aboutdialog.h	/^    QPushButton *pushButton;$/;"	m
 Ui_aboutDialog::retranslateUi	ui_aboutdialog.h	/^    void retranslateUi(QDialog *aboutDialog)$/;"	f	class:Ui_aboutDialog	access:public	signature:(QDialog *aboutDialog)
 Ui_aboutDialog::setupUi	ui_aboutdialog.h	/^    void setupUi(QDialog *aboutDialog)$/;"	f	class:Ui_aboutDialog	access:public	signature:(QDialog *aboutDialog)
 Ui_aboutDialog::textBrowser	ui_aboutdialog.h	/^    QTextBrowser *textBrowser;$/;"	m	class:Ui_aboutDialog	access:public
+Ui_addDialog	ui_adddialog.h	/^class Ui_addDialog$/;"	c
+Ui_addDialog::Cancel	ui_adddialog.h	/^    QPushButton *Cancel;$/;"	m	class:Ui_addDialog	access:public
+Ui_addDialog::ChooseFile	ui_adddialog.h	/^    QPushButton *ChooseFile;$/;"	m	class:Ui_addDialog	access:public
+Ui_addDialog::NameEdit	ui_adddialog.h	/^    QLineEdit *NameEdit;$/;"	m	class:Ui_addDialog	access:public
+Ui_addDialog::OK	ui_adddialog.h	/^    QPushButton *OK;$/;"	m	class:Ui_addDialog	access:public
+Ui_addDialog::PathEdit	ui_adddialog.h	/^    QLineEdit *PathEdit;$/;"	m	class:Ui_addDialog	access:public
+Ui_addDialog::gridLayout	ui_adddialog.h	/^    QGridLayout *gridLayout;$/;"	m	class:Ui_addDialog	access:public
+Ui_addDialog::label	ui_adddialog.h	/^    QLabel *label;$/;"	m	class:Ui_addDialog	access:public
+Ui_addDialog::label_2	ui_adddialog.h	/^    QLabel *label_2;$/;"	m	class:Ui_addDialog	access:public
+Ui_addDialog::retranslateUi	ui_adddialog.h	/^    void retranslateUi(QWidget *addDialog)$/;"	f	class:Ui_addDialog	access:public	signature:(QWidget *addDialog)
+Ui_addDialog::setupUi	ui_adddialog.h	/^    void setupUi(QWidget *addDialog)$/;"	f	class:Ui_addDialog	access:public	signature:(QWidget *addDialog)
 Ui_configure	ui_configure.h	/^class Ui_configure$/;"	c
+Ui_configure::Add	ui_configure.h	/^    QPushButton *Add;$/;"	m	class:Ui_configure	access:public
+Ui_configure::Cancel	ui_configure.h	/^    QPushButton *Cancel;$/;"	m	class:Ui_configure	access:public
+Ui_configure::Delete	ui_configure.h	/^    QPushButton *Delete;$/;"	m	class:Ui_configure	access:public
+Ui_configure::OK	ui_configure.h	/^    QPushButton *OK;$/;"	m	class:Ui_configure	access:public
 Ui_configure::gridLayout	ui_configure.h	/^    QGridLayout *gridLayout;$/;"	m	class:Ui_configure	access:public
-Ui_configure::gridLayoutWidget	ui_configure.h	/^    QWidget *gridLayoutWidget;$/;"	m	class:Ui_configure	access:public
+Ui_configure::horizontalLayout	ui_configure.h	/^    QHBoxLayout *horizontalLayout;$/;"	m	class:Ui_configure	access:public
 Ui_configure::line	ui_configure.h	/^    QFrame *line;$/;"	m	class:Ui_configure	access:public
-Ui_configure::listView	ui_configure.h	/^    QListView *listView;$/;"	m	class:Ui_configure	access:public
-Ui_configure::pushButton	ui_configure.h	/^    QPushButton *pushButton;$/;"	m	class:Ui_configure	access:public
-Ui_configure::pushButton_2	ui_configure.h	/^    QPushButton *pushButton_2;$/;"	m	class:Ui_configure	access:public
-Ui_configure::pushButton_3	ui_configure.h	/^    QPushButton *pushButton_3;$/;"	m	class:Ui_configure	access:public
-Ui_configure::pushButton_4	ui_configure.h	/^    QPushButton *pushButton_4;$/;"	m	class:Ui_configure	access:public
 Ui_configure::retranslateUi	ui_configure.h	/^    void retranslateUi(QDialog *configure)$/;"	f	class:Ui_configure	access:public	signature:(QDialog *configure)
 Ui_configure::setupUi	ui_configure.h	/^    void setupUi(QDialog *configure)$/;"	f	class:Ui_configure	access:public	signature:(QDialog *configure)
+Ui_configure::tableView	ui_configure.h	/^    QTableView *tableView;$/;"	m	class:Ui_configure	access:public
+Ui_configure::verticalLayout	ui_configure.h	/^    QVBoxLayout *verticalLayout;$/;"	m	class:Ui_configure	access:public
 Ui_configure::verticalSpacer	ui_configure.h	/^    QSpacerItem *verticalSpacer;$/;"	m	class:Ui_configure	access:public
-Ui_statusBarForm	ui_statusbarform.h	/^class Ui_statusBarForm$/;"	c
-Ui_statusBarForm::checkBox	ui_statusbarform.h	/^    QCheckBox *checkBox;$/;"	m	class:Ui_statusBarForm	access:public
-Ui_statusBarForm::gridLayout	ui_statusbarform.h	/^    QGridLayout *gridLayout;$/;"	m	class:Ui_statusBarForm	access:public
-Ui_statusBarForm::horizontalSlider	ui_statusbarform.h	/^    QSlider *horizontalSlider;$/;"	m	class:Ui_statusBarForm	access:public
-Ui_statusBarForm::horizontalSpacer	ui_statusbarform.h	/^    QSpacerItem *horizontalSpacer;$/;"	m	class:Ui_statusBarForm	access:public
-Ui_statusBarForm::horizontalSpacer_2	ui_statusbarform.h	/^    QSpacerItem *horizontalSpacer_2;$/;"	m	class:Ui_statusBarForm	access:public
-Ui_statusBarForm::label	ui_statusbarform.h	/^    QLabel *label;$/;"	m	class:Ui_statusBarForm	access:public
-Ui_statusBarForm::line	ui_statusbarform.h	/^    QFrame *line;$/;"	m	class:Ui_statusBarForm	access:public
-Ui_statusBarForm::randomB	ui_statusbarform.h	/^    QPushButton *randomB;$/;"	m	class:Ui_statusBarForm	access:public
-Ui_statusBarForm::retranslateUi	ui_statusbarform.h	/^    void retranslateUi(QWidget *statusBarForm)$/;"	f	class:Ui_statusBarForm	access:public	signature:(QWidget *statusBarForm)
-Ui_statusBarForm::setupUi	ui_statusbarform.h	/^    void setupUi(QWidget *statusBarForm)$/;"	f	class:Ui_statusBarForm	access:public	signature:(QWidget *statusBarForm)
-Ui_statusBarForm::toolButton	ui_statusbarform.h	/^    QToolButton *toolButton;$/;"	m	class:Ui_statusBarForm	access:public
 ab	mainwindow.h	/^    aboutDialog *ab;$/;"	m	class:MainWindow	access:private
 aboutDialog	aboutdialog.cpp	/^aboutDialog::aboutDialog(QWidget *parent) :$/;"	f	class:aboutDialog	signature:(QWidget *parent)
 aboutDialog	aboutdialog.h	/^    aboutDialog(QWidget *parent = 0);$/;"	p	class:aboutDialog	access:public	signature:(QWidget *parent = 0)
@@ -196,42 +204,74 @@ aboutDialog::staticMetaObject	moc_aboutdialog.cpp	/^const QMetaObject aboutDialo
 aboutDialog::ui	aboutdialog.h	/^    Ui::aboutDialog *ui;$/;"	m	class:aboutDialog	access:private
 aboutDialog::~aboutDialog	aboutdialog.cpp	/^aboutDialog::~aboutDialog()$/;"	f	class:aboutDialog	signature:()
 aboutDialog::~aboutDialog	aboutdialog.h	/^    ~aboutDialog();$/;"	p	class:aboutDialog	access:public	signature:()
-actionAbout	ui_mainwindow.h	/^    QAction *actionAbout;$/;"	m	class:Ui_MainWindow	access:public
-actionConfigure	ui_mainwindow.h	/^    QAction *actionConfigure;$/;"	m	class:Ui_MainWindow	access:public
-actionExit	ui_mainwindow.h	/^    QAction *actionExit;$/;"	m	class:Ui_MainWindow	access:public
-actionRandom	ui_mainwindow.h	/^    QAction *actionRandom;$/;"	m	class:Ui_MainWindow	access:public
+actionAbout_triggered	mainwindow.cpp	/^void MainWindow::actionAbout_triggered()$/;"	f	class:MainWindow	signature:()
+actionAbout_triggered	mainwindow.h	/^    void actionAbout_triggered();$/;"	p	class:MainWindow	access:private	signature:()
+actionConfigure_triggered	mainwindow.cpp	/^void MainWindow::actionConfigure_triggered()$/;"	f	class:MainWindow	signature:()
+actionConfigure_triggered	mainwindow.h	/^    void actionConfigure_triggered();$/;"	p	class:MainWindow	access:private	signature:()
+actionRandom_triggered	mainwindow.cpp	/^void MainWindow::actionRandom_triggered()$/;"	f	class:MainWindow	signature:()
+actionRandom_triggered	mainwindow.h	/^    void actionRandom_triggered();$/;"	p	class:MainWindow	access:private	signature:()
+actionTriggerFigure_triggered	mainwindow.cpp	/^void MainWindow::actionTriggerFigure_triggered(int state)$/;"	f	class:MainWindow	signature:(int state)
+actionTriggerFigure_triggered	mainwindow.h	/^    void actionTriggerFigure_triggered(int);$/;"	p	class:MainWindow	access:private	signature:(int)
+addDialog	adddialog.cpp	/^addDialog::addDialog(QWidget *parent) :$/;"	f	class:addDialog	signature:(QWidget *parent)
+addDialog	adddialog.h	/^    addDialog(QWidget *parent = 0);$/;"	p	class:addDialog	access:public	signature:(QWidget *parent = 0)
+addDialog	adddialog.h	/^class addDialog : public QWidget {$/;"	c	inherits:QWidget
+addDialog	ui_adddialog.h	/^    class addDialog: public Ui_addDialog {};$/;"	c	namespace:Ui	inherits:Ui_addDialog
+addDialog::Name	adddialog.h	/^    QString Name;$/;"	m	class:addDialog	access:private
+addDialog::Path	adddialog.h	/^    QString Path;$/;"	m	class:addDialog	access:private
+addDialog::addDialog	adddialog.cpp	/^addDialog::addDialog(QWidget *parent) :$/;"	f	class:addDialog	signature:(QWidget *parent)
+addDialog::addDialog	adddialog.h	/^    addDialog(QWidget *parent = 0);$/;"	p	class:addDialog	access:public	signature:(QWidget *parent = 0)
+addDialog::changeEvent	adddialog.cpp	/^void addDialog::changeEvent(QEvent *e)$/;"	f	class:addDialog	signature:(QEvent *e)
+addDialog::changeEvent	adddialog.h	/^    void changeEvent(QEvent *e);$/;"	p	class:addDialog	access:protected	signature:(QEvent *e)
+addDialog::getStaticMetaObject	moc_adddialog.cpp	/^const QMetaObject &addDialog::getStaticMetaObject() { return staticMetaObject; }$/;"	f	class:addDialog	signature:()
+addDialog::metaObject	moc_adddialog.cpp	/^const QMetaObject *addDialog::metaObject() const$/;"	f	class:addDialog	signature:() const
+addDialog::on_ChooseFile_clicked	adddialog.cpp	/^void addDialog::on_ChooseFile_clicked()$/;"	f	class:addDialog	signature:()
+addDialog::on_ChooseFile_clicked	adddialog.h	/^    void on_ChooseFile_clicked();$/;"	p	class:addDialog	access:private	signature:()
+addDialog::on_OK_clicked	adddialog.cpp	/^void addDialog::on_OK_clicked()$/;"	f	class:addDialog	signature:()
+addDialog::on_OK_clicked	adddialog.h	/^    void on_OK_clicked();$/;"	p	class:addDialog	access:private	signature:()
+addDialog::qt_metacall	moc_adddialog.cpp	/^int addDialog::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:addDialog	signature:(QMetaObject::Call _c, int _id, void **_a)
+addDialog::qt_metacast	moc_adddialog.cpp	/^void *addDialog::qt_metacast(const char *_clname)$/;"	f	class:addDialog	signature:(const char *_clname)
+addDialog::returnInfo	adddialog.h	/^    void returnInfo(QSting Name, QString path);$/;"	p	class:addDialog	access:protected	signature:(QSting Name, QString path)
+addDialog::staticMetaObject	moc_adddialog.cpp	/^const QMetaObject addDialog::staticMetaObject = {$/;"	m	class:addDialog	file:
+addDialog::ui	adddialog.h	/^    Ui::addDialog *ui;$/;"	m	class:addDialog	access:private
+addDialog::~addDialog	adddialog.cpp	/^addDialog::~addDialog()$/;"	f	class:addDialog	signature:()
+addDialog::~addDialog	adddialog.h	/^    ~addDialog();$/;"	p	class:addDialog	access:public	signature:()
+addItem	configure.cpp	/^void configure::addItem()$/;"	f	class:configure	signature:()
+addItem	configure.h	/^    void addItem();$/;"	p	class:configure	access:private	signature:()
 addItem	mainwindow.cpp	/^int MainWindow::addItem(QList<Item *> &iList)$/;"	f	class:MainWindow	signature:(QList<Item *> &iList)
 addItem	mainwindow.h	/^    int addItem(QList<Item *> &iList);$/;"	p	class:MainWindow	access:public	signature:(QList<Item *> &iList)
-addMenu	mainwindow.cpp	/^void MainWindow::addMenu()$/;"	f	class:MainWindow	signature:()
-addMenu	mainwindow.h	/^    void addMenu();$/;"	p	class:MainWindow	access:protected	signature:()
 boundingRect	element.cpp	/^QRectF Item::boundingRect() const$/;"	f	class:Item	signature:() const
 boundingRect	element.h	/^    QRectF boundingRect() const;$/;"	p	class:Item	access:public	signature:() const
 centralWidget	ui_mainwindow.h	/^    QWidget *centralWidget;$/;"	m	class:Ui_MainWindow	access:public
 changeEvent	aboutdialog.cpp	/^void aboutDialog::changeEvent(QEvent *e)$/;"	f	class:aboutDialog	signature:(QEvent *e)
 changeEvent	aboutdialog.h	/^    void changeEvent(QEvent *e);$/;"	p	class:aboutDialog	access:protected	signature:(QEvent *e)
+changeEvent	adddialog.cpp	/^void addDialog::changeEvent(QEvent *e)$/;"	f	class:addDialog	signature:(QEvent *e)
+changeEvent	adddialog.h	/^    void changeEvent(QEvent *e);$/;"	p	class:addDialog	access:protected	signature:(QEvent *e)
 changeEvent	configure.cpp	/^void configure::changeEvent(QEvent *e)$/;"	f	class:configure	signature:(QEvent *e)
 changeEvent	configure.h	/^    void changeEvent(QEvent *e);$/;"	p	class:configure	access:protected	signature:(QEvent *e)
 changeEvent	mainwindow.cpp	/^void MainWindow::changeEvent(QEvent *e)$/;"	f	class:MainWindow	signature:(QEvent *e)
 changeEvent	mainwindow.h	/^    void changeEvent(QEvent *e);$/;"	p	class:MainWindow	access:protected	signature:(QEvent *e)
-changeEvent	statusbarform.cpp	/^void statusBarForm::changeEvent(QEvent *e)$/;"	f	class:statusBarForm	signature:(QEvent *e)
-changeEvent	statusbarform.h	/^    void changeEvent(QEvent *e);$/;"	p	class:statusBarForm	access:protected	signature:(QEvent *e)
-checkBox	ui_statusbarform.h	/^    QCheckBox *checkBox;$/;"	m	class:Ui_statusBarForm	access:public
 configure	configure.cpp	/^configure::configure(QWidget *parent) :$/;"	f	class:configure	signature:(QWidget *parent)
 configure	configure.h	/^    configure(QWidget *parent = 0);$/;"	p	class:configure	access:public	signature:(QWidget *parent = 0)
 configure	configure.h	/^class configure : public QDialog {$/;"	c	inherits:QDialog
 configure	ui_configure.h	/^    class configure: public Ui_configure {};$/;"	c	namespace:Ui	inherits:Ui_configure
+configure::addItem	configure.cpp	/^void configure::addItem()$/;"	f	class:configure	signature:()
+configure::addItem	configure.h	/^    void addItem();$/;"	p	class:configure	access:private	signature:()
 configure::changeEvent	configure.cpp	/^void configure::changeEvent(QEvent *e)$/;"	f	class:configure	signature:(QEvent *e)
 configure::changeEvent	configure.h	/^    void changeEvent(QEvent *e);$/;"	p	class:configure	access:protected	signature:(QEvent *e)
 configure::configure	configure.cpp	/^configure::configure(QWidget *parent) :$/;"	f	class:configure	signature:(QWidget *parent)
 configure::configure	configure.h	/^    configure(QWidget *parent = 0);$/;"	p	class:configure	access:public	signature:(QWidget *parent = 0)
 configure::getStaticMetaObject	moc_configure.cpp	/^const QMetaObject &configure::getStaticMetaObject() { return staticMetaObject; }$/;"	f	class:configure	signature:()
 configure::metaObject	moc_configure.cpp	/^const QMetaObject *configure::metaObject() const$/;"	f	class:configure	signature:() const
+configure::on_AddReturn_done	configure.h	/^    void on_AddReturn_done(QString, QString);$/;"	p	class:configure	access:private	signature:(QString, QString)
+configure::on_Add_clicked	configure.cpp	/^void configure::on_Add_clicked()$/;"	f	class:configure	signature:()
+configure::on_Add_clicked	configure.h	/^    void on_Add_clicked();$/;"	p	class:configure	access:private	signature:()
 configure::qt_metacall	moc_configure.cpp	/^int configure::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:configure	signature:(QMetaObject::Call _c, int _id, void **_a)
 configure::qt_metacast	moc_configure.cpp	/^void *configure::qt_metacast(const char *_clname)$/;"	f	class:configure	signature:(const char *_clname)
 configure::staticMetaObject	moc_configure.cpp	/^const QMetaObject configure::staticMetaObject = {$/;"	m	class:configure	file:
 configure::ui	configure.h	/^    Ui::configure *ui;$/;"	m	class:configure	access:private
 configure::~configure	configure.cpp	/^configure::~configure()$/;"	f	class:configure	signature:()
 configure::~configure	configure.h	/^    ~configure();$/;"	p	class:configure	access:public	signature:()
+configureDialog	mainwindow.h	/^    configure *configureDialog;$/;"	m	class:MainWindow	access:private
 customizeItem	element.cpp	/^void Item::customizeItem()$/;"	f	class:Item	signature:()
 customizeItem	element.h	/^    void customizeItem();$/;"	p	class:Item	access:public	signature:()
 draw	element.cpp	/^void Item::draw()$/;"	f	class:Item	signature:()
@@ -247,42 +287,38 @@ getIndex	element.h	/^    int getIndex();$/;"	p	class:Item	access:public	signatur
 getName	element.cpp	/^const QString Item::getName()$/;"	f	class:Item	signature:()
 getName	element.h	/^    const QString getName();$/;"	p	class:Item	access:public	signature:()
 getStaticMetaObject	moc_aboutdialog.cpp	/^const QMetaObject &aboutDialog::getStaticMetaObject() { return staticMetaObject; }$/;"	f	class:aboutDialog	signature:()
+getStaticMetaObject	moc_adddialog.cpp	/^const QMetaObject &addDialog::getStaticMetaObject() { return staticMetaObject; }$/;"	f	class:addDialog	signature:()
 getStaticMetaObject	moc_configure.cpp	/^const QMetaObject &configure::getStaticMetaObject() { return staticMetaObject; }$/;"	f	class:configure	signature:()
 getStaticMetaObject	moc_mainwindow.cpp	/^const QMetaObject &MainWindow::getStaticMetaObject() { return staticMetaObject; }$/;"	f	class:MainWindow	signature:()
-getStaticMetaObject	moc_statusbarform.cpp	/^const QMetaObject &statusBarForm::getStaticMetaObject() { return staticMetaObject; }$/;"	f	class:statusBarForm	signature:()
+gridLayout	ui_adddialog.h	/^    QGridLayout *gridLayout;$/;"	m	class:Ui_addDialog	access:public
 gridLayout	ui_configure.h	/^    QGridLayout *gridLayout;$/;"	m	class:Ui_configure	access:public
-gridLayout	ui_statusbarform.h	/^    QGridLayout *gridLayout;$/;"	m	class:Ui_statusBarForm	access:public
-gridLayoutWidget	ui_configure.h	/^    QWidget *gridLayoutWidget;$/;"	m	class:Ui_configure	access:public
-horizontalSlider	ui_statusbarform.h	/^    QSlider *horizontalSlider;$/;"	m	class:Ui_statusBarForm	access:public
-horizontalSpacer	ui_statusbarform.h	/^    QSpacerItem *horizontalSpacer;$/;"	m	class:Ui_statusBarForm	access:public
-horizontalSpacer_2	ui_statusbarform.h	/^    QSpacerItem *horizontalSpacer_2;$/;"	m	class:Ui_statusBarForm	access:public
+horizontalLayout	ui_configure.h	/^    QHBoxLayout *horizontalLayout;$/;"	m	class:Ui_configure	access:public
 imageLabel	element.h	/^    QLabel *imageLabel;$/;"	m	class:Item	access:private
 index	element.h	/^    int index;$/;"	m	class:Item	access:private
-label	ui_statusbarform.h	/^    QLabel *label;$/;"	m	class:Ui_statusBarForm	access:public
+label	ui_adddialog.h	/^    QLabel *label;$/;"	m	class:Ui_addDialog	access:public
+label_2	ui_adddialog.h	/^    QLabel *label_2;$/;"	m	class:Ui_addDialog	access:public
 layout	element.h	/^    QVBoxLayout *layout;$/;"	m	class:Item	access:private
 line	ui_configure.h	/^    QFrame *line;$/;"	m	class:Ui_configure	access:public
-line	ui_statusbarform.h	/^    QFrame *line;$/;"	m	class:Ui_statusBarForm	access:public
 list	mainwindow.h	/^    QList<Item *> *list;$/;"	m	class:MainWindow	access:private
-listView	ui_configure.h	/^    QListView *listView;$/;"	m	class:Ui_configure	access:public
 main	main.cpp	/^int main(int argc, char *argv[])$/;"	f	signature:(int argc, char *argv[])
-menu	mainwindow.h	/^    QMenu *menu;$/;"	m	class:MainWindow	access:private
-menuBar	ui_mainwindow.h	/^    QMenuBar *menuBar;$/;"	m	class:Ui_MainWindow	access:public
-menuFile	ui_mainwindow.h	/^    QMenu *menuFile;$/;"	m	class:Ui_MainWindow	access:public
 metaObject	moc_aboutdialog.cpp	/^const QMetaObject *aboutDialog::metaObject() const$/;"	f	class:aboutDialog	signature:() const
+metaObject	moc_adddialog.cpp	/^const QMetaObject *addDialog::metaObject() const$/;"	f	class:addDialog	signature:() const
 metaObject	moc_configure.cpp	/^const QMetaObject *configure::metaObject() const$/;"	f	class:configure	signature:() const
 metaObject	moc_mainwindow.cpp	/^const QMetaObject *MainWindow::metaObject() const$/;"	f	class:MainWindow	signature:() const
-metaObject	moc_statusbarform.cpp	/^const QMetaObject *statusBarForm::metaObject() const$/;"	f	class:statusBarForm	signature:() const
 mouseDoubleClickEvent	element.cpp	/^void Item::mouseDoubleClickEvent(QMouseEvent *event)$/;"	f	class:Item	signature:(QMouseEvent *event)
 mouseDoubleClickEvent	element.h	/^    void mouseDoubleClickEvent(QMouseEvent *event);$/;"	p	class:Item	access:public	signature:(QMouseEvent *event)
 name	element.h	/^    QString name;$/;"	m	class:Item	access:private
 nameLabel	element.h	/^    QLabel *nameLabel;$/;"	m	class:Item	access:private
+newAction	mainwindow.cpp	/^void MainWindow::newAction()$/;"	f	class:MainWindow	signature:()
+newAction	mainwindow.h	/^    void newAction();$/;"	p	class:MainWindow	access:protected	signature:()
 nextIndex	element.h	/^    int nextIndex;$/;"	m	class:Item	access:private
-on_actionAbout_triggered	mainwindow.cpp	/^void MainWindow::on_actionAbout_triggered()$/;"	f	class:MainWindow	signature:()
-on_actionAbout_triggered	mainwindow.h	/^    void on_actionAbout_triggered();$/;"	p	class:MainWindow	access:private	signature:()
-on_actionConfigure_triggered	mainwindow.cpp	/^void MainWindow::on_actionConfigure_triggered()$/;"	f	class:MainWindow	signature:()
-on_actionConfigure_triggered	mainwindow.h	/^    void on_actionConfigure_triggered();$/;"	p	class:MainWindow	access:private	signature:()
-on_actionRandom_triggered	mainwindow.cpp	/^void MainWindow::on_actionRandom_triggered()$/;"	f	class:MainWindow	signature:()
-on_actionRandom_triggered	mainwindow.h	/^    void on_actionRandom_triggered();$/;"	p	class:MainWindow	access:private	signature:()
+on_AddReturn_done	configure.h	/^    void on_AddReturn_done(QString, QString);$/;"	p	class:configure	access:private	signature:(QString, QString)
+on_Add_clicked	configure.cpp	/^void configure::on_Add_clicked()$/;"	f	class:configure	signature:()
+on_Add_clicked	configure.h	/^    void on_Add_clicked();$/;"	p	class:configure	access:private	signature:()
+on_ChooseFile_clicked	adddialog.cpp	/^void addDialog::on_ChooseFile_clicked()$/;"	f	class:addDialog	signature:()
+on_ChooseFile_clicked	adddialog.h	/^    void on_ChooseFile_clicked();$/;"	p	class:addDialog	access:private	signature:()
+on_OK_clicked	adddialog.cpp	/^void addDialog::on_OK_clicked()$/;"	f	class:addDialog	signature:()
+on_OK_clicked	adddialog.h	/^    void on_OK_clicked();$/;"	p	class:addDialog	access:private	signature:()
 paint	element.cpp	/^void Item::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)$/;"	f	class:Item	signature:(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 paint	element.h	/^    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);$/;"	p	class:Item	access:public	signature:(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 painter	element.h	/^    QPainter painter;$/;"	m	class:Item	access:private
@@ -291,74 +327,58 @@ placement	mainwindow.h	/^    void placement();$/;"	p	class:MainWindow	access:pub
 printList	list.cpp	/^void printList(QList<Item *> & list)$/;"	f	signature:(QList<Item *> & list)
 printList	list.h	/^void printList(QList<Item *> &list);$/;"	p	signature:(QList<Item *> &list)
 pushButton	ui_aboutdialog.h	/^    QPushButton *pushButton;$/;"	m	class:Ui_aboutDialog	access:public
-pushButton	ui_configure.h	/^    QPushButton *pushButton;$/;"	m	class:Ui_configure	access:public
-pushButton_2	ui_configure.h	/^    QPushButton *pushButton_2;$/;"	m	class:Ui_configure	access:public
-pushButton_3	ui_configure.h	/^    QPushButton *pushButton_3;$/;"	m	class:Ui_configure	access:public
-pushButton_4	ui_configure.h	/^    QPushButton *pushButton_4;$/;"	m	class:Ui_configure	access:public
 qt_meta_data_MainWindow	moc_mainwindow.cpp	/^static const uint qt_meta_data_MainWindow[] = {$/;"	v	file:
 qt_meta_data_aboutDialog	moc_aboutdialog.cpp	/^static const uint qt_meta_data_aboutDialog[] = {$/;"	v	file:
+qt_meta_data_addDialog	moc_adddialog.cpp	/^static const uint qt_meta_data_addDialog[] = {$/;"	v	file:
 qt_meta_data_configure	moc_configure.cpp	/^static const uint qt_meta_data_configure[] = {$/;"	v	file:
-qt_meta_data_statusBarForm	moc_statusbarform.cpp	/^static const uint qt_meta_data_statusBarForm[] = {$/;"	v	file:
 qt_meta_stringdata_MainWindow	moc_mainwindow.cpp	/^static const char qt_meta_stringdata_MainWindow[] = {$/;"	v	file:
 qt_meta_stringdata_aboutDialog	moc_aboutdialog.cpp	/^static const char qt_meta_stringdata_aboutDialog[] = {$/;"	v	file:
+qt_meta_stringdata_addDialog	moc_adddialog.cpp	/^static const char qt_meta_stringdata_addDialog[] = {$/;"	v	file:
 qt_meta_stringdata_configure	moc_configure.cpp	/^static const char qt_meta_stringdata_configure[] = {$/;"	v	file:
-qt_meta_stringdata_statusBarForm	moc_statusbarform.cpp	/^static const char qt_meta_stringdata_statusBarForm[] = {$/;"	v	file:
 qt_metacall	moc_aboutdialog.cpp	/^int aboutDialog::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:aboutDialog	signature:(QMetaObject::Call _c, int _id, void **_a)
+qt_metacall	moc_adddialog.cpp	/^int addDialog::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:addDialog	signature:(QMetaObject::Call _c, int _id, void **_a)
 qt_metacall	moc_configure.cpp	/^int configure::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:configure	signature:(QMetaObject::Call _c, int _id, void **_a)
 qt_metacall	moc_mainwindow.cpp	/^int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:MainWindow	signature:(QMetaObject::Call _c, int _id, void **_a)
-qt_metacall	moc_statusbarform.cpp	/^int statusBarForm::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:statusBarForm	signature:(QMetaObject::Call _c, int _id, void **_a)
 qt_metacast	moc_aboutdialog.cpp	/^void *aboutDialog::qt_metacast(const char *_clname)$/;"	f	class:aboutDialog	signature:(const char *_clname)
+qt_metacast	moc_adddialog.cpp	/^void *addDialog::qt_metacast(const char *_clname)$/;"	f	class:addDialog	signature:(const char *_clname)
 qt_metacast	moc_configure.cpp	/^void *configure::qt_metacast(const char *_clname)$/;"	f	class:configure	signature:(const char *_clname)
 qt_metacast	moc_mainwindow.cpp	/^void *MainWindow::qt_metacast(const char *_clname)$/;"	f	class:MainWindow	signature:(const char *_clname)
-qt_metacast	moc_statusbarform.cpp	/^void *statusBarForm::qt_metacast(const char *_clname)$/;"	f	class:statusBarForm	signature:(const char *_clname)
-randomB	ui_statusbarform.h	/^    QPushButton *randomB;$/;"	m	class:Ui_statusBarForm	access:public
 randomize	list.cpp	/^void randomize(QList<Item *> * org)$/;"	f	signature:(QList<Item *> * org)
 randomize	list.h	/^void randomize(QList<Item *> * org);$/;"	p	signature:(QList<Item *> * org)
 reDraw	element.cpp	/^void Item::reDraw()$/;"	f	class:Item	signature:()
 reDraw	element.h	/^    void reDraw();$/;"	p	class:Item	access:public	signature:()
 readConfiguration	list.cpp	/^bool readConfiguration(QList<Item *> *itemList, QString fileName)$/;"	f	signature:(QList<Item *> *itemList, QString fileName)
 readConfiguration	list.h	/^bool readConfiguration(QList<Item *> *itemList, QString fileName = "configure.xml");$/;"	p	signature:(QList<Item *> *itemList, QString fileName = Ó)
+readXML	list.cpp	/^QDomDocument * const readXML(QString fileName)$/;"	f	signature:(QString fileName)
+readXML	list.h	/^QDomDocument * const readXML(QString fileName = "configure.xml");$/;"	p	signature:(QString fileName = Ó)
+resizeEvent	mainwindow.cpp	/^void MainWindow::resizeEvent(QResizeEvent * event)$/;"	f	class:MainWindow	signature:(QResizeEvent * event)
+resizeEvent	mainwindow.h	/^    void resizeEvent(QResizeEvent * event);$/;"	p	class:MainWindow	access:private	signature:(QResizeEvent * event)
 retranslateUi	ui_aboutdialog.h	/^    void retranslateUi(QDialog *aboutDialog)$/;"	f	class:Ui_aboutDialog	access:public	signature:(QDialog *aboutDialog)
+retranslateUi	ui_adddialog.h	/^    void retranslateUi(QWidget *addDialog)$/;"	f	class:Ui_addDialog	access:public	signature:(QWidget *addDialog)
 retranslateUi	ui_configure.h	/^    void retranslateUi(QDialog *configure)$/;"	f	class:Ui_configure	access:public	signature:(QDialog *configure)
 retranslateUi	ui_mainwindow.h	/^    void retranslateUi(QMainWindow *MainWindow)$/;"	f	class:Ui_MainWindow	access:public	signature:(QMainWindow *MainWindow)
-retranslateUi	ui_statusbarform.h	/^    void retranslateUi(QWidget *statusBarForm)$/;"	f	class:Ui_statusBarForm	access:public	signature:(QWidget *statusBarForm)
-sbf	mainwindow.h	/^    statusBarForm *sbf;$/;"	m	class:MainWindow	access:private
+returnInfo	adddialog.h	/^    void returnInfo(QSting Name, QString path);$/;"	p	class:addDialog	access:protected	signature:(QSting Name, QString path)
 scene	mainwindow.h	/^    QGraphicsScene *scene;$/;"	m	class:MainWindow	access:private
 setIndex	element.cpp	/^void Item::setIndex(int i)$/;"	f	class:Item	signature:(int i)
 setIndex	element.h	/^    void setIndex(int);$/;"	p	class:Item	access:public	signature:(int)
 setupUi	ui_aboutdialog.h	/^    void setupUi(QDialog *aboutDialog)$/;"	f	class:Ui_aboutDialog	access:public	signature:(QDialog *aboutDialog)
+setupUi	ui_adddialog.h	/^    void setupUi(QWidget *addDialog)$/;"	f	class:Ui_addDialog	access:public	signature:(QWidget *addDialog)
 setupUi	ui_configure.h	/^    void setupUi(QDialog *configure)$/;"	f	class:Ui_configure	access:public	signature:(QDialog *configure)
 setupUi	ui_mainwindow.h	/^    void setupUi(QMainWindow *MainWindow)$/;"	f	class:Ui_MainWindow	access:public	signature:(QMainWindow *MainWindow)
-setupUi	ui_statusbarform.h	/^    void setupUi(QWidget *statusBarForm)$/;"	f	class:Ui_statusBarForm	access:public	signature:(QWidget *statusBarForm)
 staticMetaObject	moc_aboutdialog.cpp	/^const QMetaObject aboutDialog::staticMetaObject = {$/;"	m	class:aboutDialog	file:
+staticMetaObject	moc_adddialog.cpp	/^const QMetaObject addDialog::staticMetaObject = {$/;"	m	class:addDialog	file:
 staticMetaObject	moc_configure.cpp	/^const QMetaObject configure::staticMetaObject = {$/;"	m	class:configure	file:
 staticMetaObject	moc_mainwindow.cpp	/^const QMetaObject MainWindow::staticMetaObject = {$/;"	m	class:MainWindow	file:
-staticMetaObject	moc_statusbarform.cpp	/^const QMetaObject statusBarForm::staticMetaObject = {$/;"	m	class:statusBarForm	file:
 statusBar	ui_mainwindow.h	/^    QStatusBar *statusBar;$/;"	m	class:Ui_MainWindow	access:public
-statusBarForm	statusbarform.cpp	/^statusBarForm::statusBarForm(QWidget *parent) :$/;"	f	class:statusBarForm	signature:(QWidget *parent)
-statusBarForm	statusbarform.h	/^    statusBarForm(QWidget *parent = 0);$/;"	p	class:statusBarForm	access:public	signature:(QWidget *parent = 0)
-statusBarForm	statusbarform.h	/^class statusBarForm : public QWidget {$/;"	c	inherits:QWidget
-statusBarForm	ui_statusbarform.h	/^    class statusBarForm: public Ui_statusBarForm {};$/;"	c	namespace:Ui	inherits:Ui_statusBarForm
-statusBarForm::changeEvent	statusbarform.cpp	/^void statusBarForm::changeEvent(QEvent *e)$/;"	f	class:statusBarForm	signature:(QEvent *e)
-statusBarForm::changeEvent	statusbarform.h	/^    void changeEvent(QEvent *e);$/;"	p	class:statusBarForm	access:protected	signature:(QEvent *e)
-statusBarForm::getStaticMetaObject	moc_statusbarform.cpp	/^const QMetaObject &statusBarForm::getStaticMetaObject() { return staticMetaObject; }$/;"	f	class:statusBarForm	signature:()
-statusBarForm::metaObject	moc_statusbarform.cpp	/^const QMetaObject *statusBarForm::metaObject() const$/;"	f	class:statusBarForm	signature:() const
-statusBarForm::qt_metacall	moc_statusbarform.cpp	/^int statusBarForm::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:statusBarForm	signature:(QMetaObject::Call _c, int _id, void **_a)
-statusBarForm::qt_metacast	moc_statusbarform.cpp	/^void *statusBarForm::qt_metacast(const char *_clname)$/;"	f	class:statusBarForm	signature:(const char *_clname)
-statusBarForm::staticMetaObject	moc_statusbarform.cpp	/^const QMetaObject statusBarForm::staticMetaObject = {$/;"	m	class:statusBarForm	file:
-statusBarForm::statusBarForm	statusbarform.cpp	/^statusBarForm::statusBarForm(QWidget *parent) :$/;"	f	class:statusBarForm	signature:(QWidget *parent)
-statusBarForm::statusBarForm	statusbarform.h	/^    statusBarForm(QWidget *parent = 0);$/;"	p	class:statusBarForm	access:public	signature:(QWidget *parent = 0)
-statusBarForm::ui	statusbarform.h	/^    Ui::statusBarForm *ui;$/;"	m	class:statusBarForm	access:public
-statusBarForm::~statusBarForm	statusbarform.cpp	/^statusBarForm::~statusBarForm()$/;"	f	class:statusBarForm	signature:()
-statusBarForm::~statusBarForm	statusbarform.h	/^    ~statusBarForm();$/;"	p	class:statusBarForm	access:public	signature:()
+tableView	ui_configure.h	/^    QTableView *tableView;$/;"	m	class:Ui_configure	access:public
 textBrowser	ui_aboutdialog.h	/^    QTextBrowser *textBrowser;$/;"	m	class:Ui_aboutDialog	access:public
-toggle	element.cpp	/^void Item::toggle()$/;"	f	class:Item	signature:()
-toggle	element.h	/^    void toggle();$/;"	p	class:Item	access:public	signature:()
-toolButton	ui_statusbarform.h	/^    QToolButton *toolButton;$/;"	m	class:Ui_statusBarForm	access:public
+toggle	element.cpp	/^void Item::toggle(int i)$/;"	f	class:Item	signature:(int i)
+toggle	element.h	/^    void toggle(int i = 1);$/;"	p	class:Item	access:public	signature:(int i = 1)
 ui	aboutdialog.h	/^    Ui::aboutDialog *ui;$/;"	m	class:aboutDialog	access:private
+ui	adddialog.h	/^    Ui::addDialog *ui;$/;"	m	class:addDialog	access:private
 ui	configure.h	/^    Ui::configure *ui;$/;"	m	class:configure	access:private
 ui	mainwindow.h	/^    Ui::MainWindow *ui;$/;"	m	class:MainWindow	access:private
-ui	statusbarform.h	/^    Ui::statusBarForm *ui;$/;"	m	class:statusBarForm	access:public
+verticalLayout	ui_configure.h	/^    QVBoxLayout *verticalLayout;$/;"	m	class:Ui_configure	access:public
 verticalSpacer	ui_configure.h	/^    QSpacerItem *verticalSpacer;$/;"	m	class:Ui_configure	access:public
 view	mainwindow.h	/^    QGraphicsView *view;$/;"	m	class:MainWindow	access:private
 widgetList	mainwindow.h	/^    QList<QGraphicsProxyWidget *> *widgetList;$/;"	m	class:MainWindow	access:private
@@ -366,7 +386,7 @@ widgetList	mainwindow.h	/^    QList<QGraphicsProxyWidget *> *widgetList;$/;"	m	c
 ~MainWindow	mainwindow.h	/^    ~MainWindow();$/;"	p	class:MainWindow	access:public	signature:()
 ~aboutDialog	aboutdialog.cpp	/^aboutDialog::~aboutDialog()$/;"	f	class:aboutDialog	signature:()
 ~aboutDialog	aboutdialog.h	/^    ~aboutDialog();$/;"	p	class:aboutDialog	access:public	signature:()
+~addDialog	adddialog.cpp	/^addDialog::~addDialog()$/;"	f	class:addDialog	signature:()
+~addDialog	adddialog.h	/^    ~addDialog();$/;"	p	class:addDialog	access:public	signature:()
 ~configure	configure.cpp	/^configure::~configure()$/;"	f	class:configure	signature:()
 ~configure	configure.h	/^    ~configure();$/;"	p	class:configure	access:public	signature:()
-~statusBarForm	statusbarform.cpp	/^statusBarForm::~statusBarForm()$/;"	f	class:statusBarForm	signature:()
-~statusBarForm	statusbarform.h	/^    ~statusBarForm();$/;"	p	class:statusBarForm	access:public	signature:()

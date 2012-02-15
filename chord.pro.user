@@ -77,19 +77,18 @@
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList">
     <value type="QString">COLORTERM=gnome-terminal</value>
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-K9IhlOVmyj,guid=37b65ae2908d188faade370200000032</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-UFSQylS0g4,guid=3203b433957c907971de7ca000000290</value>
     <value type="QString">DESKTOP_SESSION=default</value>
     <value type="QString">DISPLAY=:0.0</value>
     <value type="QString">GDMSESSION=default</value>
     <value type="QString">GDM_KEYBOARD_LAYOUT=us</value>
     <value type="QString">GDM_LANG=en_US.utf8</value>
     <value type="QString">GNOME_DESKTOP_SESSION_ID=this-is-deprecated</value>
-    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-uOnArZ</value>
-    <value type="QString">GNOME_KEYRING_PID=2622</value>
-    <value type="QString">GPG_AGENT_INFO=/tmp/seahorse-KjQfPc/S.gpg-agent:2730:1</value>
+    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-xLF3Ay</value>
+    <value type="QString">GNOME_KEYRING_PID=4581</value>
+    <value type="QString">GPG_AGENT_INFO=/tmp/seahorse-GRKVKQ/S.gpg-agent:4667:1</value>
     <value type="QString">GTK_IM_MODULE=ibus</value>
     <value type="QString">GTK_MODULES=canberra-gtk-module</value>
-    <value type="QString">GTK_RC_FILES=/etc/gtk/gtkrc:/home/lirenlin/.gtkrc-1.2-gnome2</value>
     <value type="QString">HOME=/home/lirenlin</value>
     <value type="QString">LANG=en_US.utf8</value>
     <value type="QString">LD_LIBRARY_PATH=/usr/lib/qtcreator</value>
@@ -101,19 +100,19 @@
     <value type="QString">PWD=/home/lirenlin/Documents/Chords/qt_prj/chord</value>
     <value type="QString">QTDIR=/usr/share/qt4</value>
     <value type="QString">QT_IM_MODULE=xim</value>
-    <value type="QString">SESSION_MANAGER=local/nerd:@/tmp/.ICE-unix/2641,unix/nerd:/tmp/.ICE-unix/2641</value>
+    <value type="QString">SESSION_MANAGER=local/nerd:@/tmp/.ICE-unix/4600,unix/nerd:/tmp/.ICE-unix/4600</value>
     <value type="QString">SHELL=/bin/bash</value>
     <value type="QString">SHLVL=1</value>
-    <value type="QString">SSH_AGENT_PID=2711</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-uOnArZ/ssh</value>
+    <value type="QString">SSH_AGENT_PID=4644</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-ysZQdR4600/agent.4600</value>
     <value type="QString">TERM=xterm</value>
     <value type="QString">USER=lirenlin</value>
     <value type="QString">USERNAME=lirenlin</value>
-    <value type="QString">WINDOWID=69206019</value>
+    <value type="QString">WINDOWID=79691780</value>
     <value type="QString">WINDOWPATH=7</value>
-    <value type="QString">XAUTHORITY=/var/run/gdm3/auth-for-lirenlin-tT41z1/database</value>
+    <value type="QString">XAUTHORITY=/var/run/gdm3/auth-for-lirenlin-ADuQkr/database</value>
     <value type="QString">XDG_DATA_DIRS=/usr/share/gnome:/usr/share/gdm/:/usr/local/share/:/usr/share/</value>
-    <value type="QString">XDG_SESSION_COOKIE=397e2852341377c691f7d58a0000000b-1329152740.829052-1923970659</value>
+    <value type="QString">XDG_SESSION_COOKIE=397e2852341377c691f7d58a0000000b-1329331602.565757-1845218343</value>
     <value type="QString">XMODIFIERS=@im=ibus</value>
     <value type="QString">_=/usr/bin/qtcreator</value>
    </valuelist>
@@ -135,19 +134,18 @@
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString">Debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList">
     <value type="QString">COLORTERM=gnome-terminal</value>
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-K9IhlOVmyj,guid=37b65ae2908d188faade370200000032</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-UFSQylS0g4,guid=3203b433957c907971de7ca000000290</value>
     <value type="QString">DESKTOP_SESSION=default</value>
     <value type="QString">DISPLAY=:0.0</value>
     <value type="QString">GDMSESSION=default</value>
     <value type="QString">GDM_KEYBOARD_LAYOUT=us</value>
     <value type="QString">GDM_LANG=en_US.utf8</value>
     <value type="QString">GNOME_DESKTOP_SESSION_ID=this-is-deprecated</value>
-    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-uOnArZ</value>
-    <value type="QString">GNOME_KEYRING_PID=2622</value>
-    <value type="QString">GPG_AGENT_INFO=/tmp/seahorse-KjQfPc/S.gpg-agent:2730:1</value>
+    <value type="QString">GNOME_KEYRING_CONTROL=/tmp/keyring-xLF3Ay</value>
+    <value type="QString">GNOME_KEYRING_PID=4581</value>
+    <value type="QString">GPG_AGENT_INFO=/tmp/seahorse-GRKVKQ/S.gpg-agent:4667:1</value>
     <value type="QString">GTK_IM_MODULE=ibus</value>
     <value type="QString">GTK_MODULES=canberra-gtk-module</value>
-    <value type="QString">GTK_RC_FILES=/etc/gtk/gtkrc:/home/lirenlin/.gtkrc-1.2-gnome2</value>
     <value type="QString">HOME=/home/lirenlin</value>
     <value type="QString">LANG=en_US.utf8</value>
     <value type="QString">LD_LIBRARY_PATH=/usr/lib/qtcreator</value>
@@ -159,19 +157,19 @@
     <value type="QString">PWD=/home/lirenlin/Documents/Chords/qt_prj/chord</value>
     <value type="QString">QTDIR=/usr/share/qt4</value>
     <value type="QString">QT_IM_MODULE=xim</value>
-    <value type="QString">SESSION_MANAGER=local/nerd:@/tmp/.ICE-unix/2641,unix/nerd:/tmp/.ICE-unix/2641</value>
+    <value type="QString">SESSION_MANAGER=local/nerd:@/tmp/.ICE-unix/4600,unix/nerd:/tmp/.ICE-unix/4600</value>
     <value type="QString">SHELL=/bin/bash</value>
     <value type="QString">SHLVL=1</value>
-    <value type="QString">SSH_AGENT_PID=2711</value>
-    <value type="QString">SSH_AUTH_SOCK=/tmp/keyring-uOnArZ/ssh</value>
+    <value type="QString">SSH_AGENT_PID=4644</value>
+    <value type="QString">SSH_AUTH_SOCK=/tmp/ssh-ysZQdR4600/agent.4600</value>
     <value type="QString">TERM=xterm</value>
     <value type="QString">USER=lirenlin</value>
     <value type="QString">USERNAME=lirenlin</value>
-    <value type="QString">WINDOWID=69206019</value>
+    <value type="QString">WINDOWID=79691780</value>
     <value type="QString">WINDOWPATH=7</value>
-    <value type="QString">XAUTHORITY=/var/run/gdm3/auth-for-lirenlin-tT41z1/database</value>
+    <value type="QString">XAUTHORITY=/var/run/gdm3/auth-for-lirenlin-ADuQkr/database</value>
     <value type="QString">XDG_DATA_DIRS=/usr/share/gnome:/usr/share/gdm/:/usr/local/share/:/usr/share/</value>
-    <value type="QString">XDG_SESSION_COOKIE=397e2852341377c691f7d58a0000000b-1329152740.829052-1923970659</value>
+    <value type="QString">XDG_SESSION_COOKIE=397e2852341377c691f7d58a0000000b-1329331602.565757-1845218343</value>
     <value type="QString">XMODIFIERS=@im=ibus</value>
     <value type="QString">_=/usr/bin/qtcreator</value>
    </valuelist>

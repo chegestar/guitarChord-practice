@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'configure.h'
 **
-** Created: Sun Feb 12 21:57:01 2012
+** Created: Wed Feb 15 22:30:36 2012
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.3)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,18 +23,24 @@ static const uint qt_meta_data_configure[] = {
        4,       // revision
        0,       // classname
        0,    0, // classinfo
-       0,    0, // methods
+       3,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
        0,       // signalCount
 
+ // slots: signature, parameters, type, tag, flags
+      11,   10,   10,   10, 0x08,
+      28,   10,   10,   10, 0x08,
+      46,   44,   10,   10, 0x08,
+
        0        // eod
 };
 
 static const char qt_meta_stringdata_configure[] = {
-    "configure\0"
+    "configure\0\0on_Add_clicked()\0on_OK_clicked()\0"
+    ",\0AddDone(QString,QString)\0"
 };
 
 const QMetaObject configure::staticMetaObject = {
@@ -64,6 +70,15 @@ int configure::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     _id = QDialog::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
+    if (_c == QMetaObject::InvokeMetaMethod) {
+        switch (_id) {
+        case 0: on_Add_clicked(); break;
+        case 1: on_OK_clicked(); break;
+        case 2: AddDone((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
+        default: ;
+        }
+        _id -= 3;
+    }
     return _id;
 }
 QT_END_MOC_NAMESPACE

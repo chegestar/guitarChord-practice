@@ -2,6 +2,7 @@
 #define ABOUTDIALOG_H
 
 #include <QDialog>
+#include <QString>
 
 namespace Ui {
     class aboutDialog;

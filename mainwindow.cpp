@@ -157,6 +157,8 @@ void MainWindow::actionAbout_triggered()
 
 void MainWindow::actionConfigure_triggered()
 {
+    configureDialog = new configure();
+    configureDialog->show();
 
     qDebug() << "Configure!";
 }

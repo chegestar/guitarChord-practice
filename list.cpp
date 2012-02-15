@@ -4,7 +4,6 @@
 #include <QGraphicsItem>
 #include <QFile>
 #include <QString>
-#include <QDomDocument>
 #include <QDomNodeList>
 #include <QDebug>
 #include "list.h"
@@ -26,21 +25,19 @@ void randomize(QList<Item *> * org)
 
         Item *selectedItem = new Item();
         selectedItem = tmp.at(rIndex);
-        //tmp->append(slectedItem);
         
         org->at(org->indexOf(selectedItem))->setIndex(next);
         tmp.removeAt(rIndex);
-        //org->at(rIndex)->setIndex(next);
+
         ++next;
 
 
     }while(!tmp.empty());
 
-    //org->append(*tmp);
 
 }
 
-bool readConfiguration(QList<Item *> *itemList, QString fileName)
+QDomDocument * const readXML(QString fileName)
 {
     QFile file(fileName);
     if(!file.open(QFile::ReadOnly | QFile::Text))
@@ -49,15 +46,21 @@ bool readConfiguration(QList<Item *> *itemList, QString fileName)
         return false;
     }
 
-    QDomDocument doc;
-    if( !doc.setContent(&file))
+    QDomDocument *doc = new QDomDocument();
+    if( !doc->setContent(&file))
     {
         file.close();
         return false;
     }
     file.close();
+    return doc;
+}
 
-    QDomElement docElem = doc.documentElement();
+
+bool readConfiguration(QList<Item *> *itemList, QString fileName)
+{
+    QDomElement docElem = readXML(fileName)->documentElement();
+
     QDomNodeList nodeList = docElem.elementsByTagName("item").at(0).toElement().elementsByTagName("Type");
 
     if(nodeList.count() > 0)
