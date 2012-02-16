@@ -1,6 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "list.h"
+#include "element.h"
+#include "aboutdialog.h"
+#include "configure.h"
 
 #include <QDebug>
 #include <QObject>
@@ -8,6 +11,7 @@
 #include <QShortcut>
 #include <QCheckBox>
 #include <QPropertyAnimation>
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -159,6 +163,7 @@ void MainWindow::actionConfigure_triggered()
 {
     configureDialog = new configure();
     configureDialog->show();
+    connect(configureDialog, SIGNAL(reload()), this, SLOT(clean_reload()));
 
     qDebug() << "Configure!";
 }
@@ -180,4 +185,9 @@ void MainWindow::resizeEvent(QResizeEvent * event)
     */
     
     qDebug()<< " resize me!";
+}
+
+void MainWindow::clean_reload()
+{
+    qDebug() << "clean and reload";
 }

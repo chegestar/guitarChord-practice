@@ -18,14 +18,7 @@
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <item>
-    <widget class="QTableView" name="tableView">
-     <property name="textElideMode">
-      <enum>Qt::ElideMiddle</enum>
-     </property>
-     <property name="gridStyle">
-      <enum>Qt::DashLine</enum>
-     </property>
-    </widget>
+    <widget class="QTableWidget" name="tableWidget"/>
    </item>
    <item>
     <layout class="QGridLayout" name="gridLayout">

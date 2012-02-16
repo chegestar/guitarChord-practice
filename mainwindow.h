@@ -5,14 +5,15 @@
 #include <QGraphicsScene>
 #include <QGraphicsView>
 #include <QMenu>
-#include "element.h"
-#include "aboutdialog.h"
-#include "configure.h"
 
 
 namespace Ui {
     class MainWindow;
 }
+
+class aboutDialog;
+class configure;
+class Item;
 
 class MainWindow : public QMainWindow {
     Q_OBJECT
@@ -43,6 +44,7 @@ private slots:
     void actionConfigure_triggered();
     void actionTriggerFigure_triggered(int);
     void resizeEvent(QResizeEvent * event);
+    void clean_reload();
 };
 
 #endif // MAINWINDOW_H

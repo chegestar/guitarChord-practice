@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'configure.h'
 **
-** Created: Wed Feb 15 22:30:36 2012
+** Created: Thu Feb 16 22:36:19 2012
 **      by: The Qt Meta Object Compiler version 62 (Qt 4.6.3)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,23 +23,28 @@ static const uint qt_meta_data_configure[] = {
        4,       // revision
        0,       // classname
        0,    0, // classinfo
-       3,   14, // methods
+       5,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       0,       // signalCount
+       1,       // signalCount
+
+ // signals: signature, parameters, type, tag, flags
+      11,   10,   10,   10, 0x05,
 
  // slots: signature, parameters, type, tag, flags
-      11,   10,   10,   10, 0x08,
-      28,   10,   10,   10, 0x08,
-      46,   44,   10,   10, 0x08,
+      20,   10,   10,   10, 0x08,
+      37,   10,   10,   10, 0x08,
+      53,   10,   10,   10, 0x08,
+      75,   73,   10,   10, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_configure[] = {
-    "configure\0\0on_Add_clicked()\0on_OK_clicked()\0"
+    "configure\0\0reload()\0on_Add_clicked()\0"
+    "on_OK_clicked()\0on_Delete_clicked()\0"
     ",\0AddDone(QString,QString)\0"
 };
 
@@ -72,13 +77,21 @@ int configure::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
-        case 0: on_Add_clicked(); break;
-        case 1: on_OK_clicked(); break;
-        case 2: AddDone((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
+        case 0: reload(); break;
+        case 1: on_Add_clicked(); break;
+        case 2: on_OK_clicked(); break;
+        case 3: on_Delete_clicked(); break;
+        case 4: AddDone((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2]))); break;
         default: ;
         }
-        _id -= 3;
+        _id -= 5;
     }
     return _id;
+}
+
+// SIGNAL 0
+void configure::reload()
+{
+    QMetaObject::activate(this, &staticMetaObject, 0, 0);
 }
 QT_END_MOC_NAMESPACE

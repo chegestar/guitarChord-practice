@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'configure.ui'
 **
-** Created: Wed Feb 15 21:38:03 2012
+** Created: Thu Feb 16 21:36:04 2012
 **      by: Qt User Interface Compiler version 4.6.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -21,7 +21,7 @@
 #include <QtGui/QHeaderView>
 #include <QtGui/QPushButton>
 #include <QtGui/QSpacerItem>
-#include <QtGui/QTableView>
+#include <QtGui/QTableWidget>
 #include <QtGui/QVBoxLayout>
 
 QT_BEGIN_NAMESPACE
@@ -30,7 +30,7 @@ class Ui_configure
 {
 public:
     QHBoxLayout *horizontalLayout;
-    QTableView *tableView;
+    QTableWidget *tableWidget;
     QGridLayout *gridLayout;
     QPushButton *Cancel;
     QPushButton *OK;
@@ -48,12 +48,10 @@ public:
         configure->setFocusPolicy(Qt::ClickFocus);
         horizontalLayout = new QHBoxLayout(configure);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        tableView = new QTableView(configure);
-        tableView->setObjectName(QString::fromUtf8("tableView"));
-        tableView->setTextElideMode(Qt::ElideMiddle);
-        tableView->setGridStyle(Qt::DashLine);
+        tableWidget = new QTableWidget(configure);
+        tableWidget->setObjectName(QString::fromUtf8("tableWidget"));
 
-        horizontalLayout->addWidget(tableView);
+        horizontalLayout->addWidget(tableWidget);
 
         gridLayout = new QGridLayout();
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
