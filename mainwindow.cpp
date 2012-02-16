@@ -23,13 +23,10 @@ MainWindow::MainWindow(QWidget *parent) :
     view = new QGraphicsView(this);
     newAction();
 
-    widgetList = new QList<QGraphicsProxyWidget *>();
     //scene->addRect(QRectF(0, 0, 100, 200),QPen(Qt::black), QBrush(Qt::green));
     //scene->addText("hello world");
-    list = new QList<Item *>();
-    readConfiguration(list);
-    addItem(*list);
 
+    addItem();
     view->setScene(scene);
     setCentralWidget(view);
     view->setAlignment(Qt::AlignCenter);
@@ -74,11 +71,15 @@ void MainWindow::newAction()
 }
 
 
-int MainWindow::addItem(QList<Item *> &iList)
+int MainWindow::addItem()
 {
+    widgetList = new QList<QGraphicsProxyWidget *>();
+    list = new QList<Item *>();
+    readConfiguration(list);
+
     int i = 0;
     qreal x = 0;
-    foreach(Item *item, iList)
+    foreach(Item *item, *list)
     {
         QGraphicsProxyWidget *proxy =  scene->addWidget(item);
         widgetList->append(proxy);
@@ -189,5 +190,6 @@ void MainWindow::resizeEvent(QResizeEvent * event)
 
 void MainWindow::clean_reload()
 {
-    qDebug() << "clean and reload";
+    scene->clear();
+    addItem();
 }

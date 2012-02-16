@@ -20,7 +20,7 @@ class MainWindow : public QMainWindow {
 public:
     MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    int addItem(QList<Item *> &iList);
+    int addItem();
     void placement();
 
 protected:
