@@ -10,6 +10,16 @@ AR	Makefile	/^AR            = ar cqs$/;"	m
 Add	ui_configure.h	/^    QPushButton *Add;$/;"	m	class:Ui_configure	access:public
 AddDone	configure.cpp	/^void configure::AddDone(QString name, QString path)$/;"	f	class:configure	signature:(QString name, QString path)
 AddDone	configure.h	/^    void AddDone(QString, QString);$/;"	p	class:configure	access:private	signature:(QString, QString)
+BLUREFFECT_H	blureffect.h	2;"	d
+BlurEffect	blureffect.h	/^    BlurEffect(QWidget widget);$/;"	p	class:BlurEffect	access:public	signature:(QWidget widget)
+BlurEffect	blureffect.h	/^class BlurEffect: public QGraphicsBlurEffect$/;"	c	inherits:QGraphicsBlurEffect
+BlurEffect::BlurEffect	blureffect.h	/^    BlurEffect(QWidget widget);$/;"	p	class:BlurEffect	access:public	signature:(QWidget widget)
+BlurEffect::adjustForItem	blureffect.h	/^    void adjustForItem();$/;"	p	class:BlurEffect	access:private	signature:()
+BlurEffect::boundingRect	blureffect.h	/^    QRectF boundingRect() const;$/;"	p	class:BlurEffect	access:public	signature:() const
+BlurEffect::draw	blureffect.h	/^    void draw(QPainter *painter);$/;"	p	class:BlurEffect	access:public	signature:(QPainter *painter)
+BlurEffect::m_baseLine	blureffect.h	/^    qreal m_baseLine;$/;"	m	class:BlurEffect	access:private
+BlurEffect::setBaseLine	blureffect.h	/^    void setBaseLine(qreal y) {m_baseLine = y;}$/;"	f	class:BlurEffect	access:public	signature:(qreal y)
+BlurEffect::widget	blureffect.h	/^    QWidget *widget;$/;"	m	class:BlurEffect	access:private
 CC	Makefile	/^CC            = gcc$/;"	m
 CFLAGS	Makefile	/^CFLAGS        = -pipe -g -Wall -W -D_REENTRANT $(DEFINES)$/;"	m
 CHK_DIR_EXISTS	Makefile	/^CHK_DIR_EXISTS= test -d$/;"	m
@@ -43,8 +53,6 @@ Item::Item	element.cpp	/^Item::Item( QString chordName,$/;"	f	class:Item	signatu
 Item::Item	element.cpp	/^Item::Item()$/;"	f	class:Item	signature:()
 Item::Item	element.h	/^    Item();$/;"	p	class:Item	access:public	signature:()
 Item::Item	element.h	/^    Item(QString chordName, QString path, int order, QWidget* parent = 0) ;$/;"	p	class:Item	access:public	signature:(QString chordName, QString path, int order, QWidget* parent = 0)
-Item::boundingRect	element.cpp	/^QRectF Item::boundingRect() const$/;"	f	class:Item	signature:() const
-Item::boundingRect	element.h	/^    QRectF boundingRect() const;$/;"	p	class:Item	access:public	signature:() const
 Item::customizeItem	element.cpp	/^void Item::customizeItem()$/;"	f	class:Item	signature:()
 Item::customizeItem	element.h	/^    void customizeItem();$/;"	p	class:Item	access:public	signature:()
 Item::draw	element.cpp	/^void Item::draw()$/;"	f	class:Item	signature:()
@@ -65,8 +73,6 @@ Item::mouseDoubleClickEvent	element.h	/^    void mouseDoubleClickEvent(QMouseEve
 Item::name	element.h	/^    QString name;$/;"	m	class:Item	access:private
 Item::nameLabel	element.h	/^    QLabel *nameLabel;$/;"	m	class:Item	access:private
 Item::nextIndex	element.h	/^    int nextIndex;$/;"	m	class:Item	access:private
-Item::paint	element.cpp	/^void Item::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)$/;"	f	class:Item	signature:(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
-Item::paint	element.h	/^    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);$/;"	p	class:Item	access:public	signature:(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 Item::painter	element.h	/^    QPainter painter;$/;"	m	class:Item	access:private
 Item::reDraw	element.cpp	/^void Item::reDraw()$/;"	f	class:Item	signature:()
 Item::reDraw	element.h	/^    void reDraw();$/;"	p	class:Item	access:public	signature:()
@@ -96,10 +102,12 @@ MainWindow::actionRandom_triggered	mainwindow.cpp	/^void MainWindow::actionRando
 MainWindow::actionRandom_triggered	mainwindow.h	/^    void actionRandom_triggered();$/;"	p	class:MainWindow	access:private	signature:()
 MainWindow::actionTriggerFigure_triggered	mainwindow.cpp	/^void MainWindow::actionTriggerFigure_triggered(int state)$/;"	f	class:MainWindow	signature:(int state)
 MainWindow::actionTriggerFigure_triggered	mainwindow.h	/^    void actionTriggerFigure_triggered(int);$/;"	p	class:MainWindow	access:private	signature:(int)
-MainWindow::addItem	mainwindow.cpp	/^int MainWindow::addItem(QList<Item *> &iList)$/;"	f	class:MainWindow	signature:(QList<Item *> &iList)
-MainWindow::addItem	mainwindow.h	/^    int addItem(QList<Item *> &iList);$/;"	p	class:MainWindow	access:public	signature:(QList<Item *> &iList)
+MainWindow::addItem	mainwindow.cpp	/^int MainWindow::addItem()$/;"	f	class:MainWindow	signature:()
+MainWindow::addItem	mainwindow.h	/^    int addItem();$/;"	p	class:MainWindow	access:public	signature:()
 MainWindow::changeEvent	mainwindow.cpp	/^void MainWindow::changeEvent(QEvent *e)$/;"	f	class:MainWindow	signature:(QEvent *e)
 MainWindow::changeEvent	mainwindow.h	/^    void changeEvent(QEvent *e);$/;"	p	class:MainWindow	access:protected	signature:(QEvent *e)
+MainWindow::clean_reload	mainwindow.cpp	/^void MainWindow::clean_reload()$/;"	f	class:MainWindow	signature:()
+MainWindow::clean_reload	mainwindow.h	/^    void clean_reload();$/;"	p	class:MainWindow	access:private	signature:()
 MainWindow::configureDialog	mainwindow.h	/^    configure *configureDialog;$/;"	m	class:MainWindow	access:private
 MainWindow::getStaticMetaObject	moc_mainwindow.cpp	/^const QMetaObject &MainWindow::getStaticMetaObject() { return staticMetaObject; }$/;"	f	class:MainWindow	signature:()
 MainWindow::list	mainwindow.h	/^    QList<Item *> *list;$/;"	m	class:MainWindow	access:private
@@ -184,7 +192,7 @@ Ui_configure::horizontalLayout	ui_configure.h	/^    QHBoxLayout *horizontalLayou
 Ui_configure::line	ui_configure.h	/^    QFrame *line;$/;"	m	class:Ui_configure	access:public
 Ui_configure::retranslateUi	ui_configure.h	/^    void retranslateUi(QDialog *configure)$/;"	f	class:Ui_configure	access:public	signature:(QDialog *configure)
 Ui_configure::setupUi	ui_configure.h	/^    void setupUi(QDialog *configure)$/;"	f	class:Ui_configure	access:public	signature:(QDialog *configure)
-Ui_configure::tableView	ui_configure.h	/^    QTableView *tableView;$/;"	m	class:Ui_configure	access:public
+Ui_configure::tableWidget	ui_configure.h	/^    QTableWidget *tableWidget;$/;"	m	class:Ui_configure	access:public
 Ui_configure::verticalLayout	ui_configure.h	/^    QVBoxLayout *verticalLayout;$/;"	m	class:Ui_configure	access:public
 Ui_configure::verticalSpacer	ui_configure.h	/^    QSpacerItem *verticalSpacer;$/;"	m	class:Ui_configure	access:public
 ab	mainwindow.h	/^    aboutDialog *ab;$/;"	m	class:MainWindow	access:private
@@ -241,10 +249,10 @@ addDialog::~addDialog	adddialog.cpp	/^addDialog::~addDialog()$/;"	f	class:addDia
 addDialog::~addDialog	adddialog.h	/^    ~addDialog();$/;"	p	class:addDialog	access:public	signature:()
 addItem	configure.cpp	/^void configure::addItem()$/;"	f	class:configure	signature:()
 addItem	configure.h	/^    void addItem();$/;"	p	class:configure	access:private	signature:()
-addItem	mainwindow.cpp	/^int MainWindow::addItem(QList<Item *> &iList)$/;"	f	class:MainWindow	signature:(QList<Item *> &iList)
-addItem	mainwindow.h	/^    int addItem(QList<Item *> &iList);$/;"	p	class:MainWindow	access:public	signature:(QList<Item *> &iList)
-boundingRect	element.cpp	/^QRectF Item::boundingRect() const$/;"	f	class:Item	signature:() const
-boundingRect	element.h	/^    QRectF boundingRect() const;$/;"	p	class:Item	access:public	signature:() const
+addItem	mainwindow.cpp	/^int MainWindow::addItem()$/;"	f	class:MainWindow	signature:()
+addItem	mainwindow.h	/^    int addItem();$/;"	p	class:MainWindow	access:public	signature:()
+adjustForItem	blureffect.h	/^    void adjustForItem();$/;"	p	class:BlurEffect	access:private	signature:()
+boundingRect	blureffect.h	/^    QRectF boundingRect() const;$/;"	p	class:BlurEffect	access:public	signature:() const
 centralWidget	ui_mainwindow.h	/^    QWidget *centralWidget;$/;"	m	class:Ui_MainWindow	access:public
 changeEvent	aboutdialog.cpp	/^void aboutDialog::changeEvent(QEvent *e)$/;"	f	class:aboutDialog	signature:(QEvent *e)
 changeEvent	aboutdialog.h	/^    void changeEvent(QEvent *e);$/;"	p	class:aboutDialog	access:protected	signature:(QEvent *e)
@@ -254,6 +262,8 @@ changeEvent	configure.cpp	/^void configure::changeEvent(QEvent *e)$/;"	f	class:c
 changeEvent	configure.h	/^    void changeEvent(QEvent *e);$/;"	p	class:configure	access:protected	signature:(QEvent *e)
 changeEvent	mainwindow.cpp	/^void MainWindow::changeEvent(QEvent *e)$/;"	f	class:MainWindow	signature:(QEvent *e)
 changeEvent	mainwindow.h	/^    void changeEvent(QEvent *e);$/;"	p	class:MainWindow	access:protected	signature:(QEvent *e)
+clean_reload	mainwindow.cpp	/^void MainWindow::clean_reload()$/;"	f	class:MainWindow	signature:()
+clean_reload	mainwindow.h	/^    void clean_reload();$/;"	p	class:MainWindow	access:private	signature:()
 configure	configure.cpp	/^configure::configure(QWidget *parent) :$/;"	f	class:configure	signature:(QWidget *parent)
 configure	configure.h	/^    configure(QWidget *parent = 0);$/;"	p	class:configure	access:public	signature:(QWidget *parent = 0)
 configure	configure.h	/^class configure : public QDialog {$/;"	c	inherits:QDialog
@@ -269,13 +279,16 @@ configure::configure	configure.cpp	/^configure::configure(QWidget *parent) :$/;"
 configure::configure	configure.h	/^    configure(QWidget *parent = 0);$/;"	p	class:configure	access:public	signature:(QWidget *parent = 0)
 configure::getStaticMetaObject	moc_configure.cpp	/^const QMetaObject &configure::getStaticMetaObject() { return staticMetaObject; }$/;"	f	class:configure	signature:()
 configure::metaObject	moc_configure.cpp	/^const QMetaObject *configure::metaObject() const$/;"	f	class:configure	signature:() const
-configure::model	configure.h	/^    QStandardItemModel *model;$/;"	m	class:configure	access:private
 configure::on_Add_clicked	configure.cpp	/^void configure::on_Add_clicked()$/;"	f	class:configure	signature:()
 configure::on_Add_clicked	configure.h	/^    void on_Add_clicked();$/;"	p	class:configure	access:private	signature:()
+configure::on_Delete_clicked	configure.cpp	/^void configure::on_Delete_clicked()$/;"	f	class:configure	signature:()
+configure::on_Delete_clicked	configure.h	/^    void on_Delete_clicked();$/;"	p	class:configure	access:private	signature:()
 configure::on_OK_clicked	configure.cpp	/^void configure::on_OK_clicked()$/;"	f	class:configure	signature:()
 configure::on_OK_clicked	configure.h	/^    void on_OK_clicked();$/;"	p	class:configure	access:private	signature:()
 configure::qt_metacall	moc_configure.cpp	/^int configure::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:configure	signature:(QMetaObject::Call _c, int _id, void **_a)
 configure::qt_metacast	moc_configure.cpp	/^void *configure::qt_metacast(const char *_clname)$/;"	f	class:configure	signature:(const char *_clname)
+configure::reload	configure.h	/^    void reload();$/;"	p	class:configure	access:private	signature:()
+configure::reload	moc_configure.cpp	/^void configure::reload()$/;"	f	class:configure	signature:()
 configure::staticMetaObject	moc_configure.cpp	/^const QMetaObject configure::staticMetaObject = {$/;"	m	class:configure	file:
 configure::ui	configure.h	/^    Ui::configure *ui;$/;"	m	class:configure	access:private
 configure::update	configure.h	/^    bool update;$/;"	m	class:configure	access:private
@@ -284,6 +297,7 @@ configure::~configure	configure.h	/^    ~configure();$/;"	p	class:configure	acce
 configureDialog	mainwindow.h	/^    configure *configureDialog;$/;"	m	class:MainWindow	access:private
 customizeItem	element.cpp	/^void Item::customizeItem()$/;"	f	class:Item	signature:()
 customizeItem	element.h	/^    void customizeItem();$/;"	p	class:Item	access:public	signature:()
+draw	blureffect.h	/^    void draw(QPainter *painter);$/;"	p	class:BlurEffect	access:public	signature:(QPainter *painter)
 draw	element.cpp	/^void Item::draw()$/;"	f	class:Item	signature:()
 draw	element.h	/^    void draw();$/;"	p	class:Item	access:public	signature:()
 figPath	element.h	/^    QString figPath;$/;"	m	class:Item	access:private
@@ -310,12 +324,12 @@ label_2	ui_adddialog.h	/^    QLabel *label_2;$/;"	m	class:Ui_addDialog	access:pu
 layout	element.h	/^    QVBoxLayout *layout;$/;"	m	class:Item	access:private
 line	ui_configure.h	/^    QFrame *line;$/;"	m	class:Ui_configure	access:public
 list	mainwindow.h	/^    QList<Item *> *list;$/;"	m	class:MainWindow	access:private
+m_baseLine	blureffect.h	/^    qreal m_baseLine;$/;"	m	class:BlurEffect	access:private
 main	main.cpp	/^int main(int argc, char *argv[])$/;"	f	signature:(int argc, char *argv[])
 metaObject	moc_aboutdialog.cpp	/^const QMetaObject *aboutDialog::metaObject() const$/;"	f	class:aboutDialog	signature:() const
 metaObject	moc_adddialog.cpp	/^const QMetaObject *addDialog::metaObject() const$/;"	f	class:addDialog	signature:() const
 metaObject	moc_configure.cpp	/^const QMetaObject *configure::metaObject() const$/;"	f	class:configure	signature:() const
 metaObject	moc_mainwindow.cpp	/^const QMetaObject *MainWindow::metaObject() const$/;"	f	class:MainWindow	signature:() const
-model	configure.h	/^    QStandardItemModel *model;$/;"	m	class:configure	access:private
 mouseDoubleClickEvent	element.cpp	/^void Item::mouseDoubleClickEvent(QMouseEvent *event)$/;"	f	class:Item	signature:(QMouseEvent *event)
 mouseDoubleClickEvent	element.h	/^    void mouseDoubleClickEvent(QMouseEvent *event);$/;"	p	class:Item	access:public	signature:(QMouseEvent *event)
 name	element.h	/^    QString name;$/;"	m	class:Item	access:private
@@ -327,12 +341,12 @@ on_Add_clicked	configure.cpp	/^void configure::on_Add_clicked()$/;"	f	class:conf
 on_Add_clicked	configure.h	/^    void on_Add_clicked();$/;"	p	class:configure	access:private	signature:()
 on_ChooseFile_clicked	adddialog.cpp	/^void addDialog::on_ChooseFile_clicked()$/;"	f	class:addDialog	signature:()
 on_ChooseFile_clicked	adddialog.h	/^    void on_ChooseFile_clicked();$/;"	p	class:addDialog	access:private	signature:()
+on_Delete_clicked	configure.cpp	/^void configure::on_Delete_clicked()$/;"	f	class:configure	signature:()
+on_Delete_clicked	configure.h	/^    void on_Delete_clicked();$/;"	p	class:configure	access:private	signature:()
 on_OK_clicked	adddialog.cpp	/^void addDialog::on_OK_clicked()$/;"	f	class:addDialog	signature:()
 on_OK_clicked	adddialog.h	/^    void on_OK_clicked();$/;"	p	class:addDialog	access:private	signature:()
 on_OK_clicked	configure.cpp	/^void configure::on_OK_clicked()$/;"	f	class:configure	signature:()
 on_OK_clicked	configure.h	/^    void on_OK_clicked();$/;"	p	class:configure	access:private	signature:()
-paint	element.cpp	/^void Item::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)$/;"	f	class:Item	signature:(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
-paint	element.h	/^    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);$/;"	p	class:Item	access:public	signature:(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 painter	element.h	/^    QPainter painter;$/;"	m	class:Item	access:private
 placement	mainwindow.cpp	/^void MainWindow::placement()$/;"	f	class:MainWindow	signature:()
 placement	mainwindow.h	/^    void placement();$/;"	p	class:MainWindow	access:public	signature:()
@@ -363,6 +377,8 @@ readConfiguration	list.cpp	/^bool readConfiguration(QList<Item *> *itemList, QSt
 readConfiguration	list.h	/^bool readConfiguration(QList<Item *> *itemList, QString fileName = "configure.xml");$/;"	p	signature:(QList<Item *> *itemList, QString fileName = Ó)
 readXML	list.cpp	/^QDomDocument * const readXML(QString fileName)$/;"	f	signature:(QString fileName)
 readXML	list.h	/^QDomDocument * const readXML(QString fileName = "configure.xml");$/;"	p	signature:(QString fileName = Ó)
+reload	configure.h	/^    void reload();$/;"	p	class:configure	access:private	signature:()
+reload	moc_configure.cpp	/^void configure::reload()$/;"	f	class:configure	signature:()
 resizeEvent	mainwindow.cpp	/^void MainWindow::resizeEvent(QResizeEvent * event)$/;"	f	class:MainWindow	signature:(QResizeEvent * event)
 resizeEvent	mainwindow.h	/^    void resizeEvent(QResizeEvent * event);$/;"	p	class:MainWindow	access:private	signature:(QResizeEvent * event)
 retranslateUi	ui_aboutdialog.h	/^    void retranslateUi(QDialog *aboutDialog)$/;"	f	class:Ui_aboutDialog	access:public	signature:(QDialog *aboutDialog)
@@ -372,6 +388,7 @@ retranslateUi	ui_mainwindow.h	/^    void retranslateUi(QMainWindow *MainWindow)$
 returnInfo	adddialog.h	/^    void returnInfo(QString Name, QString path);$/;"	p	class:addDialog	access:protected	signature:(QString Name, QString path)
 returnInfo	moc_adddialog.cpp	/^void addDialog::returnInfo(QString _t1, QString _t2)$/;"	f	class:addDialog	signature:(QString _t1, QString _t2)
 scene	mainwindow.h	/^    QGraphicsScene *scene;$/;"	m	class:MainWindow	access:private
+setBaseLine	blureffect.h	/^    void setBaseLine(qreal y) {m_baseLine = y;}$/;"	f	class:BlurEffect	access:public	signature:(qreal y)
 setIndex	element.cpp	/^void Item::setIndex(int i)$/;"	f	class:Item	signature:(int i)
 setIndex	element.h	/^    void setIndex(int);$/;"	p	class:Item	access:public	signature:(int)
 setupUi	ui_aboutdialog.h	/^    void setupUi(QDialog *aboutDialog)$/;"	f	class:Ui_aboutDialog	access:public	signature:(QDialog *aboutDialog)
@@ -383,7 +400,7 @@ staticMetaObject	moc_adddialog.cpp	/^const QMetaObject addDialog::staticMetaObje
 staticMetaObject	moc_configure.cpp	/^const QMetaObject configure::staticMetaObject = {$/;"	m	class:configure	file:
 staticMetaObject	moc_mainwindow.cpp	/^const QMetaObject MainWindow::staticMetaObject = {$/;"	m	class:MainWindow	file:
 statusBar	ui_mainwindow.h	/^    QStatusBar *statusBar;$/;"	m	class:Ui_MainWindow	access:public
-tableView	ui_configure.h	/^    QTableView *tableView;$/;"	m	class:Ui_configure	access:public
+tableWidget	ui_configure.h	/^    QTableWidget *tableWidget;$/;"	m	class:Ui_configure	access:public
 textBrowser	ui_aboutdialog.h	/^    QTextBrowser *textBrowser;$/;"	m	class:Ui_aboutDialog	access:public
 toggle	element.cpp	/^void Item::toggle(int i)$/;"	f	class:Item	signature:(int i)
 toggle	element.h	/^    void toggle(int i = 1);$/;"	p	class:Item	access:public	signature:(int i = 1)
@@ -395,9 +412,10 @@ update	configure.h	/^    bool update;$/;"	m	class:configure	access:private
 verticalLayout	ui_configure.h	/^    QVBoxLayout *verticalLayout;$/;"	m	class:Ui_configure	access:public
 verticalSpacer	ui_configure.h	/^    QSpacerItem *verticalSpacer;$/;"	m	class:Ui_configure	access:public
 view	mainwindow.h	/^    QGraphicsView *view;$/;"	m	class:MainWindow	access:private
+widget	blureffect.h	/^    QWidget *widget;$/;"	m	class:BlurEffect	access:private
 widgetList	mainwindow.h	/^    QList<QGraphicsProxyWidget *> *widgetList;$/;"	m	class:MainWindow	access:private
-writeXML	list.cpp	/^void writeXML(QDomDocument *doc, QString fileName)$/;"	f	signature:(QDomDocument *doc, QString fileName)
-writeXML	list.h	/^void writeXML(QDomDocument *doc, QString fileName = "configure.xml");$/;"	p	signature:(QDomDocument *doc, QString fileName = Ó)
+writeXML	list.cpp	/^void writeXML(QDomDocument &doc, QString fileName)$/;"	f	signature:(QDomDocument &doc, QString fileName)
+writeXML	list.h	/^void writeXML(QDomDocument &doc, QString fileName = "configure.xml");$/;"	p	signature:(QDomDocument &doc, QString fileName = Ó)
 ~MainWindow	mainwindow.cpp	/^MainWindow::~MainWindow()$/;"	f	class:MainWindow	signature:()
 ~MainWindow	mainwindow.h	/^    ~MainWindow();$/;"	p	class:MainWindow	access:public	signature:()
 ~aboutDialog	aboutdialog.cpp	/^aboutDialog::~aboutDialog()$/;"	f	class:aboutDialog	signature:()
