@@ -45,10 +45,12 @@ Item::Item()
 
 void Item::mouseDoubleClickEvent(QMouseEvent *event)
 {
-    toggle();
-    qDebug() << "hey, what are you doing?";
-}
+    QWidget::mouseDoubleClickEvent(event);
 
+    toggle();
+    //qDebug() << "hey, what are you doing?";
+}
+/*
 QRectF Item::boundingRect() const
 {
     qreal penWidth = 1;
@@ -61,6 +63,7 @@ void Item::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
     painter->setRenderHint(QPainter::Antialiasing);
     painter->drawRoundedRect(-10, -10, 50, 50, 5, 5);
 }
+*/
 
 void Item::reDraw()
 {

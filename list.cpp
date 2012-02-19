@@ -78,7 +78,6 @@ bool readConfiguration(QList<Item *> *itemList, QString fileName)
     {
         for(int iDx = 0; iDx < nodeList.count(); iDx++)
         {
-            bool bOK = false;
             QString name(nodeList.at(iDx).attributes().namedItem("Name").nodeValue());
             QString figPath(nodeList.at(iDx).attributes().namedItem("Figure").nodeValue());
             Item *tmp = new Item(name, figPath, iDx);

@@ -1,9 +1,21 @@
 <!DOCTYPE configure>
 <configure>
  <item>
-  <Chord Figure="./figure/A.gif" Name="A"/>
   <Chord Figure="/home/lirenlin/Documents/Chords/qt_prj/chord/figure/Bm.gif" Name="Bm"/>
-  <Chord Figure="/home/lirenlin/Documents/Chords/qt_prj/chord/figure/Em.gif" Name="mii"/>
-  <Chord Figure="/home/lirenlin/Documents/Chords/qt_prj/chord/figure/Bb.gif" Name="ca"/>
+  <Chord Figure="/home/lirenlin/Documents/Chords/qt_prj/chord/figure/Em.gif" Name="Em"/>
+  <Chord Figure="/home/lirenlin/Documents/Chords/qt_prj/chord/figure/Bb.gif" Name="Bb"/>
+  <Chord Figure="/home/lirenlin/Documents/Chords/qt_prj/chord/figure/A7.gif" Name="A7"/>
+  <Chord Figure="/home/lirenlin/Documents/Chords/qt_prj/chord/figure/Am.gif" Name="Am"/>
+  <Chord Figure="/home/lirenlin/Documents/Chords/qt_prj/chord/figure/B7.gif" Name="B7"/>
+  <Chord Figure="/home/lirenlin/Documents/Chords/qt_prj/chord/figure/C.gif" Name="C"/>
+  <Chord Figure="/home/lirenlin/Documents/Chords/qt_prj/chord/figure/D.gif" Name="D"/>
+  <Chord Figure="/home/lirenlin/Documents/Chords/qt_prj/chord/figure/D7.gif" Name="D7"/>
+  <Chord Figure="/home/lirenlin/Documents/Chords/qt_prj/chord/figure/Dm.gif" Name="Dm"/>
+  <Chord Figure="/home/lirenlin/Documents/Chords/qt_prj/chord/figure/E.gif" Name="E"/>
+  <Chord Figure="/home/lirenlin/Documents/Chords/qt_prj/chord/figure/F.gif" Name="F"/>
+  <Chord Figure="/home/lirenlin/Documents/Chords/qt_prj/chord/figure/Fm.gif" Name="Fm"/>
+  <Chord Figure="/home/lirenlin/Documents/Chords/qt_prj/chord/figure/G.gif" Name="G"/>
+  <Chord Figure="/home/lirenlin/Documents/Chords/qt_prj/chord/figure/G7.gif" Name="G7"/>
+  <Chord Figure="/home/lirenlin/Documents/Chords/qt_prj/chord/figure/A.gif" Name="A"/>
  </item>
 </configure>

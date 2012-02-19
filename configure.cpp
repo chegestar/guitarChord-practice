@@ -20,6 +20,7 @@ configure::configure(QWidget *parent) :
     QStringList HorizontalHeaderLabels;
     HorizontalHeaderLabels << "Name"<< "Figure";
     ui->tableWidget->setHorizontalHeaderLabels(HorizontalHeaderLabels);
+    //ui->tableWidget->resizeColumnToContents(1);
 
 
     addItem();
@@ -45,7 +46,6 @@ void configure::addItem()
         ui->tableWidget->setRowCount(nodeList.count());
         for(int iDx = 0; iDx < nodeList.count(); iDx++)
         {
-            bool bOK = false;
             QString name(nodeList.at(iDx).attributes().namedItem("Name").nodeValue());
             QString figPath(nodeList.at(iDx).attributes().namedItem("Figure").nodeValue());
             QTableWidgetItem *nameItem = new QTableWidgetItem(name);
@@ -78,7 +78,7 @@ void configure::on_Add_clicked()
     add->setWindowTitle("Add new");
     add->show();
     add->raise();
-    qDebug() << " Add clicked";
+    //qDebug() << " Add clicked";
 
     connect(add, SIGNAL(returnInfo(QString , QString )),
             this, SLOT(AddDone(QString , QString )));
@@ -93,7 +93,7 @@ void configure::on_Delete_clicked()
 }
 void configure::on_OK_clicked()
 {
-    qDebug()<< "OK";
+    //qDebug()<< "OK";
 
     if(update)
     {
@@ -105,8 +105,8 @@ void configure::on_OK_clicked()
         root.appendChild(item);
 
         int num =  ui->tableWidget->rowCount();
-            qDebug() << ui->tableWidget->rowCount();
-        for(i; i < num; i++)
+        //qDebug() << ui->tableWidget->rowCount();
+        for(i = 0; i < num; i++)
         {
             QTableWidgetItem * nameItem = ui->tableWidget->item(i, 0);
             QTableWidgetItem * pathItem = ui->tableWidget->item(i, 1);
@@ -134,7 +134,7 @@ void configure::AddDone(QString name, QString path)
     ui->tableWidget->setItem(last, 0, nameItem);
     ui->tableWidget->setItem(last, 1, pathItem);
 
-    qDebug() << name << path;
+    //qDebug() << name << path;
 
     update = true;
 }

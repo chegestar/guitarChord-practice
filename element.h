@@ -28,8 +28,8 @@ public:
     int getIndex();
     void setIndex(int);
 
-    QRectF boundingRect() const;
-    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
+    //QRectF boundingRect() const;
+    //void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
     // mouse event handler
     void mouseDoubleClickEvent(QMouseEvent *event);
 

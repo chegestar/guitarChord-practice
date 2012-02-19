@@ -51,16 +51,11 @@ void MainWindow::newAction()
 {
 
     QShortcut *Quit = new QShortcut(Qt::Key_Q,this);
-
     QShortcut *About = new QShortcut(Qt::Key_A,this);
-
     QShortcut *Random = new QShortcut(Qt::Key_R,this);
-
     QShortcut *Configure = new QShortcut(Qt::Key_C,this);
-
     QCheckBox *checkbox = new QCheckBox(tr("show"),this);
     ui->statusBar->addPermanentWidget(checkbox);
-
 
     connect(Quit, SIGNAL(activated()), this, SLOT(close()));
     connect(About, SIGNAL(activated()), this, SLOT(actionAbout_triggered()));
@@ -78,7 +73,6 @@ int MainWindow::addItem()
     readConfiguration(list);
 
     int i = 0;
-    qreal x = 0;
     foreach(Item *item, *list)
     {
         QGraphicsProxyWidget *proxy =  scene->addWidget(item);
@@ -96,8 +90,6 @@ int MainWindow::addItem()
 
 void MainWindow::placement()
 {
-    int windowWidth = width();
-    int windowHeight = height();
     int widgetWidth = list->first()->size().width();
     int widgetHeight = list->first()->size().height();
     int blank = 5;
@@ -148,7 +140,7 @@ void MainWindow::actionRandom_triggered()
     randomize(list);
     placement();
     //printList(*list);
-    qDebug() << "Good luck!";
+    //qDebug() << "Good luck!";
 }
 
 void MainWindow::actionAbout_triggered()
@@ -166,7 +158,7 @@ void MainWindow::actionConfigure_triggered()
     configureDialog->show();
     connect(configureDialog, SIGNAL(reload()), this, SLOT(clean_reload()));
 
-    qDebug() << "Configure!";
+    //qDebug() << "Configure!";
 }
 void MainWindow::actionTriggerFigure_triggered(int state)
 {
@@ -178,6 +170,7 @@ void MainWindow::actionTriggerFigure_triggered(int state)
 
 void MainWindow::resizeEvent(QResizeEvent * event)
 {
+    QMainWindow::resizeEvent(event);
     // @todo, more sutle way to implement this
     /*
     if(event->oldSize() > size())
@@ -191,5 +184,7 @@ void MainWindow::resizeEvent(QResizeEvent * event)
 void MainWindow::clean_reload()
 {
     scene->clear();
+    list->clear();
+    widgetList->clear();
     addItem();
 }
