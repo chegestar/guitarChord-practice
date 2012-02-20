@@ -5,6 +5,7 @@
 #include <QGraphicsScene>
 #include <QGraphicsView>
 #include <QMenu>
+#include <QSpinBox>
 
 
 namespace Ui {
@@ -22,6 +23,8 @@ public:
     ~MainWindow();
     int addItem();
     void placement();
+    void slide(int);
+
 
 protected:
     void changeEvent(QEvent *e);
@@ -38,6 +41,11 @@ private:
     QGraphicsView *view;
     QList<QGraphicsProxyWidget *> *widgetList;
     QList<Item *> *list;
+    int current;
+    bool mode;
+    QTimer *timer;
+    QSpinBox *time;
+
 
 private slots:
     void actionRandom_triggered();
@@ -47,6 +55,9 @@ private slots:
     void actionTriggerFigure_triggered(int);
     void resizeEvent(QResizeEvent * event);
     void clean_reload();
+    void actionAuto_triggered(int);
+    void actionTime_changed(int);
+    void timeslide();
 };
 
 #endif // MAINWINDOW_H
