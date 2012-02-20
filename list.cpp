@@ -8,6 +8,11 @@
 #include "list.h"
 #include "element.h"
 
+bool indexLessThan(Item * i1, Item * i2)
+{
+    return (i1->getIndex() < i2->getIndex());
+}
+
 void randomize(QList<Item *> * org)
 {
     QList<Item*> tmp; 
@@ -31,6 +36,7 @@ void randomize(QList<Item *> * org)
 
 
     }while(!tmp.empty());
+    qSort(org->begin(), org->end(),indexLessThan);
 
 
 }

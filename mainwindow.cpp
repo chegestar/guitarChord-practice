@@ -23,6 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :
     view = new QGraphicsView(this);
     newAction();
 
+
     //scene->addRect(QRectF(0, 0, 100, 200),QPen(Qt::black), QBrush(Qt::green));
     //scene->addText("hello world");
 
@@ -32,7 +33,7 @@ MainWindow::MainWindow(QWidget *parent) :
     view->setAlignment(Qt::AlignCenter);
     view->show();
 
-    ui->statusBar->showMessage(tr("Q(uit), A(bout), R(andom), C(configure)"));
+    ui->statusBar->showMessage(tr("Q(uit), A(bout), R(andom), C(onfigure), M(ode)"));
     setWindowTitle("The \"Sweet Sixteen\" Guitar Chords");
     //QMetaObject::connectSlotsByName(this);
 
@@ -50,21 +51,46 @@ MainWindow::~MainWindow()
 void MainWindow::newAction()
 {
 
-    QShortcut *Quit = new QShortcut(Qt::Key_Q,this);
-    QShortcut *About = new QShortcut(Qt::Key_A,this);
-    QShortcut *Random = new QShortcut(Qt::Key_R,this);
-    QShortcut *Configure = new QShortcut(Qt::Key_C,this);
+
     QCheckBox *checkbox = new QCheckBox(tr("show"),this);
     ui->statusBar->addPermanentWidget(checkbox);
 
-    connect(Quit, SIGNAL(activated()), this, SLOT(close()));
-    connect(About, SIGNAL(activated()), this, SLOT(actionAbout_triggered()));
-    connect(Configure, SIGNAL(activated()), this, SLOT(actionConfigure_triggered()));
-    connect(Random, SIGNAL(activated()), this, SLOT(actionRandom_triggered()));
     connect(checkbox, SIGNAL(stateChanged(int)), this, SLOT(actionTriggerFigure_triggered(int)));
 
 }
 
+void MainWindow::keyPressEvent(QKeyEvent *event)
+{
+    int delta = 0;
+    bool accept = true;
+    switch(event->key())
+    {
+        case Qt::Key_Q:
+            close();
+            break;
+        case Qt::Key_A:
+            actionAbout_triggered();
+            break;
+        case Qt::Key_C:
+            actionConfigure_triggered();
+            break;
+        case Qt::Key_M:
+            actionMode_triggered();
+            break;
+        case Qt::Key_R:
+            actionRandom_triggered();
+            break;
+        case Qt::Key_Left:
+            delta = 1;
+            break;
+        case Qt::Key_Right:
+            delta = -1;
+            break;
+        default:
+            accept = false;
+    }
+    if(accept) event->accept();
+}
 
 int MainWindow::addItem()
 {
@@ -95,34 +121,28 @@ void MainWindow::placement()
     int blank = 5;
     int count = 0;
     int x, y;
-    //qDebug() << windowWidth << windowHeight << widgetWidth << widgetHeight;
 
-    //int x = windowWidth % widgetWidth;
-    //foreach(QGraphicsProxyWidget *tmp, *widgetList)
-    //{
-    //    Item *item = dynamic_cast<Item *>(tmp->widget());
-    //    count = item->getIndex();
-    //    tmp->setPos((blank + (count%4)*widgetWidth), (blank + (int)(count/4)*widgetHeight));
-    //}
     foreach(Item *tmp, *list)
     {
-        count = tmp->getIndex();
+        //count = tmp->getIndex();
         x = blank + (count%4)*widgetWidth;
         y = blank + (int)(count/4)*widgetHeight;
 
-        QPropertyAnimation *animation = new QPropertyAnimation(tmp, "geometry");
+        QPropertyAnimation *animation = new QPropertyAnimation(tmp, "move");
         animation->setDuration(1000);
-        //animation->setStartValue(tmp->rect());
-        //animation->setEndValue(QPoint(x,y));
+        animation->setEasingCurve(QEasingCurve::InOutCirc);
+
         animation->setStartValue(QRect(tmp->x(),tmp->y(),widgetWidth,widgetHeight));
         animation->setEndValue(QRect(x,y,widgetWidth,widgetHeight));
-        animation->setEasingCurve(QEasingCurve::InOutCirc);
+
         animation->start();
 
         //tmp->move(x, y);
+        ++count;
     }
 
 }
+
 void MainWindow::changeEvent(QEvent *e)
 {
     QMainWindow::changeEvent(e);
@@ -166,6 +186,12 @@ void MainWindow::actionTriggerFigure_triggered(int state)
     {
         tmp->toggle(state);
     }
+}
+
+void MainWindow::actionMode_triggered()
+{
+    //scene->clear();
+    qDebug() << " change mode";
 }
 
 void MainWindow::resizeEvent(QResizeEvent * event)

@@ -26,6 +26,7 @@ public:
 protected:
     void changeEvent(QEvent *e);
     void newAction();
+    void keyPressEvent(QKeyEvent *event);
 
 private:
     Ui::MainWindow *ui;
@@ -42,6 +43,7 @@ private slots:
     void actionRandom_triggered();
     void actionAbout_triggered();
     void actionConfigure_triggered();
+    void actionMode_triggered();
     void actionTriggerFigure_triggered(int);
     void resizeEvent(QResizeEvent * event);
     void clean_reload();

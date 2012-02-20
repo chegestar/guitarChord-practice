@@ -11,11 +11,16 @@ Add	ui_configure.h	/^    QPushButton *Add;$/;"	m	class:Ui_configure	access:publi
 AddDone	configure.cpp	/^void configure::AddDone(QString name, QString path)$/;"	f	class:configure	signature:(QString name, QString path)
 AddDone	configure.h	/^    void AddDone(QString, QString);$/;"	p	class:configure	access:private	signature:(QString, QString)
 BLUREFFECT_H	blureffect.h	2;"	d
+BlurEffect	blureffect.c	/^BlurEffect::BlurEffect(QWidget *widget)$/;"	f	class:BlurEffect	signature:(QWidget *widget)
 BlurEffect	blureffect.h	/^    BlurEffect(QWidget widget);$/;"	p	class:BlurEffect	access:public	signature:(QWidget widget)
 BlurEffect	blureffect.h	/^class BlurEffect: public QGraphicsBlurEffect$/;"	c	inherits:QGraphicsBlurEffect
+BlurEffect::BlurEffect	blureffect.c	/^BlurEffect::BlurEffect(QWidget *widget)$/;"	f	class:BlurEffect	signature:(QWidget *widget)
 BlurEffect::BlurEffect	blureffect.h	/^    BlurEffect(QWidget widget);$/;"	p	class:BlurEffect	access:public	signature:(QWidget widget)
+BlurEffect::adjustForItem	blureffect.c	/^void BlurEffect::adjustForItem()$/;"	f	class:BlurEffect
 BlurEffect::adjustForItem	blureffect.h	/^    void adjustForItem();$/;"	p	class:BlurEffect	access:private	signature:()
+BlurEffect::boundingRect	blureffect.c	/^QRectF BlurEffect::boundingRect() const$/;"	f	class:BlurEffect
 BlurEffect::boundingRect	blureffect.h	/^    QRectF boundingRect() const;$/;"	p	class:BlurEffect	access:public	signature:() const
+BlurEffect::draw	blureffect.c	/^void BlurEffect::draw(QPainter *painter)$/;"	f	class:BlurEffect	signature:(QPainter *painter)
 BlurEffect::draw	blureffect.h	/^    void draw(QPainter *painter);$/;"	p	class:BlurEffect	access:public	signature:(QPainter *painter)
 BlurEffect::m_baseLine	blureffect.h	/^    qreal m_baseLine;$/;"	m	class:BlurEffect	access:private
 BlurEffect::setBaseLine	blureffect.h	/^    void setBaseLine(qreal y) {m_baseLine = y;}$/;"	f	class:BlurEffect	access:public	signature:(qreal y)
@@ -33,14 +38,14 @@ CXXFLAGS	Makefile	/^CXXFLAGS      = -pipe -g -Wall -W -D_REENTRANT $(DEFINES)$/;
 Cancel	ui_adddialog.h	/^    QPushButton *Cancel;$/;"	m	class:Ui_addDialog	access:public
 Cancel	ui_configure.h	/^    QPushButton *Cancel;$/;"	m	class:Ui_configure	access:public
 ChooseFile	ui_adddialog.h	/^    QPushButton *ChooseFile;$/;"	m	class:Ui_addDialog	access:public
-DEFINES	Makefile	/^DEFINES       = -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB -DQT_SHARED$/;"	m
+DEFINES	Makefile	/^DEFINES       = -DQT_XML_LIB -DQT_GUI_LIB -DQT_CORE_LIB$/;"	m
 DEL_DIR	Makefile	/^DEL_DIR       = rmdir$/;"	m
 DEL_FILE	Makefile	/^DEL_FILE      = rm -f$/;"	m
 DESTDIR	Makefile	/^DESTDIR       = $/;"	m
-DIST	Makefile	/^DIST          = \/usr\/share\/qt4\/mkspecs\/common\/g++.conf \\$/;"	m
+DIST	Makefile	/^DIST          = ..\/..\/..\/..\/QtSDK\/Desktop\/Qt\/4.8.0\/gcc\/mkspecs\/common\/unix.conf \\$/;"	m
 Delete	ui_configure.h	/^    QPushButton *Delete;$/;"	m	class:Ui_configure	access:public
 ELEMENT_H	element.h	2;"	d
-INCPATH	Makefile	/^INCPATH       = -I\/usr\/share\/qt4\/mkspecs\/linux-g++ -I. -I\/usr\/include\/qt4\/QtCore -I\/usr\/include\/qt4\/QtGui -I\/usr\/include\/qt4\/QtXml -I\/usr\/include\/qt4 -I. -I.$/;"	m
+INCPATH	Makefile	/^INCPATH       = -I..\/..\/..\/..\/QtSDK\/Desktop\/Qt\/4.8.0\/gcc\/mkspecs\/linux-g++ -I. -I..\/..\/..\/..\/QtSDK\/Desktop\/Qt\/4.8.0\/gcc\/include\/QtCore -I..\/..\/..\/..\/QtSDK\/Desktop\/Qt\/4.8.0\/gcc\/include\/QtGui -I..\/..\/..\/..\/QtSDK\/Desktop\/Qt\/4.8.0\/gcc\/include\/QtXml -I..\/..\/..\/..\/QtSDK\/Desktop\/Qt\/4.8.0\/gcc\/include -I. -I.$/;"	m
 INSTALL_DIR	Makefile	/^INSTALL_DIR   = $(COPY_DIR)$/;"	m
 INSTALL_FILE	Makefile	/^INSTALL_FILE  = install -m 644 -p$/;"	m
 INSTALL_PROGRAM	Makefile	/^INSTALL_PROGRAM = install -m 755 -p$/;"	m
@@ -80,8 +85,8 @@ Item::setIndex	element.cpp	/^void Item::setIndex(int i)$/;"	f	class:Item	signatu
 Item::setIndex	element.h	/^    void setIndex(int);$/;"	p	class:Item	access:public	signature:(int)
 Item::toggle	element.cpp	/^void Item::toggle(int i)$/;"	f	class:Item	signature:(int i)
 Item::toggle	element.h	/^    void toggle(int i = 1);$/;"	p	class:Item	access:public	signature:(int i = 1)
-LFLAGS	Makefile	/^LFLAGS        = $/;"	m
-LIBS	Makefile	/^LIBS          = $(SUBLIBS)  -L\/usr\/lib -lQtXml -lQtGui -lQtCore -lpthread $/;"	m
+LFLAGS	Makefile	/^LFLAGS        = -Wl,-rpath,\/home\/lirenlin\/QtSDK\/Desktop\/Qt\/4.8.0\/gcc\/lib$/;"	m
+LIBS	Makefile	/^LIBS          = $(SUBLIBS)  -L\/home\/lirenlin\/QtSDK\/Desktop\/Qt\/4.8.0\/gcc\/lib -lQtXml -lQtGui -lQtCore -lpthread $/;"	m
 LINK	Makefile	/^LINK          = g++$/;"	m
 LIST_H	list.h	2;"	d
 MAINWINDOW_H	mainwindow.h	2;"	d
@@ -98,6 +103,8 @@ MainWindow::actionAbout_triggered	mainwindow.cpp	/^void MainWindow::actionAbout_
 MainWindow::actionAbout_triggered	mainwindow.h	/^    void actionAbout_triggered();$/;"	p	class:MainWindow	access:private	signature:()
 MainWindow::actionConfigure_triggered	mainwindow.cpp	/^void MainWindow::actionConfigure_triggered()$/;"	f	class:MainWindow	signature:()
 MainWindow::actionConfigure_triggered	mainwindow.h	/^    void actionConfigure_triggered();$/;"	p	class:MainWindow	access:private	signature:()
+MainWindow::actionMode_triggered	mainwindow.cpp	/^void MainWindow::actionMode_triggered()$/;"	f	class:MainWindow	signature:()
+MainWindow::actionMode_triggered	mainwindow.h	/^    void actionMode_triggered();$/;"	p	class:MainWindow	access:private	signature:()
 MainWindow::actionRandom_triggered	mainwindow.cpp	/^void MainWindow::actionRandom_triggered()$/;"	f	class:MainWindow	signature:()
 MainWindow::actionRandom_triggered	mainwindow.h	/^    void actionRandom_triggered();$/;"	p	class:MainWindow	access:private	signature:()
 MainWindow::actionTriggerFigure_triggered	mainwindow.cpp	/^void MainWindow::actionTriggerFigure_triggered(int state)$/;"	f	class:MainWindow	signature:(int state)
@@ -110,6 +117,7 @@ MainWindow::clean_reload	mainwindow.cpp	/^void MainWindow::clean_reload()$/;"	f	
 MainWindow::clean_reload	mainwindow.h	/^    void clean_reload();$/;"	p	class:MainWindow	access:private	signature:()
 MainWindow::configureDialog	mainwindow.h	/^    configure *configureDialog;$/;"	m	class:MainWindow	access:private
 MainWindow::getStaticMetaObject	moc_mainwindow.cpp	/^const QMetaObject &MainWindow::getStaticMetaObject() { return staticMetaObject; }$/;"	f	class:MainWindow	signature:()
+MainWindow::keyPressEvent	mainwindow.h	/^    void keyPressEvent(QKeyEvent *event);$/;"	p	class:MainWindow	access:protected	signature:(QKeyEvent *event)
 MainWindow::list	mainwindow.h	/^    QList<Item *> *list;$/;"	m	class:MainWindow	access:private
 MainWindow::metaObject	moc_mainwindow.cpp	/^const QMetaObject *MainWindow::metaObject() const$/;"	f	class:MainWindow	signature:() const
 MainWindow::newAction	mainwindow.cpp	/^void MainWindow::newAction()$/;"	f	class:MainWindow	signature:()
@@ -118,10 +126,12 @@ MainWindow::placement	mainwindow.cpp	/^void MainWindow::placement()$/;"	f	class:
 MainWindow::placement	mainwindow.h	/^    void placement();$/;"	p	class:MainWindow	access:public	signature:()
 MainWindow::qt_metacall	moc_mainwindow.cpp	/^int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:MainWindow	signature:(QMetaObject::Call _c, int _id, void **_a)
 MainWindow::qt_metacast	moc_mainwindow.cpp	/^void *MainWindow::qt_metacast(const char *_clname)$/;"	f	class:MainWindow	signature:(const char *_clname)
+MainWindow::qt_static_metacall	moc_mainwindow.cpp	/^void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:MainWindow	signature:(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 MainWindow::resizeEvent	mainwindow.cpp	/^void MainWindow::resizeEvent(QResizeEvent * event)$/;"	f	class:MainWindow	signature:(QResizeEvent * event)
 MainWindow::resizeEvent	mainwindow.h	/^    void resizeEvent(QResizeEvent * event);$/;"	p	class:MainWindow	access:private	signature:(QResizeEvent * event)
 MainWindow::scene	mainwindow.h	/^    QGraphicsScene *scene;$/;"	m	class:MainWindow	access:private
 MainWindow::staticMetaObject	moc_mainwindow.cpp	/^const QMetaObject MainWindow::staticMetaObject = {$/;"	m	class:MainWindow	file:
+MainWindow::staticMetaObjectExtraData	moc_mainwindow.cpp	/^const QMetaObjectExtraData MainWindow::staticMetaObjectExtraData = {$/;"	m	class:MainWindow	file:
 MainWindow::ui	mainwindow.h	/^    Ui::MainWindow *ui;$/;"	m	class:MainWindow	access:private
 MainWindow::view	mainwindow.h	/^    QGraphicsView *view;$/;"	m	class:MainWindow	access:private
 MainWindow::widgetList	mainwindow.h	/^    QList<QGraphicsProxyWidget *> *widgetList;$/;"	m	class:MainWindow	access:private
@@ -135,7 +145,7 @@ OK	ui_adddialog.h	/^    QPushButton *OK;$/;"	m	class:Ui_addDialog	access:public
 OK	ui_configure.h	/^    QPushButton *OK;$/;"	m	class:Ui_configure	access:public
 Path	adddialog.h	/^    QString Path;$/;"	m	class:addDialog	access:private
 PathEdit	ui_adddialog.h	/^    QLineEdit *PathEdit;$/;"	m	class:Ui_addDialog	access:public
-QMAKE	Makefile	/^QMAKE         = \/usr\/bin\/qmake-qt4$/;"	m
+QMAKE	Makefile	/^QMAKE         = \/home\/lirenlin\/QtSDK\/Desktop\/Qt\/4.8.0\/gcc\/bin\/qmake$/;"	m
 QMAKE_TARGET	Makefile	/^QMAKE_TARGET  = chord$/;"	m
 RANLIB	Makefile	/^RANLIB        = $/;"	m
 SCENE_H	scene.h	2;"	d
@@ -218,6 +228,8 @@ actionAbout_triggered	mainwindow.cpp	/^void MainWindow::actionAbout_triggered()$
 actionAbout_triggered	mainwindow.h	/^    void actionAbout_triggered();$/;"	p	class:MainWindow	access:private	signature:()
 actionConfigure_triggered	mainwindow.cpp	/^void MainWindow::actionConfigure_triggered()$/;"	f	class:MainWindow	signature:()
 actionConfigure_triggered	mainwindow.h	/^    void actionConfigure_triggered();$/;"	p	class:MainWindow	access:private	signature:()
+actionMode_triggered	mainwindow.cpp	/^void MainWindow::actionMode_triggered()$/;"	f	class:MainWindow	signature:()
+actionMode_triggered	mainwindow.h	/^    void actionMode_triggered();$/;"	p	class:MainWindow	access:private	signature:()
 actionRandom_triggered	mainwindow.cpp	/^void MainWindow::actionRandom_triggered()$/;"	f	class:MainWindow	signature:()
 actionRandom_triggered	mainwindow.h	/^    void actionRandom_triggered();$/;"	p	class:MainWindow	access:private	signature:()
 actionTriggerFigure_triggered	mainwindow.cpp	/^void MainWindow::actionTriggerFigure_triggered(int state)$/;"	f	class:MainWindow	signature:(int state)
@@ -251,7 +263,9 @@ addItem	configure.cpp	/^void configure::addItem()$/;"	f	class:configure	signatur
 addItem	configure.h	/^    void addItem();$/;"	p	class:configure	access:private	signature:()
 addItem	mainwindow.cpp	/^int MainWindow::addItem()$/;"	f	class:MainWindow	signature:()
 addItem	mainwindow.h	/^    int addItem();$/;"	p	class:MainWindow	access:public	signature:()
+adjustForItem	blureffect.c	/^void BlurEffect::adjustForItem()$/;"	f	class:BlurEffect
 adjustForItem	blureffect.h	/^    void adjustForItem();$/;"	p	class:BlurEffect	access:private	signature:()
+boundingRect	blureffect.c	/^QRectF BlurEffect::boundingRect() const$/;"	f	class:BlurEffect
 boundingRect	blureffect.h	/^    QRectF boundingRect() const;$/;"	p	class:BlurEffect	access:public	signature:() const
 centralWidget	ui_mainwindow.h	/^    QWidget *centralWidget;$/;"	m	class:Ui_MainWindow	access:public
 changeEvent	aboutdialog.cpp	/^void aboutDialog::changeEvent(QEvent *e)$/;"	f	class:aboutDialog	signature:(QEvent *e)
@@ -297,6 +311,7 @@ configure::~configure	configure.h	/^    ~configure();$/;"	p	class:configure	acce
 configureDialog	mainwindow.h	/^    configure *configureDialog;$/;"	m	class:MainWindow	access:private
 customizeItem	element.cpp	/^void Item::customizeItem()$/;"	f	class:Item	signature:()
 customizeItem	element.h	/^    void customizeItem();$/;"	p	class:Item	access:public	signature:()
+draw	blureffect.c	/^void BlurEffect::draw(QPainter *painter)$/;"	f	class:BlurEffect	signature:(QPainter *painter)
 draw	blureffect.h	/^    void draw(QPainter *painter);$/;"	p	class:BlurEffect	access:public	signature:(QPainter *painter)
 draw	element.cpp	/^void Item::draw()$/;"	f	class:Item	signature:()
 draw	element.h	/^    void draw();$/;"	p	class:Item	access:public	signature:()
@@ -319,6 +334,9 @@ gridLayout	ui_configure.h	/^    QGridLayout *gridLayout;$/;"	m	class:Ui_configur
 horizontalLayout	ui_configure.h	/^    QHBoxLayout *horizontalLayout;$/;"	m	class:Ui_configure	access:public
 imageLabel	element.h	/^    QLabel *imageLabel;$/;"	m	class:Item	access:private
 index	element.h	/^    int index;$/;"	m	class:Item	access:private
+indexLessThan	list.cpp	/^bool indexLessThan(Item * i1, Item * i2)$/;"	f	signature:(Item * i1, Item * i2)
+indexLessThan	list.h	/^bool indexLessThan(Item *i1, Item *i2);$/;"	p	signature:(Item *i1, Item *i2)
+keyPressEvent	mainwindow.h	/^    void keyPressEvent(QKeyEvent *event);$/;"	p	class:MainWindow	access:protected	signature:(QKeyEvent *event)
 label	ui_adddialog.h	/^    QLabel *label;$/;"	m	class:Ui_addDialog	access:public
 label_2	ui_adddialog.h	/^    QLabel *label_2;$/;"	m	class:Ui_addDialog	access:public
 layout	element.h	/^    QVBoxLayout *layout;$/;"	m	class:Item	access:private
@@ -369,6 +387,7 @@ qt_metacast	moc_aboutdialog.cpp	/^void *aboutDialog::qt_metacast(const char *_cl
 qt_metacast	moc_adddialog.cpp	/^void *addDialog::qt_metacast(const char *_clname)$/;"	f	class:addDialog	signature:(const char *_clname)
 qt_metacast	moc_configure.cpp	/^void *configure::qt_metacast(const char *_clname)$/;"	f	class:configure	signature:(const char *_clname)
 qt_metacast	moc_mainwindow.cpp	/^void *MainWindow::qt_metacast(const char *_clname)$/;"	f	class:MainWindow	signature:(const char *_clname)
+qt_static_metacall	moc_mainwindow.cpp	/^void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)$/;"	f	class:MainWindow	signature:(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 randomize	list.cpp	/^void randomize(QList<Item *> * org)$/;"	f	signature:(QList<Item *> * org)
 randomize	list.h	/^void randomize(QList<Item *> * org);$/;"	p	signature:(QList<Item *> * org)
 reDraw	element.cpp	/^void Item::reDraw()$/;"	f	class:Item	signature:()
@@ -399,6 +418,7 @@ staticMetaObject	moc_aboutdialog.cpp	/^const QMetaObject aboutDialog::staticMeta
 staticMetaObject	moc_adddialog.cpp	/^const QMetaObject addDialog::staticMetaObject = {$/;"	m	class:addDialog	file:
 staticMetaObject	moc_configure.cpp	/^const QMetaObject configure::staticMetaObject = {$/;"	m	class:configure	file:
 staticMetaObject	moc_mainwindow.cpp	/^const QMetaObject MainWindow::staticMetaObject = {$/;"	m	class:MainWindow	file:
+staticMetaObjectExtraData	moc_mainwindow.cpp	/^const QMetaObjectExtraData MainWindow::staticMetaObjectExtraData = {$/;"	m	class:MainWindow	file:
 statusBar	ui_mainwindow.h	/^    QStatusBar *statusBar;$/;"	m	class:Ui_MainWindow	access:public
 tableWidget	ui_configure.h	/^    QTableWidget *tableWidget;$/;"	m	class:Ui_configure	access:public
 textBrowser	ui_aboutdialog.h	/^    QTextBrowser *textBrowser;$/;"	m	class:Ui_aboutDialog	access:public
