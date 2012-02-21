@@ -13,6 +13,11 @@ Item::Item( QString chordName,
     index = order;
     //qDebug() << name << figPath;
 
+    progressBar = new QProgressBar();
+    progressBar->setRange(0,99);
+    //progressBar->resize(QWidget::minimumSizeHint());
+    progressBar->setFixedHeight(4);
+    progressBar->setTextVisible(false);
     nameLabel = new QLabel(name);
     imageLabel = new QLabel();
     layout = new QVBoxLayout();
@@ -32,9 +37,13 @@ Item::Item( QString chordName,
 
     layout->addWidget( nameLabel);
     layout->addWidget( imageLabel);
+    layout->addWidget( progressBar);
+    //progressBar->hide();
+    progressBar->setValue(50);
 
     setLayout(layout);
     resize(QWidget::minimumSizeHint());
+    setWindowFlags(Qt::FramelessWindowHint);
 
 }
 
@@ -67,6 +76,12 @@ void Item::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWid
 
 void Item::reDraw()
 {
+}
+
+void Item::showProgressBar(bool state)
+{
+    if(state) progressBar->show();
+    else progressBar->hide();
 }
 
 void Item::toggle(int i)

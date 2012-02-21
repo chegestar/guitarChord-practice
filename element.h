@@ -6,6 +6,7 @@
 #include <QPainter>
 #include <QLabel>
 #include <QVBoxLayout>
+#include <QProgressBar>
 
 class Item: public QWidget
 {
@@ -27,6 +28,7 @@ public:
     const QString getFigPath();
     int getIndex();
     void setIndex(int);
+    void showProgressBar(bool);
 
     //QRectF boundingRect() const;
     //void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
@@ -47,6 +49,7 @@ private:
     QLabel *imageLabel;
     QFont *font;
     QVBoxLayout *layout;
+    QProgressBar *progressBar;
 };
 
 #endif // ELEMENT_H
