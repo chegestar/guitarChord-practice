@@ -6,6 +6,7 @@
 #include <QGraphicsView>
 #include <QMenu>
 #include <QSpinBox>
+#include <QCheckBox>
 
 
 namespace Ui {
@@ -45,6 +46,7 @@ private:
     bool mode;
     QTimer *timer;
     QSpinBox *time;
+    QCheckBox *autoCheck;
 
 
 private slots:

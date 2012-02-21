@@ -8,8 +8,6 @@
 #include <QDebug>
 #include <QObject>
 #include <QGraphicsProxyWidget>
-#include <QShortcut>
-#include <QCheckBox>
 #include <QPropertyAnimation>
 #include <QTimer>
 
@@ -66,17 +64,19 @@ void MainWindow::newAction()
     ui->statusBar->addPermanentWidget(checkbox1);
     checkbox1->setCheckState(Qt::Checked);
 
-    QCheckBox *checkbox2 = new QCheckBox(tr("Auto"),this);
+    autoCheck = new QCheckBox(tr("Auto"),this);
+    autoCheck->setCheckState(Qt::Unchecked);
+
     time = new QSpinBox();
     time->setSuffix("s");
-    ui->statusBar->addPermanentWidget(checkbox2);
+    ui->statusBar->addPermanentWidget(autoCheck);
     ui->statusBar->addPermanentWidget(time);
     time->setDisabled(true);
     time->setRange(0,120);
     time->setSingleStep(5);
 
     connect(checkbox1, SIGNAL(stateChanged(int)), this, SLOT(actionTriggerFigure_triggered(int)));
-    connect(checkbox2, SIGNAL(stateChanged(int)), this, SLOT(actionAuto_triggered(int)));
+    connect(autoCheck, SIGNAL(stateChanged(int)), this, SLOT(actionAuto_triggered(int)));
     connect(time, SIGNAL(valueChanged(int)), this, SLOT(actionTime_changed(int)));
 
 }
@@ -225,7 +225,8 @@ void MainWindow::actionMode_triggered()
     //addItem();
     mode = !mode;
     disconnect(timer, SIGNAL(timeout()),0,0);
-    time->setDisabled(true);
+    autoCheck->setCheckState(Qt::Unchecked);
+    //time->setDisabled(true);
     if(mode) 
     {
         foreach(Item *it, *list) it->move(700, 30);
@@ -341,10 +342,7 @@ void MainWindow::actionAuto_triggered(int state)
 
 void MainWindow::actionTime_changed(int value)
 {
-    int i = 0;
-    if(mode) i = 200;
-    else i = 1000;
-    timer->setInterval(value*i);
+    timer->setInterval(value*1000);
     timer->start();
     qDebug()<< value;
 }
