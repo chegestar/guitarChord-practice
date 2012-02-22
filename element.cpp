@@ -19,6 +19,8 @@ Item::Item(QString chordName, QString path, int order, QWidget *parent):
     progressBar->setRange(0,9);
     //progressBar->resize(QWidget::minimumSizeHint());
     progressBar->setFixedHeight(4);
+    //progressBar->setFixedWidth(size().width());
+
     progressBar->setValue(0);
     progressBar->setTextVisible(false);
 
@@ -50,9 +52,11 @@ Item::Item(QString chordName, QString path, int order, QWidget *parent):
     setLayout(layout);
     resize(QWidget::minimumSizeHint());
 
-    //setWindowFlags(Qt::FramelessWindowHint);
+    setWindowFlags(Qt::FramelessWindowHint);
     progressBar->setStyleSheet("QProgressBar:horizontal { border: 0px ; border-radius: 0px; background: transparent; padding: 0px; } QProgressBar::chunk:horizontal { background: red; }");
-    setStyleSheet("QFrame { margin: 0px; border: 0px ; padding: 0px; background-color: transparent; } ");
+    //setStyleSheet("QFrame { margin: 0px; border: 0px ; padding: 0px; background-color: transparent; } ");
+    //imageLabel->setStyleSheet("QFrame { margin: 0px; border: 0px ; padding: 0px; background-color: transparent; } ");
+    //nameLabel->setStyleSheet("QFrame { margin: 0px; border: 0px ; padding: 0px; background-color: transparent; } ");
 }
 
 Item::Item()

@@ -213,7 +213,7 @@ void MainWindow::timeout()
         list->at(index++)->fireProgressBar(time->value()*1000/len);
     else if(index == len)
     {
-        index = -1;
+        index = -2;
         foreach(Item *item, *list) item->fireProgressBar(0);
         actionRandom_triggered();
     }
