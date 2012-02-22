@@ -4,20 +4,27 @@
 #include <QImage>
 
 
-Item::Item( QString chordName,
-        QString path, int order,
-        QWidget * parent):QWidget(parent)
+Item::Item(QString chordName, QString path, int order, QWidget *parent):
+    name(chordName),
+    figPath(path),
+    index(order),
+    QWidget(parent)
 {
-    name = chordName;
-    figPath = path;
-    index = order;
+    //name = chordName;
+    //figPath = path;
+    //index = order;
     //qDebug() << name << figPath;
 
     progressBar = new QProgressBar();
-    progressBar->setRange(0,99);
+    progressBar->setRange(0,9);
     //progressBar->resize(QWidget::minimumSizeHint());
     progressBar->setFixedHeight(4);
+    progressBar->setValue(0);
     progressBar->setTextVisible(false);
+
+    timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(timeout()));
+
     nameLabel = new QLabel(name);
     imageLabel = new QLabel();
     layout = new QVBoxLayout();
@@ -31,25 +38,25 @@ Item::Item( QString chordName,
         QImage image(figPath);
         if(image.isNull())
             QMessageBox::information(this, tr("oops!"), tr("Cannot load %1 image.").arg(name));
-        else imageLabel->setPixmap(QPixmap::fromImage(image.scaled(150, 170, Qt::IgnoreAspectRatio,Qt::FastTransformation)));
-        //qDebug() << tr("load image");
+        //else imageLabel->setPixmap(QPixmap::fromImage(image.scaledToWidth(130, Qt::KeepAspectRatio,Qt::FastTransformation)));
+        else imageLabel->setPixmap(QPixmap::fromImage(image));
     }
 
     layout->addWidget( nameLabel);
     layout->addWidget( imageLabel);
     layout->addWidget( progressBar);
     //progressBar->hide();
-    progressBar->setValue(50);
 
     setLayout(layout);
     resize(QWidget::minimumSizeHint());
-    setWindowFlags(Qt::FramelessWindowHint);
 
+    //setWindowFlags(Qt::FramelessWindowHint);
+    progressBar->setStyleSheet("QProgressBar:horizontal { border: 0px ; border-radius: 0px; background: transparent; padding: 0px; } QProgressBar::chunk:horizontal { background: red; }");
+    setStyleSheet("QFrame { margin: 0px; border: 0px ; padding: 0px; background-color: transparent; } ");
 }
 
 Item::Item()
 {
-
 }
 
 void Item::mouseDoubleClickEvent(QMouseEvent *event)
@@ -78,17 +85,49 @@ void Item::reDraw()
 {
 }
 
-void Item::showProgressBar(bool state)
+void Item::fireProgressBar(int msec)
 {
-    if(state) progressBar->show();
-    else progressBar->hide();
+    if(msec > 0) 
+    {
+        int interval =  msec / 10;
+        timer->setInterval(interval);
+        timer->start();
+        progressBar->show();
+        //resize(QWidget::minimumSizeHint());
+    }
+    else 
+    {
+        if(msec < 0) 
+        {
+            progressBar->setValue(0);
+            progressBar->hide();
+            resize(QWidget::minimumSizeHint());
+            timer->stop();
+        }
+        else
+        {
+            progressBar->setValue(0);
+            //progressBar->hide();
+            timer->stop();
+        }
+
+    }
+}
+
+void Item::timeout()
+{
+    int i = progressBar->value();
+    if(i >= 0 && (++i <= progressBar->maximum()))
+        progressBar->setValue(i);
+    else timer->stop();
 }
 
 void Item::toggle(int i)
 {
+    bool imageVisible = imageLabel->isVisible();
     if( i == 2)
     {
-        if(imageLabel->isVisible()) return;
+        if(imageVisible) return;
         else
         {
             nameLabel->setFont(*font);
@@ -97,8 +136,9 @@ void Item::toggle(int i)
     }
     if( i == 0)
     {
-        if(imageLabel->isVisible()) {
+        if(imageVisible) {
             imageLabel->hide();
+
             QFont newFont;
             newFont.setPointSize(32);
             newFont.setBold(true);
@@ -108,7 +148,7 @@ void Item::toggle(int i)
     }
     if( i == 1)
     {
-        if(imageLabel->isVisible()) {
+        if(imageVisible) {
             imageLabel->hide();
             QFont newFont;
             newFont.setPointSize(32);
@@ -132,17 +172,17 @@ void Item::customizeItem()
 {
 }
 
-const QString Item::getName()
+const QString Item::getName() const
 {
     return name;
 }
 
-const QString Item::getFigPath()
+const QString Item::getFigPath() const
 {
     return figPath;
 }
 
-int Item::getIndex()
+int Item::getIndex() const
 {
     return index;
 }

@@ -10,6 +10,7 @@
 #include <QGraphicsProxyWidget>
 #include <QPropertyAnimation>
 #include <QTimer>
+#include <QMessageBox>
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -37,13 +38,15 @@ MainWindow::MainWindow(QWidget *parent) :
     view->show();
 
 
-    ui->statusBar->showMessage(tr("Q(uit), A(bout), R(andom), C(onfigure), M(ode)"));
-    setWindowTitle("The \"Sweet Sixteen\" Guitar Chords");
+    ui->statusBar->showMessage(tr("Q(uit), A(bout), R(andom), C(onfigure), M(ode), SPACE(Auto)"));
+    winTitle = "The \"Sweet Sixteen\" Guitar Chords";
+    setWindowTitle(winTitle);
     //QMetaObject::connectSlotsByName(this);
 
     //setFocusPolicy(Qt::StrongFocus);
     timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(actionRandom_triggered()));
+    connect(timer, SIGNAL(timeout()), this, SLOT(timeout()));
+    //setStyleSheet("QFrame { margin: 0px; border: 2px solid green; padding: 0px; background-color: transparent; } ");
     //timer->start(2000);
 }
 
@@ -64,26 +67,20 @@ void MainWindow::newAction()
     ui->statusBar->addPermanentWidget(checkbox1);
     checkbox1->setCheckState(Qt::Checked);
 
-    autoCheck = new QCheckBox(tr("Auto"),this);
-    autoCheck->setCheckState(Qt::Unchecked);
 
     time = new QSpinBox();
     time->setSuffix("s");
-    ui->statusBar->addPermanentWidget(autoCheck);
     ui->statusBar->addPermanentWidget(time);
-    time->setDisabled(true);
+    time->setDisabled(false);
     time->setRange(0,120);
     time->setSingleStep(5);
 
     connect(checkbox1, SIGNAL(stateChanged(int)), this, SLOT(actionTriggerFigure_triggered(int)));
-    connect(autoCheck, SIGNAL(stateChanged(int)), this, SLOT(actionAuto_triggered(int)));
-    connect(time, SIGNAL(valueChanged(int)), this, SLOT(actionTime_changed(int)));
 
 }
 // bypass the key press event to the mainwindow to handle
 void QGraphicsView::keyPressEvent(QKeyEvent *event)
 {
-     //QMainWindow::keyPressEvent(event);
      event->ignore();
 }
 
@@ -107,6 +104,9 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
             break;
         case Qt::Key_R:
             actionRandom_triggered();
+            break;
+        case Qt::Key_Space:
+            actionControl_triggered();
             break;
         case Qt::Key_Left:
             delta = 1;
@@ -141,6 +141,7 @@ int MainWindow::addItem()
         ++i;
     }
     view->update();
+    len = list->size();
     return i;
 }
 
@@ -148,15 +149,14 @@ void MainWindow::placement()
 {
     int widgetWidth = list->first()->size().width();
     int widgetHeight = list->first()->size().height();
-    int blank = 5;
     int count = 0;
     int x, y;
 
     foreach(Item *tmp, *list)
     {
         //count = tmp->getIndex();
-        x = blank + (count%4)*widgetWidth;
-        y = blank + (int)(count/4)*widgetHeight;
+        x = (count%4)*widgetWidth;
+        y = (int)(count/4)*widgetHeight;
 
         //QPropertyAnimation *animation = new QPropertyAnimation(tmp, "geometry");
         QPropertyAnimation *animation = new QPropertyAnimation(tmp, "pos");
@@ -186,12 +186,46 @@ void MainWindow::changeEvent(QEvent *e)
     }
 }
 
+void MainWindow::actionControl_triggered()
+{
+    int value = time->value();
+    if(timer->isActive())
+    {
+        timer->stop();
+        time->setDisabled(false);
+        setWindowTitle(winTitle+"(Manual)");
+        //foreach(Item *item, *list) item->fireProgressBar(-1);
+    }
+    else if(value == 0) 
+        QMessageBox::information(this, tr("oops!"), tr("please set period first!"));
+    else
+    {
+            timer->start(value*1000/len);
+            time->setDisabled(true);
+            setWindowTitle(winTitle+"(Auto)");
+    }
+}
+
+void MainWindow::timeout()
+{
+    static int index = 0;
+    if(index < len & index >= 0)
+        list->at(index++)->fireProgressBar(time->value()*1000/len);
+    else if(index == len)
+    {
+        index = -1;
+        foreach(Item *item, *list) item->fireProgressBar(0);
+        actionRandom_triggered();
+    }
+    else index++;
+}
+
 void MainWindow::actionRandom_triggered()
 {
-    randomize(list);
-    placement();
+
+        randomize(list);
+        placement();
     //printList(*list);
-    //qDebug() << "Good luck!";
 }
 
 void MainWindow::actionAbout_triggered()
@@ -225,11 +259,9 @@ void MainWindow::actionMode_triggered()
     //addItem();
     mode = !mode;
     disconnect(timer, SIGNAL(timeout()),0,0);
-    autoCheck->setCheckState(Qt::Unchecked);
     //time->setDisabled(true);
     if(mode) 
     {
-        foreach(Item *it, *list) it->move(700, 30);
         //scene->setSceneRect(scene->itemsBoundingRect());
         view->adjustSize();
         current = 0;
@@ -240,7 +272,7 @@ void MainWindow::actionMode_triggered()
     {
         foreach(Item *it, *list) it->show();
         placement();
-        connect(timer, SIGNAL(timeout()), this, SLOT(actionRandom_triggered()));
+        connect(timer, SIGNAL(timeout()), this, SLOT(timeout()));
     }
     qDebug() << " change mode";
 }
@@ -254,8 +286,8 @@ void MainWindow::slide(int state)
     //grabKeyboard();
     int end = list->size() - 1;
 
-    if(current == 0 && state < 0) {foreach(Item *it, *list) it->move(700, 30);return;}
-    if(current == end+2 && state > 0) {randomize(list); foreach(Item *it, *list) it->move(700, 30);current = 0; return;}
+    if(current == 0 && state <= 0) {foreach(Item *it, *list) it->move(600, 0);return;}
+    if(current == end+2 && state > 0) {randomize(list); foreach(Item *it, *list) it->move(600, 0);current = 0; return;}
 
     //view->adjustSize();
     //foreach(Item *it, *list) it->hide();
@@ -275,7 +307,7 @@ void MainWindow::slide(int state)
         animation->setEasingCurve(QEasingCurve::InOutCirc);
         animation->setTargetObject(tmp);
         animation->setStartValue(tmp->pos());
-        animation->setEndValue(QPoint(500,30));
+        animation->setEndValue(QPoint(400,0));
         animation->start();
     }
     if(current >= 1 && current <= end+1)
@@ -289,7 +321,7 @@ void MainWindow::slide(int state)
         animation->setEasingCurve(QEasingCurve::InOutCirc);
         animation->setTargetObject(tmp);
         animation->setStartValue(tmp->pos());
-        animation->setEndValue(QPoint(300,30));
+        animation->setEndValue(QPoint(200,0));
         animation->start();
     }
     if(current >= 2 && current <= end+2)
@@ -303,22 +335,45 @@ void MainWindow::slide(int state)
         animation->setEasingCurve(QEasingCurve::InOutCirc);
         animation->setTargetObject(tmp);
         animation->setStartValue(tmp->pos());
-        animation->setEndValue(QPoint(100,30));
+        animation->setEndValue(QPoint(0,0));
         animation->start();
     }
 
 }
 
+void QGraphicsView::wheelEvent(QWheelEvent *event)
+{
+     event->ignore();
+}
+
+void MainWindow::wheelEvent(QWheelEvent * event)
+{
+    int numDegrees = event->delta() / 8;
+    double ratio = (double)numDegrees / 100;
+    //if(ratio <= 0.5 || ratio >= -0.5)
+    view->scale(ratio+1, ratio+1);
+    event->accept();
+}
+
 void MainWindow::resizeEvent(QResizeEvent * event)
 {
     QMainWindow::resizeEvent(event);
+    QRectF bounding = scene->itemsBoundingRect();
+    float widthRatio = (float)size().width() / bounding.width();
+    float heightRatio = (float)size().height() / bounding.height();
+    qDebug() << bounding.width() << bounding.height();
+    qDebug() << size().width() << size().height();
+    qDebug() << widthRatio << heightRatio;
+
+    //if(widthRatio <= heightRatio) view->scale(widthRatio, widthRatio);
+    //else view->scale(heightRatio, heightRatio);
+
     // @todo, more sutle way to implement this
     /*
     if(event->oldSize() > size())
         view->scale(0.9, 0.9);
     view->size()
     */
-    
     qDebug()<< " resize me!";
 }
 
@@ -334,15 +389,3 @@ void MainWindow::clean_reload()
     placement();
 }
 
-void MainWindow::actionAuto_triggered(int state)
-{
-    if(state == 2) time->setEnabled(true);
-    if(state == 0) {time->setDisabled(true), timer->stop();}
-}
-
-void MainWindow::actionTime_changed(int value)
-{
-    timer->setInterval(value*1000);
-    timer->start();
-    qDebug()<< value;
-}

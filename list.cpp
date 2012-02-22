@@ -41,7 +41,7 @@ void randomize(QList<Item *> * org)
 
 }
 
-QDomDocument * const readXML(QString fileName)
+QDomDocument * readXML(QString fileName)
 {
     QFile file(fileName);
     if(!file.open(QFile::ReadOnly | QFile::Text))

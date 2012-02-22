@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created: Tue Feb 21 23:03:09 2012
+** Created: Wed Feb 22 22:14:40 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_MainWindow[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-      10,   14, // methods
+      11,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -36,11 +36,12 @@ static const uint qt_meta_data_MainWindow[] = {
       61,   11,   11,   11, 0x08,
       89,   11,   11,   11, 0x08,
      112,   11,   11,   11, 0x08,
-     153,  147,   11,   11, 0x08,
-     180,   11,   11,   11, 0x08,
-     195,   11,   11,   11, 0x08,
-     221,   11,   11,   11, 0x08,
-     245,   11,   11,   11, 0x08,
+     147,   11,   11,   11, 0x08,
+     173,   11,   11,   11, 0x08,
+     188,   11,   11,   11, 0x08,
+     206,  200,   11,   11, 0x08,
+     233,  200,   11,   11, 0x08,
+     258,   11,   11,   11, 0x08,
 
        0        // eod
 };
@@ -51,9 +52,9 @@ static const char qt_meta_stringdata_MainWindow[] = {
     "actionConfigure_triggered()\0"
     "actionMode_triggered()\0"
     "actionTriggerFigure_triggered(int)\0"
-    "event\0resizeEvent(QResizeEvent*)\0"
-    "clean_reload()\0actionAuto_triggered(int)\0"
-    "actionTime_changed(int)\0timeslide()\0"
+    "actionControl_triggered()\0clean_reload()\0"
+    "timeslide()\0event\0resizeEvent(QResizeEvent*)\0"
+    "wheelEvent(QWheelEvent*)\0timeout()\0"
 };
 
 void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -67,11 +68,12 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 2: _t->actionConfigure_triggered(); break;
         case 3: _t->actionMode_triggered(); break;
         case 4: _t->actionTriggerFigure_triggered((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 5: _t->resizeEvent((*reinterpret_cast< QResizeEvent*(*)>(_a[1]))); break;
+        case 5: _t->actionControl_triggered(); break;
         case 6: _t->clean_reload(); break;
-        case 7: _t->actionAuto_triggered((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 8: _t->actionTime_changed((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 9: _t->timeslide(); break;
+        case 7: _t->timeslide(); break;
+        case 8: _t->resizeEvent((*reinterpret_cast< QResizeEvent*(*)>(_a[1]))); break;
+        case 9: _t->wheelEvent((*reinterpret_cast< QWheelEvent*(*)>(_a[1]))); break;
+        case 10: _t->timeout(); break;
         default: ;
         }
     }
@@ -109,9 +111,9 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 10)
+        if (_id < 11)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 10;
+        _id -= 11;
     }
     return _id;
 }

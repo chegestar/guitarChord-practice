@@ -42,11 +42,12 @@ private:
     QGraphicsView *view;
     QList<QGraphicsProxyWidget *> *widgetList;
     QList<Item *> *list;
+    int len;
     int current;
     bool mode;
     QTimer *timer;
     QSpinBox *time;
-    QCheckBox *autoCheck;
+    QString winTitle;
 
 
 private slots:
@@ -55,11 +56,12 @@ private slots:
     void actionConfigure_triggered();
     void actionMode_triggered();
     void actionTriggerFigure_triggered(int);
-    void resizeEvent(QResizeEvent * event);
+    void actionControl_triggered();
     void clean_reload();
-    void actionAuto_triggered(int);
-    void actionTime_changed(int);
     void timeslide();
+    void resizeEvent(QResizeEvent * event);
+    void wheelEvent(QWheelEvent * event);
+    void timeout();
 };
 
 #endif // MAINWINDOW_H
