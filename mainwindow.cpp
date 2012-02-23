@@ -30,8 +30,8 @@ MainWindow::MainWindow(QWidget *parent) :
     //scene->addRect(QRectF(0, 0, 100, 200),QPen(Qt::black), QBrush(Qt::green));
     //scene->addText("hello world");
 
-    addItem();
-    placement();
+    if( addItem() != 0)
+        placement();
     view->setScene(scene);
     setCentralWidget(view);
     view->setAlignment(Qt::AlignCenter);
@@ -86,6 +86,7 @@ void QGraphicsView::keyPressEvent(QKeyEvent *event)
 
 void MainWindow::keyPressEvent(QKeyEvent *event)
 {
+
     int delta = 0;
     bool accept = true;
     switch(event->key())
@@ -103,7 +104,9 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
             actionMode_triggered();
             break;
         case Qt::Key_R:
-            actionRandom_triggered();
+            if(timer->isActive())
+                QMessageBox::information(this, tr("OOps!"), tr("please switch to Manual mode first!"));
+            else actionRandom_triggered();
             break;
         case Qt::Key_Space:
             actionControl_triggered();
@@ -126,9 +129,8 @@ int MainWindow::addItem()
 {
     widgetList = new QList<QGraphicsProxyWidget *>();
     list = new QList<Item *>();
-    readConfiguration(list);
+    if(!readConfiguration(list)) { len = 0; return 0;}
 
-    int i = 0;
     foreach(Item *item, *list)
     {
         QGraphicsProxyWidget *proxy =  scene->addWidget(item);
@@ -138,11 +140,10 @@ int MainWindow::addItem()
         //proxy->setPos(x+10, 10);
         //proxy->show();
         //x += rect.width();
-        ++i;
     }
     view->update();
     len = list->size();
-    return i;
+    return len;
 }
 
 void MainWindow::placement()
@@ -152,25 +153,27 @@ void MainWindow::placement()
     int count = 0;
     int x, y;
 
-    foreach(Item *tmp, *list)
-    {
-        //count = tmp->getIndex();
-        x = (count%4)*widgetWidth;
-        y = (int)(count/4)*widgetHeight;
+    if(mode) foreach(Item *it, *list) it->move(600, 0);
+    else
+        foreach(Item *tmp, *list)
+        {
+            //count = tmp->getIndex();
+            x = (count%4)*widgetWidth;
+            y = (int)(count/4)*widgetHeight;
 
-        //QPropertyAnimation *animation = new QPropertyAnimation(tmp, "geometry");
-        QPropertyAnimation *animation = new QPropertyAnimation(tmp, "pos");
-        animation->setDuration(1000);
-        animation->setEasingCurve(QEasingCurve::InOutCirc);
+            //QPropertyAnimation *animation = new QPropertyAnimation(tmp, "geometry");
+            QPropertyAnimation *animation = new QPropertyAnimation(tmp, "pos");
+            animation->setDuration(1000);
+            animation->setEasingCurve(QEasingCurve::InOutCirc);
 
-        //animation->setStartValue(QRect(tmp->x(),tmp->y(),widgetWidth,widgetHeight));
-        //animation->setEndValue(QRect(x,y,widgetWidth,widgetHeight));
-        animation->setEndValue(QPoint(x,y));
-        animation->start();
+            //animation->setStartValue(QRect(tmp->x(),tmp->y(),widgetWidth,widgetHeight));
+            //animation->setEndValue(QRect(x,y,widgetWidth,widgetHeight));
+            animation->setEndValue(QPoint(x,y));
+            animation->start();
 
-        //tmp->move(x, y);
-        ++count;
-    }
+            //tmp->move(x, y);
+            ++count;
+        }
 
 }
 
@@ -188,6 +191,8 @@ void MainWindow::changeEvent(QEvent *e)
 
 void MainWindow::actionControl_triggered()
 {
+    if(len == 0) return;
+
     int value = time->value();
     if(timer->isActive())
     {
@@ -197,7 +202,7 @@ void MainWindow::actionControl_triggered()
         //foreach(Item *item, *list) item->fireProgressBar(-1);
     }
     else if(value == 0) 
-        QMessageBox::information(this, tr("oops!"), tr("please set period first!"));
+        QMessageBox::information(this, tr("OOps!"), tr("please set period first!"));
     else
     {
             timer->start(value*1000/len);
@@ -209,12 +214,12 @@ void MainWindow::actionControl_triggered()
 void MainWindow::timeout()
 {
     static int index = 0;
-    if(index < len & index >= 0)
+    if(index < len && index >= 0)
         list->at(index++)->fireProgressBar(time->value()*1000/len);
     else if(index == len)
     {
         index = -2;
-        foreach(Item *item, *list) item->fireProgressBar(0);
+        //foreach(Item *item, *list) item->fireProgressBar(0);
         actionRandom_triggered();
     }
     else index++;
@@ -222,9 +227,12 @@ void MainWindow::timeout()
 
 void MainWindow::actionRandom_triggered()
 {
+    if(len == 0) return;
 
-        randomize(list);
-        placement();
+    foreach(Item *item, *list) item->fireProgressBar(0);
+    randomize(list);
+
+    placement();
     //printList(*list);
 }
 
@@ -248,13 +256,12 @@ void MainWindow::actionConfigure_triggered()
 void MainWindow::actionTriggerFigure_triggered(int state)
 {
     foreach(Item *tmp, *list)
-    {
         tmp->toggle(state);
-    }
 }
 
 void MainWindow::actionMode_triggered()
 {
+    if(len == 0) return;
     //scene->clear();
     //addItem();
     mode = !mode;
@@ -283,6 +290,7 @@ void MainWindow::timeslide()
 
 void MainWindow::slide(int state)
 {
+    if(len == 0) return;
     //grabKeyboard();
     int end = list->size() - 1;
 
@@ -348,6 +356,8 @@ void QGraphicsView::wheelEvent(QWheelEvent *event)
 
 void MainWindow::wheelEvent(QWheelEvent * event)
 {
+    if(len == 0) return;
+
     int numDegrees = event->delta() / 8;
     double ratio = (double)numDegrees / 100;
     //if(ratio <= 0.5 || ratio >= -0.5)
@@ -385,7 +395,7 @@ void MainWindow::clean_reload()
     list->clear();
     widgetList->clear();
 
-    addItem();
-    placement();
+    if( addItem() != 0)
+        placement();
 }
 

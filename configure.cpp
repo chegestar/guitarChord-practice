@@ -54,8 +54,6 @@ void configure::addItem()
             ui->tableWidget->setItem(iDx, 1, pathItem );
         }
     }
-
-
     //model->setRowCount(nodeList.count());
 
 }

@@ -39,7 +39,7 @@ Item::Item(QString chordName, QString path, int order, QWidget *parent):
     {
         QImage image(figPath);
         if(image.isNull())
-            QMessageBox::information(this, tr("oops!"), tr("Cannot load %1 image.").arg(name));
+            QMessageBox::information(this, tr("OOps!"), tr("Cannot load %1 image.").arg(name));
         //else imageLabel->setPixmap(QPixmap::fromImage(image.scaledToWidth(130, Qt::KeepAspectRatio,Qt::FastTransformation)));
         else imageLabel->setPixmap(QPixmap::fromImage(image));
     }

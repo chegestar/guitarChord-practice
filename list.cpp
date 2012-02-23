@@ -4,6 +4,7 @@
 #include <QString>
 #include <QDomNodeList>
 #include <QDebug>
+#include <QMessageBox>
 
 #include "list.h"
 #include "element.h"
@@ -46,15 +47,15 @@ QDomDocument * readXML(QString fileName)
     QFile file(fileName);
     if(!file.open(QFile::ReadOnly | QFile::Text))
     {
-        qDebug() << QString("Error: cannot read file %1%2").arg(fileName).arg(file.errorString());
-        return false;
+        QMessageBox::critical(0, QObject::tr("OOps!"), QObject::tr("Error! cannot read file %1\n%2").arg(fileName).arg(file.errorString()));
+        //return NULL;
     }
 
     QDomDocument *doc = new QDomDocument();
     if( !doc->setContent(&file))
     {
         file.close();
-        return false;
+        //return NULL;
     }
     file.close();
     return doc;
@@ -77,6 +78,7 @@ void writeXML(QDomDocument &doc, QString fileName)
 bool readConfiguration(QList<Item *> *itemList, QString fileName)
 {
     QDomElement docElem = readXML(fileName)->documentElement();
+    if(docElem.isNull())  return false;
 
     QDomNodeList nodeList = docElem.elementsByTagName("item").at(0).toElement().elementsByTagName("Chord");
 
@@ -89,11 +91,16 @@ bool readConfiguration(QList<Item *> *itemList, QString fileName)
             Item *tmp = new Item(name, figPath, iDx);
             itemList->append( tmp );
         }
+        return true;
+    }
+    else 
+    {
+        QMessageBox::warning(0, QObject::tr("OOps!"), QObject::tr("No item is found in %1").arg(fileName));
+        return false;
     }
     //qDebug()<< itemList->size();
-    randomize(itemList);
+    //randomize(itemList);
     //printList(*itemList);
-    return true;
 }
 
 void printList(QList<Item *> & list)
