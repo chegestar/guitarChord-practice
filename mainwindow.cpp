@@ -38,7 +38,7 @@ MainWindow::MainWindow(QWidget *parent) :
     view->show();
 
 
-    ui->statusBar->showMessage(tr("Q(uit), A(bout), R(andom), C(onfigure), M(ode), SPACE(Auto)"));
+    ui->statusBar->showMessage(tr("Q(uit), A(bout), G(ood luck), R(eload), C(onfigure), M(ode), SPACE(Auto)"));
     winTitle = "The \"Sweet Sixteen\" Guitar Chords";
     setWindowTitle(winTitle);
     //QMetaObject::connectSlotsByName(this);
@@ -102,8 +102,11 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
         case Qt::Key_M:
             actionMode_triggered();
             break;
-        case Qt::Key_R:
+        case Qt::Key_G:
             actionRandom_triggered();
+            break;
+        case Qt::Key_R:
+            clean_reload();
             break;
         case Qt::Key_Space:
             actionControl_triggered();
@@ -126,27 +129,28 @@ int MainWindow::addItem()
 {
     widgetList = new QList<QGraphicsProxyWidget *>();
     list = new QList<Item *>();
-    readConfiguration(list);
+    //readConfiguration(list);
+    if(!scanFolder(list)) {len = 0; return 0;}
 
-    int i = 0;
     foreach(Item *item, *list)
     {
         QGraphicsProxyWidget *proxy =  scene->addWidget(item);
         proxy->setZValue(0);
         widgetList->append(proxy);
-        QRectF rect = proxy->boundingRect();
+        //QRectF rect = proxy->boundingRect();
         //proxy->setPos(x+10, 10);
         //proxy->show();
         //x += rect.width();
-        ++i;
     }
     view->update();
     len = list->size();
-    return i;
+    return len;
 }
 
 void MainWindow::placement()
 {
+    if(len == 0) return;
+
     int widgetWidth = list->first()->size().width();
     int widgetHeight = list->first()->size().height();
     int count = 0;
@@ -188,6 +192,8 @@ void MainWindow::changeEvent(QEvent *e)
 
 void MainWindow::actionControl_triggered()
 {
+    if(len == 0) return;
+
     int value = time->value();
     if(timer->isActive())
     {
@@ -222,9 +228,10 @@ void MainWindow::timeout()
 
 void MainWindow::actionRandom_triggered()
 {
+    if(len == 0) return;
 
-        randomize(list);
-        placement();
+    randomize(list);
+    placement();
     //printList(*list);
 }
 
@@ -255,6 +262,7 @@ void MainWindow::actionTriggerFigure_triggered(int state)
 
 void MainWindow::actionMode_triggered()
 {
+    if(len == 0) return;
     //scene->clear();
     //addItem();
     mode = !mode;
@@ -348,6 +356,8 @@ void QGraphicsView::wheelEvent(QWheelEvent *event)
 
 void MainWindow::wheelEvent(QWheelEvent * event)
 {
+    if(len == 0) return;
+
     int numDegrees = event->delta() / 8;
     double ratio = (double)numDegrees / 100;
     //if(ratio <= 0.5 || ratio >= -0.5)
