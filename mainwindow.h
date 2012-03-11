@@ -8,6 +8,8 @@
 #include <QSpinBox>
 #include <QCheckBox>
 
+#include <boost/shared_ptr.hpp>
+
 
 namespace Ui {
     class MainWindow;
@@ -34,20 +36,23 @@ protected:
 
 private:
     Ui::MainWindow *ui;
-    aboutDialog *ab;
-    configure *configureDialog;
+    boost::shared_ptr<aboutDialog> ab;
+    boost::shared_ptr<configure> configureDialog;
 
 
     QGraphicsScene *scene;
     QGraphicsView *view;
     QList<QGraphicsProxyWidget *> *widgetList;
     QList<Item *> *list;
+
     int len;
     int current;
     bool mode;
+    QString winTitle;
+
     QTimer *timer;
     QSpinBox *time;
-    QString winTitle;
+
 
 
 private slots:

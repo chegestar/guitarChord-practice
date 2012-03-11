@@ -14,6 +14,7 @@ public:
 
     Item(QString chordName, QString path, int order, QWidget *parent = 0) ;
     Item();
+    ~Item();
     // redraw in new postion
     void reDraw();
     // draw the item
@@ -43,7 +44,7 @@ private:
     QString figPath;
     // the index in database
     int index;
-    // painter
+
     QLabel *nameLabel;
     QLabel *imageLabel;
     QFont *font;

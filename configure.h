@@ -2,6 +2,7 @@
 #define CONFIGURE_H
 
 #include <QDialog>
+#include <boost/shared_ptr.hpp>
 
 namespace Ui {
     class configure;
@@ -21,7 +22,7 @@ protected:
 
 private:
     Ui::configure *ui;
-    addDialog *add;
+    boost::shared_ptr<addDialog> add;
     void addItem();
     bool update;
 signals:

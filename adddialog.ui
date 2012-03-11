@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>addDialog</class>
- <widget class="QWidget" name="addDialog">
+ <widget class="QDialog" name="addDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>111</height>
+    <width>403</width>
+    <height>124</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Dialog</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="0" column="0">
@@ -41,17 +41,30 @@
      </property>
     </widget>
    </item>
-   <item row="2" column="3">
-    <widget class="QPushButton" name="Cancel">
-     <property name="text">
-      <string>Cancel</string>
+   <item row="2" column="1">
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
      </property>
-    </widget>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>118</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
    </item>
    <item row="2" column="2">
     <widget class="QPushButton" name="OK">
      <property name="text">
       <string>OK</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="3">
+    <widget class="QPushButton" name="Cancel">
+     <property name="text">
+      <string>Cancel</string>
      </property>
     </widget>
    </item>
@@ -66,12 +79,12 @@
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>345</x>
-     <y>88</y>
+     <x>351</x>
+     <y>97</y>
     </hint>
     <hint type="destinationlabel">
-     <x>199</x>
-     <y>55</y>
+     <x>201</x>
+     <y>61</y>
     </hint>
    </hints>
   </connection>

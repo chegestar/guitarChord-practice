@@ -5,10 +5,10 @@
 
 
 Item::Item(QString chordName, QString path, int order, QWidget *parent):
+    QWidget(parent),
     name(chordName),
     figPath(path),
-    index(order),
-    QWidget(parent)
+    index(order)
 {
     //name = chordName;
     //figPath = path;
@@ -61,6 +61,16 @@ Item::Item(QString chordName, QString path, int order, QWidget *parent):
 
 Item::Item()
 {
+}
+
+Item::~Item()
+{
+    delete nameLabel;
+    delete imageLabel;
+    delete font;
+    delete layout;
+    delete progressBar;
+    delete timer;
 }
 
 void Item::mouseDoubleClickEvent(QMouseEvent *event)

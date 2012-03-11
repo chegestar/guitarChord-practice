@@ -72,13 +72,13 @@ void configure::changeEvent(QEvent *e)
 
 void configure::on_Add_clicked()
 {
-    add = new addDialog();
+    add = boost::shared_ptr<addDialog>(new addDialog(this));
     add->setWindowTitle("Add new");
     add->show();
     add->raise();
     //qDebug() << " Add clicked";
 
-    connect(add, SIGNAL(returnInfo(QString , QString )),
+    connect(add.get(), SIGNAL(returnInfo(QString , QString )),
             this, SLOT(AddDone(QString , QString )));
 }
 

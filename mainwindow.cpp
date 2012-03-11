@@ -52,10 +52,13 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
-    delete view;
     delete scene;
-    delete list;
+    delete view;
+
     delete widgetList;
+    delete list;
+    delete timer;
+    delete time;
     delete ui;
 }
 
@@ -238,7 +241,8 @@ void MainWindow::actionRandom_triggered()
 
 void MainWindow::actionAbout_triggered()
 {
-    ab  = new aboutDialog(this);
+    ab  = boost::shared_ptr<aboutDialog>(new aboutDialog(this));
+
     // move to the center to the window
     ab->move((width() - ab->width())/2, (height() - ab->height())/2);
     ab->show();
@@ -247,12 +251,11 @@ void MainWindow::actionAbout_triggered()
 
 void MainWindow::actionConfigure_triggered()
 {
-    configureDialog = new configure();
+    configureDialog = boost::shared_ptr<configure>(new configure(this));
     configureDialog->show();
-    connect(configureDialog, SIGNAL(reload()), this, SLOT(clean_reload()));
-
-    //qDebug() << "Configure!";
+    connect(configureDialog.get(), SIGNAL(reload()), this, SLOT(clean_reload()));
 }
+
 void MainWindow::actionTriggerFigure_triggered(int state)
 {
     foreach(Item *tmp, *list)

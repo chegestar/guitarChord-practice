@@ -11,6 +11,7 @@ SOURCES += main.cpp \
     list.cpp \
     aboutdialog.cpp \
     configure.cpp \
+    ../adddialog.cpp \
     adddialog.cpp
 HEADERS += mainwindow.h \
     element.h \
