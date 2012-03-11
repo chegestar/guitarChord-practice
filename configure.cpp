@@ -74,7 +74,7 @@ void configure::on_Add_clicked()
 {
     add = boost::shared_ptr<addDialog>(new addDialog(this));
     add->setWindowTitle("Add new");
-    add->show();
+    add->exec();
     add->raise();
     //qDebug() << " Add clicked";
 

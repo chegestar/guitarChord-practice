@@ -20,7 +20,7 @@ aboutDialog::~aboutDialog()
 void aboutDialog::changeEvent(QEvent *e)
 {
     QDialog::changeEvent(e);
-    switch (e->type()) {
+    switch (e->type()){
     case QEvent::LanguageChange:
         ui->retranslateUi(this);
         break;

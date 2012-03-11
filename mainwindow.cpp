@@ -251,7 +251,8 @@ void MainWindow::actionAbout_triggered()
 
 void MainWindow::actionConfigure_triggered()
 {
-    configureDialog = boost::shared_ptr<configure>(new configure(this));
+    if(configureDialog.use_count() == 0)
+        configureDialog = boost::shared_ptr<configure>(new configure(this));
     configureDialog->show();
     connect(configureDialog.get(), SIGNAL(reload()), this, SLOT(clean_reload()));
 }
