@@ -18,6 +18,12 @@ protected:
 
 private:
     Ui::addDialog *ui;
+signals:
+    void returnInfo(QString, QString);
+
+private slots:
+    void on_ChooseFile_clicked();
+    void on_OK_clicked();
 };
 
 #endif // ADDDIALOG_H

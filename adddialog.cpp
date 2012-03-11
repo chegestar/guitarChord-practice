@@ -1,6 +1,9 @@
 #include "adddialog.h"
 #include "ui_adddialog.h"
 
+#include <QFileDialog>
+#include <QMessageBox>
+
 addDialog::addDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::addDialog)
@@ -23,4 +26,23 @@ void addDialog::changeEvent(QEvent *e)
     default:
         break;
     }
+}
+void addDialog::on_OK_clicked()
+{
+     QString name = ui->NameEdit->text();
+     QString path = ui->PathEdit->text();
+
+     if(name.isEmpty() | path.isEmpty()) close();
+     else emit returnInfo(name, path);
+     //qDebug() << name << path;
+     close();
+}
+
+void addDialog::on_ChooseFile_clicked()
+{
+    QString path = QFileDialog::getOpenFileName(this, tr("Open Image"),
+            "~/", tr("Image Files (*.png *.jpg *.bmp *.gif)"));
+    if(path.isEmpty()) QMessageBox::warning(this, tr("Choose Image"),
+            tr("No file specified"), QMessageBox::Close);
+    else ui->PathEdit->setText(path);
 }
